@@ -21,8 +21,8 @@ services:
     links:
       - cadvisor:cadvisor
       - alertmanager:alertmanager
-    depends_on:
-      - cadvisor
+    # depends_on:
+    #   - cadvisor
 
   # node-exporter:
   #   image: prom/node-exporter
