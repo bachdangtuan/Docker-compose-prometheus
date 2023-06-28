@@ -1,17 +1,14 @@
 version: '3.8'
 
-volumes:
-  prometheus_data: {}
-  grafana_data: {}
-
 services:
   prometheus:
     image: prom/prometheus
     container_name: sys-isofh-prometheus
     restart: always
+    user: '472'
     volumes:
       - ./prometheus:/etc/prometheus/
-      - prometheus_data:/prometheus
+      - ./data-prometheus-grafana/prometheus_data:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
@@ -75,7 +72,7 @@ services:
     environment:
       GF_INSTALL_PLUGINS: 'grafana-clock-panel,grafana-simple-json-datasource'
     volumes:
-      - grafana_data:/var/lib/grafana
+      - ./data-prometheus-grafana/grafana_data:/var/lib/grafana
       - ./grafana/provisioning/:/etc/grafana/provisioning/
     env_file:
       - ./grafana/config.monitoring
