@@ -17,7 +17,6 @@ groups:
       expr: (node_memory_MemFree_bytes{job="Mediplus"} / node_memory_MemTotal_bytes{job="Mediplus"}) * 100
 
     - alert: Memory Usage Above 60%
-      # expr: 60 < (100 - job:node_memory_Mem_bytes:available) < 75
       expr: 40 < ((node_memory_MemFree_bytes{job="Mediplus"} / node_memory_MemTotal_bytes{job="Mediplus"}) * 100) <= 45
       for: 1m
       labels:
@@ -29,7 +28,6 @@ groups:
         description: "Node memory for instance {{ $labels.instance }} has reached {{ $value }}%"
 
     - alert: Memory Usage Above 75%
-      # expr: (100 - job:node_memory_Mem_bytes:available) >= 75
       expr: (node_memory_MemFree_bytes{job="Mediplus"} / node_memory_MemTotal_bytes{job="Mediplus"}) * 100 <= 25
       for: 1m
       labels:

@@ -1,0 +1,25 @@
+groups:
+  - name: jenkinsTuan-rules
+    rules:
+
+    - alert: Node Exporter Down
+      expr: up{job="jenkins-tuan",instance="10.0.0.211:19100"} == 0
+      for: 1m
+      labels:
+        severity: critical
+        app_type: jenkins-tuan
+        category: server
+      annotations:
+        summary: "Node Exporter in Demo server is down"
+        description: "Node Exporter is down for more than 2 minutes"
+
+    - alert: Ram sử dụng lớn hơn 80%
+      expr: 40 < ((node_memory_MemFree_bytes{job="jenkins-tuan"} / node_memory_MemTotal_bytes{job="jenkins-tuan"}) * 100) <= 45
+      for: 1m
+      labels:
+        severity: warning
+        app_type: jenkins-tuan
+        category: memory
+      annotations:
+        summary: "Memory usage is going high - above 60%"
+        description: "Node memory for instance {{ $labels.instance }} has reached {{ $value }}%"
