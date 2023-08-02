@@ -2,16 +2,42 @@ global:
   resolve_timeout: 1m
 
 receivers:
+
 - name: BV-BachMai-telegram
   webhook_configs:
   - url: 'http://10.0.0.232:9087/alert/-932865047'
-  
+
+
+- name: Mediplus-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.232:9087/alert/-866646704'
+
+- name: Jenkins-Tuan-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.232:9087/alert/-866646704'
+
+
+
 route:
   continue: false
   group_by: ['job','severity']
   group_interval: 1m
   group_wait: 30s
-  receiver: BV-BachMai-telegram
   repeat_interval: 1m
+  receiver: System-Team
   routes:
-  - receiver: BV-BachMai-telegram
+  - match_re: 
+     app_type: (bachmai|mediplus)
+    routes:
+    # Bạch Mai group
+    - match:
+        app_type: bachmai
+      receiver: BV-BachMai-telegram
+    # Mediplus group
+    - match:
+        app_type: mediplus
+      receiver: Mediplus-telegram
+    # Jenkins-Tuan group
+    - match:
+        app_type: jenkins-tuan
+      receiver: Jenkins-Tuan-telegram
