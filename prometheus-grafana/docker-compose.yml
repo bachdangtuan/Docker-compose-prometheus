@@ -54,7 +54,7 @@ services:
 # Bot Alert
   prometheus-bot:
     container_name: sys-isofh-bot
-    image: tienbm90/prometheus-bot:0.0.1
+    image: bachdangtuan/prom-golang-bot:latest
 
     volumes:
       - ./telegrambot/:/etc/telegrambot/
