@@ -1,30 +1,6 @@
-global:
-  resolve_timeout: 1m
-
-receivers:
-- name: BV-BachMai-telegram
-  telegram_configs:
-  - api_url: https://api.telegram.org
-    bot_token: 5765051913:AAEXYcQKE0h8FTiC8Ba0DgNutliSMBbXAjw
-    chat_id: -932865047
-    #template: template.tmpl  # Thay 'template-name' bằng tên template bạn đã tạo
-    disable_notifications: false
-    http_config:
-       follow_redirects: true
-    send_resolved: true
-    parse_mode: ""
-    
-- name: 'web.hook'
-  webhook_configs:
-  - url: 'http://prometheus-bot:9087/alert/-932865047'
-  
-
-route:
-  continue: false
-  group_by: ['job','severity']
-  # group_interval: 1m
-  # group_wait: 30s
-  receiver: BV-BachMai-telegram
-  repeat_interval: 1m
-  routes:
-  - receiver: BV-BachMai-telegram
+telegram_token: "5765051913:AAEXYcQKE0h8FTiC8Ba0DgNutliSMBbXAjw"
+template_path: "/etc/telegrambot/template.tmpl"
+time_zone: "Asia/Ho_Chi_Minh"
+split_token: "|"
+time_outdata: "02/01/2006 15:04:05"
+split_msg_byte: 10000
