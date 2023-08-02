@@ -54,11 +54,11 @@ services:
 # Bot Alert
   prometheus-bot:
     container_name: sys-isofh-bot
-    image: bachdangtuan/prom-golang-bot:latest
+    image: tienbm90/prometheus-bot:0.0.1
 
     volumes:
       - ./telegrambot/:/etc/telegrambot/
       - ./telegrambot/config.yaml:/config.yaml  
     ports:
-      - 9087:9087
+      - 9088:9088
     restart: always
