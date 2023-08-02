@@ -6,15 +6,18 @@ receivers:
 - name: BV-BachMai-telegram
   webhook_configs:
   - url: 'http://10.0.0.232:9087/alert/-932865047'
+    send_resolved: true
 
 
 - name: Mediplus-telegram
   webhook_configs:
   - url: 'http://10.0.0.232:9087/alert/-866646704'
+    send_resolved: true
 
 - name: Jenkins-Tuan-telegram
   webhook_configs:
   - url: 'http://10.0.0.232:9087/alert/-866646704'
+    send_resolved: true
 
 
 
@@ -24,7 +27,6 @@ route:
   group_interval: 1m
   group_wait: 30s
   repeat_interval: 1m
-  send_resolved: true
   receiver: System-Team
   routes:
   - match_re: 
