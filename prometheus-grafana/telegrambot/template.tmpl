@@ -1,3 +1,10 @@
+{{if eq .Status "firing"}}
+Status: <b>{{.Status | str_UpperCase}} 🔥</b>
+{{end -}}
+
+{{if eq .Status "resolved"}}
+Status: <b>{{.Status | str_UpperCase}} ✅</b>
+{{end }}
 
 --------💥ALERT TELEGRAM💥------------
 Tổng hợp: {{.CommonAnnotations.summary}}
