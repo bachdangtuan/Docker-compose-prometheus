@@ -1,16 +1,27 @@
-{{if eq .Status "firing"}}
-Status: <b>{{.Status | str_UpperCase}} 🔥</b>
-{{end -}}
-
 {{if eq .Status "resolved"}}
-Status: <b>{{.Status | str_UpperCase}} ✅</b>
-{{end }}
-
---------💥ALERT TELEGRAM💥------------
+✅💙PHỤC HỒI💙✅
+---------------------------------------------------------------
 Tổng hợp: {{.CommonAnnotations.summary}}
 Loại Alert: {{ .CommonLabels.alertname }}
 Máy Chủ: {{ .CommonLabels.instance }}
 Thông tin: {{.CommonAnnotations.description}}
 Serverity: {{ .CommonLabels.severity}}
-Status:  {{ .Status }}
--------------------------------------------
+
+Status:  {{ .Status  | str_UpperCase}}
+---------------------------------------------------------------
+{{end -}}
+
+{{if eq .Status "firing"}}
+
+🔥🚨CẢNH BÁO SỰ CỐ🚨🔥
+---------------------------------------------------------------
+Tổng hợp: {{.CommonAnnotations.summary}}
+Loại Alert: {{ .CommonLabels.alertname }}
+Máy Chủ: {{ .CommonLabels.instance }}
+Thông tin: {{.CommonAnnotations.description}}
+Serverity: {{ .CommonLabels.severity}}
+
+Status:  {{ .Status  | str_UpperCase}}
+---------------------------------------------------------------
+
+{{end }}
