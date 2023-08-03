@@ -4,9 +4,6 @@
 Nội dung: {{.CommonAnnotations.summary}}
 Nhóm Cảnh báo: {{ .CommonLabels.alertname }}
 Máy Chủ: {{ .CommonLabels.instance }}
-
-Thông tin: {{.CommonAnnotations.description}}
-Mức Độ: {{ .CommonLabels.severity}}
 Status:  {{ .Status  | str_UpperCase}}
 ------------------------------------------------------
 {{end -}}
