@@ -75,7 +75,7 @@ groups:
   - name: jenkinsTuan-rules
     rules:
       - alert: Cảnh báo RAM
-        expr: (node_memory_MemTotal_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_MemFree_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_Buffers_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_Cached_bytes{job="jenkins-tuan", instance=~".+"}) / (node_memory_MemTotal_bytes{job="jenkins-tuan", instance=~".+"}) * 100 >= 1
+        expr: (label_replace(node_memory_MemTotal_bytes{job="jenkins-tuan", instance=~".+"}, "instance", "$1", "instance", "(.+)") - label_replace(node_memory_MemFree_bytes{job="jenkins-tuan", instance=~".+"}, "instance", "$1", "instance", "(.+)") - label_replace(node_memory_Buffers_bytes{job="jenkins-tuan", instance=~".+"}, "instance", "$1", "instance", "(.+)") - label_replace(node_memory_Cached_bytes{job="jenkins-tuan", instance=~".+"}, "instance", "$1", "instance", "(.+)")) / label_replace(node_memory_MemTotal_bytes{job="jenkins-tuan", instance=~".+"}, "instance", "$1", "instance", "(.+)") * 100 >= 1
         for: 1m
         labels:
           severity: CẢNH BÁO
@@ -87,4 +87,5 @@ groups:
           description: |
             RAM đã sử dụng chiếm {{ printf "%.2f" $value }}% trên instance {{ $labels.instance }}..
             Thông tin cụ thể:
-            * Ram sử dụng: {{ query "node_memory_MemTotal_bytes{job='jenkins-tuan', instance=~'$labels.instance'}" | first | value | humanize }}
+            * Ram sử dụng: {{ query "label_replace(node_memory_MemTotal_bytes{job='jenkins-tuan', instance=~'.+'}, 'instance', '$1', 'instance', '(.+)')" | first | value | humanize }}
+
