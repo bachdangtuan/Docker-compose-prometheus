@@ -4,7 +4,6 @@
 Nội dung: {{.CommonAnnotations.summary}}
 Nhóm Cảnh báo: {{ .CommonLabels.alertname }}
 Máy Chủ: {{ .CommonLabels.instance }}
-Thời gian: {{ .alerts.[0].startsAt }}
 Status:  {{ .Status  | str_UpperCase}}
 ------------------------------------------------------
 {{end -}}
@@ -15,9 +14,45 @@ Status:  {{ .Status  | str_UpperCase}}
 Nội dung: {{.CommonAnnotations.summary}}
 Nhóm Cảnh báo: {{ .CommonLabels.alertname }}
 Máy Chủ: {{ .CommonLabels.instance }}
-Thời gian: {{ .alerts.[0].startsAt }}
 Thông tin: {{.CommonAnnotations.description}}
 Mức Độ: {{ .CommonLabels.severity}}
 Status:  {{ .Status  | str_UpperCase}}
 ------------------------------------------------------
 {{end }}
+
+{{.CommonAnnotations}}
+{{.CommonLabels}}
+{{.ExternalURL}}
+{{.GroupLabels}}
+{{.Receiver}}
+{{.Status}}
+
+<b>Active Alert List:</b>
+{{ range $val := .Alerts -}}
+  {{$val}}
+{{ end}}
+Version:{{.Version}}
+
+{{/*Possible variable of template
+  	Alerts            []Alert
+  	CommonAnnotations map[string]interface{}
+  	CommonLabels      map[string]interface{}
+  	ExternalURL       string
+  	GroupKey          int
+  	GroupLabels       map[string]interface{}
+  	Receiver          string
+  	Status            string
+  	Version
+
+    SubVariable Alert use make test for testing this
+
+  	Annotations  map[string]interface{}
+  	EndsAt       string
+  	GeneratorURL string                 `
+  	Labels       map[string]interface{}
+  	StartsAt     string
+
+    All MAP params are iterable with range.
+    About go template language take look:https://golang.org/pkg/text/template/
+
+  */}}
