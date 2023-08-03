@@ -15,7 +15,7 @@ Status:  {{ .Status  | str_UpperCase}}
 Nội dung: {{.CommonAnnotations.summary}}
 Nhóm Cảnh báo: {{ .CommonLabels.alertname }}
 Máy Chủ: {{ .CommonLabels.instance }}
-Thời gian: {{ .Alerts.startsAt}}
+Thời gian: {{ .alerts.startsAt}}
 Thông tin: {{.CommonAnnotations.description}}
 Mức Độ: {{ .CommonLabels.severity}}
 Status:  {{ .Status  | str_UpperCase}}
