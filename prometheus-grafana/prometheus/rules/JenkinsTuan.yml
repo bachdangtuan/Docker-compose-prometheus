@@ -21,16 +21,17 @@ groups:
       expr: (node_memory_MemTotal_bytes{job="jenkins-tuan"} - node_memory_MemFree_bytes{job="jenkins-tuan"} - node_memory_Buffers_bytes{job="jenkins-tuan"} - node_memory_Cached_bytes{job="jenkins-tuan"}) / (node_memory_MemTotal_bytes{job="jenkins-tuan"}) * 100 >= 70
       for: 1m
       labels:
-        severity: cảnh báo
+        severity: CẢNH BÁO
         app_type: jenkins-tuan
         category: memory
       annotations:
         summary: "RAM máy chủ vượt quá 70%"
         description: |
-          Node memory for instance has reached {{ printf "%.2f" $value }}%.
-          Additional information:
-          * Free memory: {{ query "node_memory_MemFree_bytes{job='jenkins-tuan'}" | first | value | humanize }}
-          * Total memory: {{ query "node_memory_MemTotal_bytes{job='jenkins-tuan'}" | first  }}
+          RAM đã sử dụng chiếm {{ printf "%.2f" $value }}%.
+          Thông tin cụ thể:
+            * Ram sử dụng: {{ query "(node_memory_MemTotal_bytes{job="jenkins-tuan"} - node_memory_MemFree_bytes{job="jenkins-tuan"} - node_memory_Buffers_bytes{job="jenkins-tuan"} - node_memory_Cached_bytes{job="jenkins-tuan"})" | first | value | humanize }}
+            * Ram còn lại: {{ query "node_memory_MemFree_bytes{job='jenkins-tuan'}" | first | value | humanize }}
+            * Tổng RAM: {{ query "node_memory_MemTotal_bytes{job='jenkins-tuan'}" | first | value | humanize  }}
 
 
               
