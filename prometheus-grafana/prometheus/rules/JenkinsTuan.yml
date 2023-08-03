@@ -34,6 +34,7 @@ groups:
           * Tổng RAM: {{ query "node_memory_MemTotal_bytes{job='jenkins-tuan', instance=~\"{{ \$labels.instance }}\"}" | first | value | humanize }}
 
 
+
     - alert: CPU Tăng Cao
       expr: 100 * (1 - (sum(rate(node_cpu_seconds_total{mode="idle", job="jenkins-tuan"}[2m])) / sum(rate(node_cpu_seconds_total{job="jenkins-tuan"}[2m])))) > 80
       for: 1m
