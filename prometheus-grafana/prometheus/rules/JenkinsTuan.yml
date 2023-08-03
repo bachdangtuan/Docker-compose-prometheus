@@ -28,6 +28,6 @@ groups:
         summary: "RAM máy chủ vượt quá 70%"
         description: |
           Node memory for instance has reached {{ $value }}%.
-          Node memory total: {{ printf node_memory_MemFree_bytes{job="Mediplus"} }}
+          Node memory total: {{ printf \"node_memory_MemFree_bytes{job="Mediplus"}" }}
 
 
