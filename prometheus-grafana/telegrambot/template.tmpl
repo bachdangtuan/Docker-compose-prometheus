@@ -13,7 +13,7 @@ Status:  {{ .Status  | str_UpperCase}}
 ------------------------------------------------------
 Nội dung: {{.CommonAnnotations.summary}}
 Nhóm Cảnh báo: {{ .CommonLabels.alertname }}
-Hệ thống viện: <code> {{ .CommonLabels.app_type }} /code>
+Hệ thống viện: <code> {{ .CommonLabels.app_type }} </code>
 Máy Chủ: {{ .CommonLabels.instance }}
 Thông tin: {{.CommonAnnotations.description}}
 Mức Độ:  <code> 🔥 {{ .CommonLabels.severity | str_UpperCase }} 🔥 </code>
