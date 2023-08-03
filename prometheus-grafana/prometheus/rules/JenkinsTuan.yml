@@ -34,8 +34,7 @@ groups:
     #       * Tổng RAM: {{ query "node_memory_MemTotal_bytes{job='jenkins-tuan', instance=~'.+'}" | first | value | humanize  }}
 
     alert: HostOutOfMemory
-    expr: node_memory_MemAvailable_bytes
-      / node_memory_MemTotal_bytes * 100 < 98
+    expr: (node_memory_MemTotal_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_MemFree_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_Buffers_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_Cached_bytes{job="jenkins-tuan", instance=~".+"}) / (node_memory_MemTotal_bytes{job="jenkins-tuan", instance=~".+"}) * 100 >= 1
     labels:
       severity: critical
       app_type: jenkins-tuan
