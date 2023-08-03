@@ -32,46 +32,46 @@ groups:
           * Ram còn lại: {{ query "node_memory_MemFree_bytes{job='Mediplus'}" | first | value | humanize }}
           * Tổng RAM: {{ query "node_memory_MemTotal_bytes{job='Mediplus'}" | first | value | humanize  }}
 
-    - alert: CPU Usage High
-      expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="Mediplus",mode="idle"}[1m])) * 100) > 80
-      for: 1m
-      labels:
-        severity: critical
-        app_type: mediplus
-        category: cpu
-      annotations:
-        summary: "CPU usage is HIGH"
-        description: "CPU load for instance {{ $labels.instance }} has reached {{ $value }}%"
+    # - alert: CPU Usage High
+    #   expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="Mediplus",mode="idle"}[1m])) * 100) > 80
+    #   for: 1m
+    #   labels:
+    #     severity: critical
+    #     app_type: mediplus
+    #     category: cpu
+    #   annotations:
+    #     summary: "CPU usage is HIGH"
+    #     description: "CPU load for instance {{ $labels.instance }} has reached {{ $value }}%"
 
-    - alert: CPU_0_High
-      expr: 100 - (avg by(instance, cpu) (irate(node_cpu_seconds_total{job="Mediplus",mode="idle", cpu="0"}[1m])) * 100) > 80
-      for: 1m
-      labels:
-        severity: critical
-        app_type: mediplus
-        category: cpu
-      annotations:
-        summary: "CPU_0 usage is HIGH"
-        description: "CPU_0 load for instance {{ $labels.instance }} has reached {{ $value }}%"
+    # - alert: CPU_0_High
+    #   expr: 100 - (avg by(instance, cpu) (irate(node_cpu_seconds_total{job="Mediplus",mode="idle", cpu="0"}[1m])) * 100) > 80
+    #   for: 1m
+    #   labels:
+    #     severity: critical
+    #     app_type: mediplus
+    #     category: cpu
+    #   annotations:
+    #     summary: "CPU_0 usage is HIGH"
+    #     description: "CPU_0 load for instance {{ $labels.instance }} has reached {{ $value }}%"
 
-    - alert: CPU_1_High
-      expr: 100 - (avg by(instance, cpu) (irate(node_cpu_seconds_total{job="Mediplus",mode="idle", cpu="1"}[1m])) * 100) > 80
-      for: 1m
-      labels:
-        severity: critical
-        app_type: mediplus
-        category: cpu
-      annotations:
-        summary: "CPU_1 usage is HIGH"
-        description: "CPU_1 load for instance {{ $labels.instance }} has reached {{ $value }}%"
+    # - alert: CPU_1_High
+    #   expr: 100 - (avg by(instance, cpu) (irate(node_cpu_seconds_total{job="Mediplus",mode="idle", cpu="1"}[1m])) * 100) > 80
+    #   for: 1m
+    #   labels:
+    #     severity: critical
+    #     app_type: mediplus
+    #     category: cpu
+    #   annotations:
+    #     summary: "CPU_1 usage is HIGH"
+    #     description: "CPU_1 load for instance {{ $labels.instance }} has reached {{ $value }}%"
 
-    - alert: Free Disk Space Less 30%
-      expr: (sum by (instance) (node_filesystem_free_bytes{job="Mediplus"}) / sum by (instance) (node_filesystem_size_bytes{job="Mediplus"})) * 100 < 30
-      for: 1m
-      labels:
-        severity: warning
-        app_type: mediplus
-        category: disk
-      annotations:
-        summary: "Free disk space is running out - less than 30%"
-        description: "Node disk is going to full (< 30% left)\n  Current free disk space is {{ $value }}"
+    # - alert: Free Disk Space Less 30%
+    #   expr: (sum by (instance) (node_filesystem_free_bytes{job="Mediplus"}) / sum by (instance) (node_filesystem_size_bytes{job="Mediplus"})) * 100 < 30
+    #   for: 1m
+    #   labels:
+    #     severity: warning
+    #     app_type: mediplus
+    #     category: disk
+    #   annotations:
+    #     summary: "Free disk space is running out - less than 30%"
+    #     description: "Node disk is going to full (< 30% left)\n  Current free disk space is {{ $value }}"
