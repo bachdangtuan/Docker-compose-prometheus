@@ -2,24 +2,29 @@ global:
   resolve_timeout: 1m
 
 receivers:
+- name: System-Team
+  telegram_configs:
+  - api_url: https://api.telegram.org
+    bot_token: 6612849064:AAGR795EyHyn278L0WRLeqiTyBuCWRRhjMg
+    chat_id: -998222571
+    disable_notifications: false
+    http_config:
+      follow_redirects: true
+    send_resolved: true
+    parse_mode: ""
 
 - name: BV-BachMai-telegram
   webhook_configs:
   - url: 'http://10.0.0.232:9087/alert/-932865047'
-    send_resolved: true
 
 
 - name: Mediplus-telegram
   webhook_configs:
   - url: 'http://10.0.0.232:9087/alert/-866646704'
-    send_resolved: true
 
-- name: Jenkins-Tuan-telegram
+- name: jenkins-tuan-telegram
   webhook_configs:
   - url: 'http://10.0.0.232:9087/alert/-866646704'
-    send_resolved: true
-
-
 
 route:
   continue: false
@@ -27,9 +32,11 @@ route:
   group_interval: 1m
   group_wait: 30s
   repeat_interval: 1m
+  receiver: System-Team
   routes:
   - match_re: 
      app_type: (bachmai|mediplus)
+    receiver: System-Team 
     routes:
     # Bạch Mai group
     - match:
@@ -39,7 +46,7 @@ route:
     - match:
         app_type: mediplus
       receiver: Mediplus-telegram
-    # Jenkins-Tuan group
+    # Jenkins group
     - match:
         app_type: jenkins-tuan
-      receiver: Jenkins-Tuan-telegram
+      receiver: jenkins-tuan-telegram
