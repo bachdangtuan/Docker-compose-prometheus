@@ -5,7 +5,7 @@ groups:
         expr: (node_memory_MemTotal_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_MemFree_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_Buffers_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_Cached_bytes{job="jenkins-tuan", instance=~".+"}) / (node_memory_MemTotal_bytes{job="jenkins-tuan", instance=~".+"}) * 100 >= 1
         for: 1m
         labels:
-          severity: CẢNH BÁO
+          severity: Rất Nguy Hiểm
           app_type: jenkins-tuan
           category: memory
           instance: "{{ $labels.instance }}"
@@ -14,7 +14,9 @@ groups:
           description: |
             RAM đã sử dụng chiếm {{ printf "%.2f" $value }}% trên instance {{ $labels.instance }}..
             Thông tin cụ thể:
-            * Ram sử dụng: {{ query (printf "node_memory_MemTotal_bytes{job='jenkins-tuan', instance=~'%s'} - node_memory_MemFree_bytes{job='jenkins-tuan', instance=~'%s'} - node_memory_Buffers_bytes{job='jenkins-tuan', instance=~'%s'} - node_memory_Cached_bytes{job='jenkins-tuan', instance=~'%s'}" $labels.instance $labels.instance $labels.instance $labels.instance) | first | value | humanize }}
-            * Ram còn lại: {{ query (printf "node_memory_MemFree_bytes{job='jenkins-tuan', instance=~'%s'}" $labels.instance) | first | value | humanize }}
-            * Tổng RAM: {{ query (printf "node_memory_MemTotal_bytes{job='jenkins-tuan', instance=~'%s'}" $labels.instance) | first | value | humanize }}
+                 * Ram sử dụng:  {{ query (printf "node_memory_MemTotal_bytes{job='jenkins-tuan', instance=~'%s'} - node_memory_MemFree_bytes{job='jenkins-tuan', instance=~'%s'} - node_memory_Buffers_bytes{job='jenkins-tuan', instance=~'%s'} - node_memory_Cached_bytes{job='jenkins-tuan', instance=~'%s'}" $labels.instance $labels.instance $labels.instance $labels.instance) | first | value | humanize }}
+
+                 * Ram còn lại:  {{ query (printf "node_memory_MemFree_bytes{job='jenkins-tuan', instance=~'%s'}" $labels.instance) | first | value | humanize }}
+
+                 * TOTAL RAM:  {{ query (printf "node_memory_MemTotal_bytes{job='jenkins-tuan', instance=~'%s'}" $labels.instance) | first | value | humanize }}
 

@@ -13,13 +13,14 @@ Status:  {{ .Status  | str_UpperCase}}
 ------------------------------------------------------
 Nội dung: {{.CommonAnnotations.summary}}
 Nhóm Cảnh báo: {{ .CommonLabels.alertname }}
+Hệ thống viện: {{ .CommonLabels.app_type }}
 Máy Chủ: {{ .CommonLabels.instance }}
 Thông tin: {{.CommonAnnotations.description}}
 Mức Độ:  <code> {{ .CommonLabels.severity}} </code>
 Status:  <b>{{.Status | str_UpperCase}} 🔥</b>
 ------------------------------------------------------
 {{- range $val := .Alerts }}
-Active from: <code>{{ $val.StartsAt | str_FormatDate }}</code>
+THỜI GIAN XẢY RA: <code>{{ $val.StartsAt | str_FormatDate }}</code>
 {{- end -}}
 {{end }}
 
