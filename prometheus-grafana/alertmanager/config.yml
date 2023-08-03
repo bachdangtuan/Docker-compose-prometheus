@@ -39,13 +39,13 @@ route:
     receiver: System-Team 
     routes:
     # Bạch Mai group
-    - match:
-        app_type: bachmai
-      receiver: BV-BachMai-telegram
-    # Mediplus group
-    - match:
-        app_type: mediplus
-      receiver: Mediplus-telegram
+    # - match:
+    #     app_type: bachmai
+    #   receiver: BV-BachMai-telegram
+    # # Mediplus group
+    # - match:
+    #     app_type: mediplus
+    #   receiver: Mediplus-telegram
     # Jenkins group
     - match:
         app_type: jenkins-tuan
