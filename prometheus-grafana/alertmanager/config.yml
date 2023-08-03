@@ -36,16 +36,14 @@ route:
   routes:
     - match:
         app_type: jenkins-tuan
-      receiver: jenkins-tuan-telegram
-      continue: false
-    - match:
-        app_type: jenkins-tuan
         instance: 10.0.0.211:19100
       receiver: jenkins-tuan-telegram
+      group_wait: 2s
     - match:
         app_type: jenkins-tuan
         instance: 10.0.0.210:9100
       receiver: jenkins-tuan-telegram
+      group_wait: 4s
 
     
 
