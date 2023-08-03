@@ -29,8 +29,8 @@ groups:
         description: |
           Node memory for instance has reached {{ printf "%.2f" $value }}%.
           Additional information:
-          * Free memory: {{ query "node_memory_MemFree_bytes{job='jenkins-tuan'}" | first | humanize }}
-          * Total memory: {{ query "node_memory_MemTotal_bytes{job='jenkins-tuan'}" | first | humanize }}
+          * Free memory: {{ query "node_memory_MemFree_bytes{job='jenkins-tuan'}" | first  }}
+          * Total memory: {{ query "node_memory_MemTotal_bytes{job='jenkins-tuan'}" | first  }}
 
 
               
