@@ -18,20 +18,8 @@ Thông tin: {{.CommonAnnotations.description}}
 Mức Độ: {{ .CommonLabels.severity}}
 Status:  {{ .Status  | str_UpperCase}}
 ------------------------------------------------------
-{{.CommonAnnotations}}
-{{.CommonLabels}}
-{{.ExternalURL}}
-{{.GroupLabels}}
-{{.Receiver}}
-{{.Status}}
 
-<b>Active Alert List:</b>
-{{ range $val := .Alerts -}}
-  {{$val}}
-{{ end}}
-Version:{{.Version}}
-
-{{/*Possible variable of template
+{{Possible variable of template
   	Alerts            []Alert
   	CommonAnnotations map[string]interface{}
   	CommonLabels      map[string]interface{}
@@ -53,7 +41,7 @@ Version:{{.Version}}
     All MAP params are iterable with range.
     About go template language take look:https://golang.org/pkg/text/template/
 
-  */}}
-  
+  }}
+
 {{end }}
 
