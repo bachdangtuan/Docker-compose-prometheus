@@ -21,7 +21,7 @@ groups:
       for: 1m
       labels:
         severity: CẢNH BÁO
-        app_type: Mediplus
+        app_type: mediplus
         category: memory
       annotations:
         summary: "RAM máy chủ vượt quá 70%"
