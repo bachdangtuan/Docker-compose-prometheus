@@ -17,10 +17,8 @@ Máy Chủ: {{ .CommonLabels.instance }}
 Thông tin: {{.CommonAnnotations.description}}
 Mức Độ:  <code> {{ .CommonLabels.severity}} <code>
 Status:  Status: <b>{{.Status | str_UpperCase}} 🔥</b>
-
-<b>THỜI GIAN XẢY RA:</b>
 {{- range $val := .Alerts }}
-  Active from: {{ $val.StartsAt | str_FormatDate }}
+Active from: {{ $val.StartsAt | str_FormatDate }}
 {{- end -}}
 ------------------------------------------------------
 
