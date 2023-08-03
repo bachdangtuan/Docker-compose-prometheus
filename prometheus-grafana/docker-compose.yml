@@ -8,6 +8,7 @@ services:
     restart: always
     user: "root"
     volumes:
+      - /etc/localtime:/etc/localtime:ro
       - ./prometheus:/etc/prometheus/
       - ./data-prometheus-grafana/prometheus_data:/prometheus
     command:
@@ -29,6 +30,7 @@ services:
     ports:
       - 9093:9093
     volumes:
+      - /etc/localtime:/etc/localtime:ro
       - ./alertmanager/:/etc/alertmanager/
     command:
       - "--config.file=/etc/alertmanager/config.yml"
@@ -43,6 +45,7 @@ services:
     environment:
       GF_INSTALL_PLUGINS: "grafana-clock-panel,grafana-simple-json-datasource"
     volumes:
+      - /etc/localtime:/etc/localtime:ro
       - ./data-prometheus-grafana/grafana_data:/var/lib/grafana
       - ./grafana/provisioning/:/etc/grafana/provisioning/
     env_file:
@@ -57,6 +60,7 @@ services:
     image: bachdangtuan/prom-golang-bot:latest
 
     volumes:
+      - /etc/localtime:/etc/localtime:ro
       - ./telegrambot/:/etc/telegrambot/
       - ./telegrambot/config.yaml:/config.yaml  
     ports:
