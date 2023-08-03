@@ -4,7 +4,7 @@
 Nội dung: {{.CommonAnnotations.summary}}
 Nhóm Cảnh báo: {{ .CommonLabels.alertname }}
 Máy Chủ: {{ .CommonLabels.instance }}
-Thời gian: {{ .CommonAnnotations.time }}
+Thời gian: {{ .Alerts.startsAt}}
 Status:  {{ .Status  | str_UpperCase}}
 ------------------------------------------------------
 {{end -}}
@@ -15,7 +15,7 @@ Status:  {{ .Status  | str_UpperCase}}
 Nội dung: {{.CommonAnnotations.summary}}
 Nhóm Cảnh báo: {{ .CommonLabels.alertname }}
 Máy Chủ: {{ .CommonLabels.instance }}
-Thời gian: {{ .CommonAnnotations.time }}
+Thời gian: {{ .Alerts.startsAt}}
 Thông tin: {{.CommonAnnotations.description}}
 Mức Độ: {{ .CommonLabels.severity}}
 Status:  {{ .Status  | str_UpperCase}}
