@@ -17,22 +17,6 @@ groups:
       expr: (node_memory_MemFree_bytes{job="Mediplus"} / node_memory_MemTotal_bytes{job="Mediplus"}) * 100  
 
   # Phần trăm ram sử dụng bằng 100 - (ram còn lại / tổng ram ) *100
-    # - alert: Cảnh báo RAM
-    #   expr: (node_memory_MemTotal_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_MemFree_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_Buffers_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_Cached_bytes{job="jenkins-tuan", instance=~".+"}) / (node_memory_MemTotal_bytes{job="jenkins-tuan", instance=~".+"}) * 100 >= 1
-    #   for: 1m
-    #   labels:
-    #     severity: CẢNH BÁO
-    #     app_type: jenkins-tuan
-    #     category: memory
-    #   annotations:
-    #     summary: "RAM Server > 70%"
-    #     description: |
-    #       RAM đã sử dụng chiếm {{ printf "%.2f" $value }}%.
-    #       Thông tin cụ thể:
-    #       * Ram sử dụng: {{ query "node_memory_MemTotal_bytes{job='jenkins-tuan', instance=~'.+'} - node_memory_MemFree_bytes{job='jenkins-tuan', instance=~'.+'} - node_memory_Buffers_bytes{job='jenkins-tuan', instance=~'.+'} - node_memory_Cached_bytes{job='jenkins-tuan', instance=~'.+'}" | first | value | humanize }}
-    #       * Ram còn lại: {{ query "node_memory_MemFree_bytes{job='jenkins-tuan', instance=~'.+'}" | first | value | humanize }}
-    #       * Tổng RAM: {{ query "node_memory_MemTotal_bytes{job='jenkins-tuan', instance=~'.+'}" | first | value | humanize  }}
-
     - alert: Cảnh báo RAM
       expr: (node_memory_MemTotal_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_MemFree_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_Buffers_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_Cached_bytes{job="jenkins-tuan", instance=~".+"}) / (node_memory_MemTotal_bytes{job="jenkins-tuan", instance=~".+"}) * 100 >= 1
       for: 1m
@@ -44,7 +28,11 @@ groups:
         summary: "RAM Server > 70%"
         description: |
           RAM đã sử dụng chiếm {{ printf "%.2f" $value }}%.
-          Title: Container down (instance {{ $labels.instance }})
+          Thông tin cụ thể:
+          * Ram sử dụng: {{ query "node_memory_MemTotal_bytes{job='jenkins-tuan', instance=~".+"} - node_memory_MemFree_bytes{job='jenkins-tuan', instance=~".+"} - node_memory_Buffers_bytes{job='jenkins-tuan', instance=~".+"} - node_memory_Cached_bytes{job='jenkins-tuan', instance=~".+"}" | first | value | humanize }}
+          * Ram còn lại: {{ query "node_memory_MemFree_bytes{job='jenkins-tuan', instance=~".+"}" | first | value | humanize }}
+          * Tổng RAM: {{ query "node_memory_MemTotal_bytes{job='jenkins-tuan', instance=~".+"}" | first | value | humanize  }}
+
 
     # - alert: CPU Tăng Cao
     #   expr: 100 * (1 - (sum(rate(node_cpu_seconds_total{mode="idle", job="Mediplus"}[2m])) / sum(rate(node_cpu_seconds_total{job="Mediplus"}[2m))))) > 80
