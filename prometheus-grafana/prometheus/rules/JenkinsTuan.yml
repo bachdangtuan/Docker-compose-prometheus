@@ -46,4 +46,4 @@ groups:
              CPU đã sử dụng chiếm {{ printf "%.2f" $value }}%
              Thông tin cụ thể:  
              * CPU sử dụng {{ printf "%.2f" $value }}% 
-             * CPU còn lại {{  query "100-(100 * (1 - (sum(rate(node_cpu_seconds_total{mode="idle", job='Mediplus'}[2m])) / sum(rate(node_cpu_seconds_total{ job='Mediplus'}[2m])))))" | first | value | humanize   }}         
+             * CPU còn lại {{  query "(100 - (100 * (1 - (sum(rate(node_cpu_seconds_total{mode="idle", job='Mediplus'}[2m])) / sum(rate(node_cpu_seconds_total{ job='Mediplus'}[2m]))))))" | first | value | humanize   }}         
