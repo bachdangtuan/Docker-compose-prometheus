@@ -4,18 +4,18 @@
 Nội dung: {{.CommonAnnotations.summary}}
 Nhóm Cảnh báo: {{ .CommonLabels.alertname }}
 Máy Chủ: {{ .CommonLabels.instance }}
+Thời gian: {{ .CommonAnnotations.time }}
 Status:  {{ .Status  | str_UpperCase}}
 ------------------------------------------------------
 {{end -}}
 
 {{if eq .Status "firing"}}
-
 🔥🚨CẢNH BÁO SỰ CỐ🚨🔥
 ------------------------------------------------------
 Nội dung: {{.CommonAnnotations.summary}}
 Nhóm Cảnh báo: {{ .CommonLabels.alertname }}
 Máy Chủ: {{ .CommonLabels.instance }}
-
+Thời gian: {{ .CommonAnnotations.time }}
 Thông tin: {{.CommonAnnotations.description}}
 Mức Độ: {{ .CommonLabels.severity}}
 Status:  {{ .Status  | str_UpperCase}}

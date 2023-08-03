@@ -17,5 +17,5 @@ groups:
             * Ram sử dụng: {{ query (printf "node_memory_MemTotal_bytes{job='jenkins-tuan', instance=~'%s'} - node_memory_MemFree_bytes{job='jenkins-tuan', instance=~'%s'} - node_memory_Buffers_bytes{job='jenkins-tuan', instance=~'%s'} - node_memory_Cached_bytes{job='jenkins-tuan', instance=~'%s'}" $labels.instance $labels.instance $labels.instance $labels.instance) | first | value | humanize }}
             * Ram còn lại: {{ query (printf "node_memory_MemFree_bytes{job='jenkins-tuan', instance=~'%s'}" $labels.instance) | first | value | humanize }}
             * Tổng RAM: {{ query (printf "node_memory_MemTotal_bytes{job='jenkins-tuan', instance=~'%s'}" $labels.instance) | first | value | humanize }}
-
+          time: "{{ time }}"
 
