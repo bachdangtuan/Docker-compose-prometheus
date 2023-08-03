@@ -10,15 +10,21 @@ services:
     volumes:
       - ./prometheus:/etc/prometheus/
       - ./data-prometheus-grafana/prometheus_data:/prometheus
+      - ./console_libraries:/usr/share/prometheus/console_libraries
+      - ./consoles:/usr/share/prometheus/consoles
     command:
+      # - "--config.file=/etc/prometheus/prometheus.yml"
+      # - "--storage.tsdb.path=/prometheus"
+      # - "--web.console.libraries=/usr/share/prometheus/console_libraries"
+      # - "--web.console.templates=/usr/share/prometheus/consoles"
+      # - "--web.enable-lifecycle"
+      # - "--web.config.file=/etc/prometheus/auth-web.yml"
+      # - "--config.file=/etc/prometheus/promtool.yml"
       - "--config.file=/etc/prometheus/prometheus.yml"
       - "--storage.tsdb.path=/prometheus"
-      - "--web.console.libraries=/usr/share/prometheus/console_libraries"
-      - "--web.console.templates=/usr/share/prometheus/consoles"
       - "--web.enable-lifecycle"
       - "--web.config.file=/etc/prometheus/auth-web.yml"
       - "--config.file=/etc/prometheus/promtool.yml"
-
     ports:
       - 9090:9090
     links:
