@@ -13,8 +13,9 @@ groups:
         summary: "Node Exporter in Demo server is down"
         description: "Node Exporter is down for more than 2 minutes"
 
-    - alert: Ram sử dụng lớn hơn 80%
-      expr: 40 < ((node_memory_MemFree_bytes{job="jenkins-tuan"} / node_memory_MemTotal_bytes{job="jenkins-tuan"}) * 100) <= 45
+  # Phần trăm ram sử dụng bằng 100 - (ram còn lại / tổng ram ) *100
+    - alert: Ram sử dụng lớn hơn 80% 
+      expr: (node_memory_MemTotal_bytes{job="jenkins-tuan"} - node_memory_MemFree_bytes{job="jenkins-tuan"} - node_memory_Buffers_bytes{job="jenkins-tuan"} - node_memory_Cached_bytes{job="jenkins-tuan"}) / (node_memory_MemTotal_bytes{job="jenkins-tuan"}) * 100 <= 70
       for: 1m
       labels:
         severity: warning

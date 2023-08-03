@@ -1,6 +1,6 @@
 {{if eq .Status "resolved"}}
 ✅💙PHỤC HỒI💙✅
----------------------------------------------------------------
+------------------------------------------------------
 Tổng hợp: {{.CommonAnnotations.summary}}
 Loại Alert: {{ .CommonLabels.alertname }}
 Máy Chủ: {{ .CommonLabels.instance }}
@@ -8,13 +8,13 @@ Thông tin: {{.CommonAnnotations.description}}
 Serverity: {{ .CommonLabels.severity}}
 
 Status:  {{ .Status  | str_UpperCase}}
----------------------------------------------------------------
+------------------------------------------------------
 {{end -}}
 
 {{if eq .Status "firing"}}
 
 🔥🚨CẢNH BÁO SỰ CỐ🚨🔥
----------------------------------------------------------------
+------------------------------------------------------
 Tổng hợp: {{.CommonAnnotations.summary}}
 Loại Alert: {{ .CommonLabels.alertname }}
 Máy Chủ: {{ .CommonLabels.instance }}
@@ -22,6 +22,6 @@ Thông tin: {{.CommonAnnotations.description}}
 Serverity: {{ .CommonLabels.severity}}
 
 Status:  {{ .Status  | str_UpperCase}}
----------------------------------------------------------------
+------------------------------------------------------
 
 {{end }}
