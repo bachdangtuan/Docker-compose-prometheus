@@ -34,7 +34,7 @@ groups:
           * Tổng RAM: {{ query "node_memory_MemTotal_bytes{job='jenkins-tuan'}" | first | value | humanize  }}
 
     - alert: CPU Tăng Cao
-      expr: 100 * (1 - (sum(rate(node_cpu_seconds_total{mode="idle", job='Mediplus'}[2m])) / sum(rate(node_cpu_seconds_total{ job='Mediplus'}[2m])))) > 80
+      expr: 100 * (1 - (sum(rate(node_cpu_seconds_total{mode="idle", job="Mediplus"}[2m])) / sum(rate(node_cpu_seconds_total{job="Mediplus"}[2m))))) > 80
       for: 1m
       labels:
         severity: CẢNH BÁO
@@ -43,7 +43,7 @@ groups:
       annotations:
         summary: "CPU Tăng Cao > 80%"
         description: | 
-             CPU đã sử dụng chiếm {{ printf "%.2f" $value }}%
-             Thông tin cụ thể:  
-             * CPU sử dụng {{ printf "%.2f" $value }}% 
-             * CPU còn lại {{ query "node_cpu_seconds_total{mode="idle", job='Mediplus'}[2m]" | first | value | humanize   }}         
+          CPU đã sử dụng chiếm {{ printf "%.2f" $value }}%
+          Thông tin cụ thể:
+          * CPU sử dụng {{ printf "%.2f" $value }}%
+          * CPU còn lại {{ query "100 - (100 * (1 - (sum(rate(node_cpu_seconds_total{mode=\"idle\", job=\"Mediplus\"}[2m])) / sum(rate(node_cpu_seconds_total{job=\"Mediplus\"}[2m)))))" | first | value | humanize }}      
