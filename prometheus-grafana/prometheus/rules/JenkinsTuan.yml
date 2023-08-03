@@ -13,6 +13,9 @@ groups:
         summary: "Node Exporter in Demo server is down"
         description: "Node Exporter is down for more than 2 minutes"
 
+    - record: job:node_memory_Mem_bytes:available
+      expr: (node_memory_MemFree_bytes{job="Mediplus"} / node_memory_MemTotal_bytes{job="Mediplus"}) * 100  
+
   # Phần trăm ram sử dụng bằng 100 - (ram còn lại / tổng ram ) *100
     - alert: Mức độ ram sử dụng
       expr: (node_memory_MemTotal_bytes{job="jenkins-tuan"} - node_memory_MemFree_bytes{job="jenkins-tuan"} - node_memory_Buffers_bytes{job="jenkins-tuan"} - node_memory_Cached_bytes{job="jenkins-tuan"}) / (node_memory_MemTotal_bytes{job="jenkins-tuan"}) * 100 >= 70
@@ -23,5 +26,7 @@ groups:
         category: memory
       annotations:
         summary: "RAM máy chủ vượt quá 70%"
-        description: "Node memory for instance {{ regex_replace($labels.instance,`aksdjkasd` ,`$1`) }} "
+        description: |
+          Node memory for instance has reached {{ $value }}%.
+          Node memory total: {{ query "node_memory_MemTotal_bytes{job=\"jenkins-tuan\"}" }}
 
