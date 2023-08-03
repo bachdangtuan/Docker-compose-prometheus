@@ -29,4 +29,4 @@ groups:
         description: |
           Node memory for instance has reached {{ $value }}%.
           Additional information:
-          * Free memory: {{ query "node_memory_MemFree_bytes{job=\"jenkins-tuan\"}" }}
+          * Free memory: {{ humanizeBytes (query "node_memory_MemFree_bytes{job=\"jenkins-tuan\"}" | first) }}
