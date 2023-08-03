@@ -17,8 +17,8 @@ groups:
       expr: (node_memory_MemFree_bytes{job="Mediplus"} / node_memory_MemTotal_bytes{job="Mediplus"}) * 100  
 
   # Phần trăm ram sử dụng bằng 100 - (ram còn lại / tổng ram ) *100
-    - alert: Mức độ ram sử dụng
-      expr: (node_memory_MemTotal_bytes{job="jenkins-tuan"} - node_memory_MemFree_bytes{job="jenkins-tuan"} - node_memory_Buffers_bytes{job="jenkins-tuan"} - node_memory_Cached_bytes{job="jenkins-tuan"}) / (node_memory_MemTotal_bytes{job="jenkins-tuan"}) * 100 >= 70
+    - alert: Cảnh báo RAM
+      expr: (node_memory_MemTotal_bytes{job="jenkins-tuan"} - node_memory_MemFree_bytes{job="jenkins-tuan"} - node_memory_Buffers_bytes{job="jenkins-tuan"} - node_memory_Cached_bytes{job="jenkins-tuan"}) / (node_memory_MemTotal_bytes{job="jenkins-tuan"}) * 100 >= 80
       for: 1m
       labels:
         severity: CẢNH BÁO
@@ -32,7 +32,3 @@ groups:
           * Ram sử dụng: {{ query "node_memory_MemTotal_bytes{job='jenkins-tuan'} - node_memory_MemFree_bytes{job='jenkins-tuan'} - node_memory_Buffers_bytes{job='jenkins-tuan'} - node_memory_Cached_bytes{job='jenkins-tuan'}" | first | value | humanize }}
           * Ram còn lại: {{ query "node_memory_MemFree_bytes{job='jenkins-tuan'}" | first | value | humanize }}
           * Tổng RAM: {{ query "node_memory_MemTotal_bytes{job='jenkins-tuan'}" | first | value | humanize  }}
-
-
-
-              
