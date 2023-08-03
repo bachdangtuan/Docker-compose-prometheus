@@ -33,19 +33,18 @@ groups:
     #       * Ram còn lại: {{ query "node_memory_MemFree_bytes{job='jenkins-tuan', instance=~'.+'}" | first | value | humanize }}
     #       * Tổng RAM: {{ query "node_memory_MemTotal_bytes{job='jenkins-tuan', instance=~'.+'}" | first | value | humanize  }}
 
-    alert: HostOutOfMemory
-    expr: (node_memory_MemTotal_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_MemFree_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_Buffers_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_Cached_bytes{job="jenkins-tuan", instance=~".+"}) / (node_memory_MemTotal_bytes{job="jenkins-tuan", instance=~".+"}) * 100 >= 1
-    labels:
-      severity: critical
-      app_type: jenkins-tuan
-      category: memory
-    annotations:
-      description: |-
-        Node memory is filling up (< 10% left)
-          VALUE = {{ $value }}
-          LABELS = {{ $labels }}
-      summary: Host out of memory (instance {{ $labels.instance }})
-
+    - alert: Cảnh báo RAM
+      expr: (node_memory_MemTotal_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_MemFree_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_Buffers_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_Cached_bytes{job="jenkins-tuan", instance=~".+"}) / (node_memory_MemTotal_bytes{job="jenkins-tuan", instance=~".+"}) * 100 >= 1
+      for: 1m
+      labels:
+        severity: CẢNH BÁO
+        app_type: jenkins-tuan
+        category: memory
+      annotations:
+        summary: "RAM Server > 70%"
+        description: |
+          RAM đã sử dụng chiếm {{ printf "%.2f" $value }}%.
+          Title: Container down (instance {{ $labels.instance }})
 
     # - alert: CPU Tăng Cao
     #   expr: 100 * (1 - (sum(rate(node_cpu_seconds_total{mode="idle", job="Mediplus"}[2m])) / sum(rate(node_cpu_seconds_total{job="Mediplus"}[2m))))) > 80
