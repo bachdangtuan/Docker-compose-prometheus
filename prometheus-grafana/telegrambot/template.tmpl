@@ -17,31 +17,6 @@ Máy Chủ: {{ .CommonLabels.instance }}
 Thông tin: {{.CommonAnnotations.description}}
 Mức Độ: {{ .CommonLabels.severity}}
 Status:  {{ .Status  | str_UpperCase}}
+Active from: {{ $val.StartsAt | str_FormatDate }}
 ------------------------------------------------------
-
-{{Possible variable of template
-  	Alerts            []Alert
-  	CommonAnnotations map[string]interface{}
-  	CommonLabels      map[string]interface{}
-  	ExternalURL       string
-  	GroupKey          int
-  	GroupLabels       map[string]interface{}
-  	Receiver          string
-  	Status            string
-  	Version
-
-    SubVariable Alert use make test for testing this
-
-  	Annotations  map[string]interface{}
-  	EndsAt       string
-  	GeneratorURL string                 `
-  	Labels       map[string]interface{}
-  	StartsAt     string
-
-    All MAP params are iterable with range.
-    About go template language take look:https://golang.org/pkg/text/template/
-
-  }}
-
-{{end }}
 
