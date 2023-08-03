@@ -32,4 +32,5 @@ groups:
           * Free memory: {{ humanize.Bytes (query "node_memory_MemFree_bytes{job=\"jenkins-tuan\"}" | first) }}
           * Total memory: {{ humanize.Bytes (query "node_memory_MemTotal_bytes{job=\"jenkins-tuan\"}" | first) }}
 
+
           
