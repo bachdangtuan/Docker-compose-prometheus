@@ -28,5 +28,5 @@ groups:
         summary: "RAM máy chủ vượt quá 70%"
         description: |
           Node memory for instance has reached {{ $value }}%.
-          Additional information: {{ with printf "node_memory_MemTotal{job='jenkins-tuan',instance='%s'}" .Params.instance | query }} {{ . | first | value | humanize1024 }}B {{ end }}
+          Additional information: {{ with printf "node_memory_MemTotal_bytes{job='jenkins-tuan'}" .Params.instance | query }} {{ . | first | value | humanize1024 }}B 
            
