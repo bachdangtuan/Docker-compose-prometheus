@@ -22,5 +22,6 @@ groups:
         app_type: jenkins-tuan
         category: memory
       annotations:
-        summary: "Memory usage is going high - above 60%"
-        description: "Node memory for instance {{ $labels.instance }} has reached {{ $value }}%"
+        summary: "RAM máy chủ vượt quá 70%"
+        description: "Node memory for instance {{ regex_replace($labels.instance,`aksdjkasd` ,`$1`) }} "
+
