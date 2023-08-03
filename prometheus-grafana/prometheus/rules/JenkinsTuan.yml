@@ -21,7 +21,7 @@ groups:
       expr: (node_memory_MemTotal_bytes{job="jenkins-tuan"} - node_memory_MemFree_bytes{job="jenkins-tuan"} - node_memory_Buffers_bytes{job="jenkins-tuan"} - node_memory_Cached_bytes{job="jenkins-tuan"}) / (node_memory_MemTotal_bytes{job="jenkins-tuan"}) * 100 >= 70
       for: 1m
       labels:
-        severity: warning
+        severity: cảnh báo
         app_type: jenkins-tuan
         category: memory
       annotations:
