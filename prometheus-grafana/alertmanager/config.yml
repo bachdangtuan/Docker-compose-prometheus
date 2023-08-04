@@ -48,30 +48,3 @@ route:
     
 
 
-
-
-
-# route:
-#   continue: false
-#   group_by: ['instance']
-#   group_interval: 1m
-#   group_wait: 30s
-#   repeat_interval: 1m
-#   receiver: System-Team
-#   routes:
-#   - match_re: 
-#      app_type: (bachmai|mediplus|jenkins-tuan)
-#     receiver: System-Team 
-#     routes:
-#     # Bạch Mai group
-#     # - match:
-#     #     app_type: bachmai
-#     #   receiver: BV-BachMai-telegram
-#     # # Mediplus group
-#     # - match:
-#     #     app_type: mediplus
-#     #   receiver: Mediplus-telegram
-#     # Jenkins group
-#     - match:
-#         app_type: jenkins-tuan
-#       receiver: jenkins-tuan-telegram
