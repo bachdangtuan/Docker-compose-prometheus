@@ -54,7 +54,7 @@ services:
       - 3000:3000
     depends_on:
       - prometheus
-# Bot Alert
+# Bot Alert Physical
   prometheus-bot:
     container_name: sys-isofh-bot
     image: bachdangtuan/prom-golang-bot:latest
@@ -65,4 +65,30 @@ services:
       - ./telegrambot/config.yaml:/config.yaml  
     ports:
       - 9087:9087
+    restart: always
+
+# Bot Alert Physical
+  prometheus-bot-container:
+    container_name: sys-isofh-bot-container
+    image: bachdangtuan/prom-golang-bot:latest
+
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./telegrambot-container/:/etc/telegrambot/
+      - ./telegrambot-container/config.yaml:/config.yaml  
+    ports:
+      - 9088:9087
+    restart: always
+
+# Bot Alert Physical
+  prometheus-bot-kubenetes:
+    container_name: sys-isofh-bot-container
+    image: bachdangtuan/prom-golang-bot:latest
+
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./telegrambot-kubenetes/:/etc/telegrambot/
+      - ./telegrambot-kubenetes/config.yaml:/config.yaml  
+    ports:
+      - 9089:9087
     restart: always
