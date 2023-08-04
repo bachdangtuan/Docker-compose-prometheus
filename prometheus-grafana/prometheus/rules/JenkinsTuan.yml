@@ -39,7 +39,7 @@ groups:
 
       # Disk Rules
       - alert: Dung Lượng ổ cứng còn lại nhỏ hơn 10%
-        expr: ((node_filesystem_free_bytes{instance=~".+",job="jenkins-tuan",mountpoint="/"}) / (node_filesystem_size_bytes{instance=~".+",job="jenkins-tuan",mountpoint="/"})) * 100 > 70
+        expr: ((node_filesystem_free_bytes{instance=~".+",job="jenkins-tuan",mountpoint="/"}) / (node_filesystem_size_bytes{instance=~".+",job="jenkins-tuan",mountpoint="/"})) * 100 < 70
         for: 1m
         labels:
           severity: Rất Nguy Hiểm
