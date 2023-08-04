@@ -39,7 +39,7 @@ groups:
 
       # Disk Rules
       - alert: Dung Lượng nhỏ hơn 10%
-        expr: ((node_filesystem_free_bytes{job="jenkins-tuan",instance=~".+"}) / (node_filesystem_size_bytes{job="jenkins-tuan",instance=~".+"})) * 100 < 1
+        expr: ((node_filesystem_free_bytes{job="jenkins-tuan",instance=~".+",mountpoint='/'}) / (node_filesystem_size_bytes{job="jenkins-tuan",instance=~".+",mountpoint='/'}))* 100 > 1
         for: 1m
         labels:
           severity: Rất Nguy Hiểm
