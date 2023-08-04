@@ -23,7 +23,7 @@ alerting:
 
 scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
-  - job_name: 'Nhi Đồng Thành Phố'
+  - job_name: 'Nhi-Dong-Thanh-Pho'
     scrape_interval: 5s
     static_configs:
       - targets: ['10.0.0.211:19100','10.0.2.38:9100']
