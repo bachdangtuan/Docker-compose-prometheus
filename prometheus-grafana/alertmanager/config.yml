@@ -6,13 +6,18 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-901133248'
 
+- name: systems-team-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.13:9087/alert/-815609975'
+
+
 route:
   continue: false
   group_by: ['instance']
   group_interval: 1m
   group_wait: 10s
   repeat_interval: 1m
-  receiver: nhidongthanhpho-telegram
+  receiver: systems-team-telegram
   routes:
 # RAM 
     - match:
