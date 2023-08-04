@@ -26,4 +26,9 @@ scrape_configs:
   - job_name: 'Nhi-Dong-Thanh-Pho'
     scrape_interval: 5s
     static_configs:
-      - targets: ['10.0.0.211:19100','10.0.2.38:9100']
+      - targets:
+          - 10.0.2.38:19100
+          - 10.0.2.40:9100
+          - 10.0.2.41:9100
+          - 10.0.2.42:9100
+          - 10.0.2.43:9100

@@ -26,12 +26,35 @@ route:
         category: memory  
       receiver: nhidongthanhpho-telegram
       group_wait: 2s
+
     - match:
         app_type: Nhi Đồng Thành Phố
-        instance: 10.0.0.210:9100
+        instance: 10.0.2.40:9100
         category: memory  
       receiver: nhidongthanhpho-telegram
-      group_wait: 4s
+      group_wait: 2s
+
+    - match:
+        app_type: Nhi Đồng Thành Phố
+        instance: 10.0.2.41:9100
+        category: memory  
+      receiver: nhidongthanhpho-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Nhi Đồng Thành Phố
+        instance: 10.0.2.42:9100
+        category: memory  
+      receiver: nhidongthanhpho-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Nhi Đồng Thành Phố
+        instance: 10.0.2.43:9100
+        category: memory  
+      receiver: nhidongthanhpho-telegram
+      group_wait: 2s   
+   
 # CPU
     - match:
         app_type: Nhi Đồng Thành Phố
@@ -39,12 +62,39 @@ route:
         category: cpu  
       receiver: nhidongthanhpho-telegram
       group_wait: 1s
+
     - match:
         app_type: Nhi Đồng Thành Phố
-        instance: 10.0.0.211:19100
+        instance: 10.0.2.40:9100
         category: cpu  
       receiver: nhidongthanhpho-telegram
       group_wait: 1s
+
+    - match:
+        app_type: Nhi Đồng Thành Phố
+        instance: 10.0.2.41:9100
+        category: cpu  
+      receiver: nhidongthanhpho-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Nhi Đồng Thành Phố
+        instance: 10.0.2.42:9100
+        category: cpu  
+      receiver: nhidongthanhpho-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Nhi Đồng Thành Phố
+        instance: 10.0.2.43:9100
+        category: cpu  
+      receiver: nhidongthanhpho-telegram
+      group_wait: 1s
+
+
+
+
+
 # DISK
     - match:
         app_type: Nhi Đồng Thành Phố
@@ -52,9 +102,32 @@ route:
         category: disk  
       receiver: nhidongthanhpho-telegram
       group_wait: 1s
+
     - match:
         app_type: Nhi Đồng Thành Phố
-        instance: 10.0.0.211:19100
+        instance: 10.0.2.40:9100
         category: disk  
       receiver: nhidongthanhpho-telegram
       group_wait: 1s
+
+    - match:
+        app_type: Nhi Đồng Thành Phố
+        instance: 10.0.2.41:9100
+        category: disk  
+      receiver: nhidongthanhpho-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Nhi Đồng Thành Phố
+        instance: 10.0.2.42:9100
+        category: disk  
+      receiver: nhidongthanhpho-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Nhi Đồng Thành Phố
+        instance: 10.0.2.43:9100
+        category: disk  
+      receiver: nhidongthanhpho-telegram
+      group_wait: 1s
+
