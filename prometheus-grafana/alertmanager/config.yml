@@ -13,18 +13,9 @@ receivers:
     send_resolved: true
     parse_mode: ""
 
-- name: BV-BachMai-telegram
+- name: nhidongthanhpho-telegram
   webhook_configs:
-  - url: 'http://10.0.0.232:9087/alert/-932865047'
-
-
-- name: Mediplus-telegram
-  webhook_configs:
-  - url: 'http://10.0.0.232:9087/alert/-866646704'
-
-- name: jenkins-tuan-telegram
-  webhook_configs:
-  - url: 'http://10.0.0.232:9087/alert/-866646704'
+  - url: 'http://10.0.0.232:9087/alert/-901133248'
 
 route:
   continue: false
@@ -36,42 +27,42 @@ route:
   routes:
 # RAM 
     - match:
-        app_type: jenkins-tuan
+        app_type: Nhi Đồng Thành Phố
         instance: 10.0.0.211:19100
         category: memory  
-      receiver: jenkins-tuan-telegram
+      receiver: nhidongthanhpho-telegram
       group_wait: 2s
     - match:
-        app_type: jenkins-tuan
+        app_type: Nhi Đồng Thành Phố
         instance: 10.0.0.210:9100
         category: memory  
-      receiver: jenkins-tuan-telegram
+      receiver: nhidongthanhpho-telegram
       group_wait: 4s
 # CPU
     - match:
-        app_type: jenkins-tuan
+        app_type: Nhi Đồng Thành Phố
         instance: 10.0.0.210:9100
         category: cpu  
-      receiver: jenkins-tuan-telegram
+      receiver: nhidongthanhpho-telegram
       group_wait: 1s
     - match:
-        app_type: jenkins-tuan
+        app_type: Nhi Đồng Thành Phố
         instance: 10.0.0.211:19100
         category: cpu  
-      receiver: jenkins-tuan-telegram
+      receiver: nhidongthanhpho-telegram
       group_wait: 1s
 # DISK
     - match:
-        app_type: jenkins-tuan
+        app_type: Nhi Đồng Thành Phố
         instance: 10.0.0.210:9100
         category: disk  
-      receiver: jenkins-tuan-telegram
+      receiver: nhidongthanhpho-telegram
       group_wait: 1s
     - match:
-        app_type: jenkins-tuan
+        app_type: Nhi Đồng Thành Phố
         instance: 10.0.0.211:19100
         category: disk  
-      receiver: jenkins-tuan-telegram
+      receiver: nhidongthanhpho-telegram
       group_wait: 1s
 
 
