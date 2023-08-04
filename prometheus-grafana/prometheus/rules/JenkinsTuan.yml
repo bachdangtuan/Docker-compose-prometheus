@@ -24,7 +24,7 @@ groups:
                  * Ram còn lại:  {{ query (printf "node_memory_MemFree_bytes{job='jenkins-tuan', instance=~'%s'}" $labels.instance) | first | value | humanize }}
 
       # CPU Rules
-      - alert: CPU Usage High
+      - alert: CPU Tăng cao
         expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="jenkins-tuan", instance=~".+",mode="idle"}[1m])) * 100) > 0.0001
         for: 1m
         labels:
@@ -36,3 +36,15 @@ groups:
           summary: "CPU Server > 90%"
           description: | 
             CPU máy chủ sử dụng đạt tới  {{ printf "%.2f" $value }}% / 100%
+
+      # Disk Rules
+      - alert: Dung Lượng nhỏ hơn 10%
+        expr: ((node_filesystem_free_bytes{job="jenkins-tuan",instance=~".+"}) / (node_filesystem_size_bytes{job="jenkins-tuan",instance=~".+"})) * 100 < 1
+        for: 1m
+        labels:
+          severity: Rất Nguy Hiểm
+          app_type: jenkins-tuan
+          category: disk
+        annotations:
+          summary: "Dung lượng ổ cứng server nhỏ hơn 10%"
+          description: "Node disk is going to full (< 10% left)\n  Current free disk space is {{ $value }}"
