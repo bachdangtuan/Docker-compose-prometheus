@@ -54,7 +54,7 @@ route:
 # DISK
     - match:
         app_type: Nhi-Dong-Thanh-Pho
-        instance: 10.0.2.38
+        instance: '10.0.2.38'
         category: disk  
       receiver: nhidongthanhpho-telegram
       group_wait: 1s
