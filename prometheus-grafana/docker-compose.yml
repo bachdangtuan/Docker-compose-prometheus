@@ -56,7 +56,7 @@ services:
       - prometheus
 # Bot Alert Physical
   prometheus-bot:
-    container_name: sys-isofh-bot
+    container_name: sys-isofh-vipbot-physical
     image: bachdangtuan/prom-golang-bot:latest
 
     volumes:
@@ -69,7 +69,7 @@ services:
 
 # Bot Alert Physical
   prometheus-bot-container:
-    container_name: sys-isofh-bot-container
+    container_name: sys-isofh-vipbot-container
     image: bachdangtuan/prom-golang-bot:latest
 
     volumes:
@@ -82,7 +82,7 @@ services:
 
 # Bot Alert Physical
   prometheus-bot-kubenetes:
-    container_name: sys-isofh-bot-k8s
+    container_name: sys-isofh-vipbot-k8s
     image: bachdangtuan/prom-golang-bot:latest
 
     volumes:
