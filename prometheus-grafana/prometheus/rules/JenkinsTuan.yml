@@ -38,7 +38,7 @@ groups:
             CPU máy chủ sử dụng đạt tới  {{ printf "%.2f" $value }}% / 100%
 
       # Disk Rules
-      - alert: Dung Lượng nhỏ hơn 10%
+      - alert: Dung Lượng ổ cứng còn lại nhỏ hơn 10%
         expr: ((node_filesystem_free_bytes{instance=~".+",job="jenkins-tuan",mountpoint="/"}) / (node_filesystem_size_bytes{instance=~".+",job="jenkins-tuan",mountpoint="/"})) * 100 > 1
         for: 1m
         labels:
@@ -46,5 +46,6 @@ groups:
           app_type: jenkins-tuan
           category: disk
         annotations:
-          summary: "Dung lượng ổ cứng server nhỏ hơn 10%"
-          description: "Node disk is going to full (< 10% left)\n  Current free disk space is {{ $value }}"
+          summary: "Dung lượng ổ cứng server còn lại < 10%"
+          description: | 
+           Dung lượng sắp đầy (< 10% left)\n  Dung lượng còn trống {{ printf "%.2f" $value }}% / 100%
