@@ -35,4 +35,4 @@ groups:
         annotations:
           summary: "CPU Server > 90%"
           description: | 
-            CPU máy chủ sử dụng đạt tới  {{ $value }}% / 100%
+            CPU máy chủ sử dụng đạt tới  {{ printf "%.2f" $value }}% / 100%
