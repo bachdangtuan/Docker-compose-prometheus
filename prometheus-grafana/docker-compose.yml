@@ -82,7 +82,7 @@ services:
 
 # Bot Alert Physical
   prometheus-bot-kubenetes:
-    container_name: sys-isofh-bot-container
+    container_name: sys-isofh-bot-k8s
     image: bachdangtuan/prom-golang-bot:latest
 
     volumes:
