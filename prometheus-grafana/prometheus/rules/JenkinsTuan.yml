@@ -3,7 +3,7 @@ groups:
     rules:
       # Ram Rules
       - alert: Cảnh báo RAM
-        expr: (node_memory_MemTotal_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_MemFree_bytes{job="jenkins-tuan", instance=~".+"}) / (node_memory_MemTotal_bytes{job="jenkins-tuan", instance=~".+"}) * 100 >= 1
+        expr: (node_memory_MemTotal_bytes{job="jenkins-tuan", instance=~".+"} - node_memory_MemFree_bytes{job="jenkins-tuan", instance=~".+"}) / (node_memory_MemTotal_bytes{job="jenkins-tuan", instance=~".+"}) * 100 >= 90
         for: 1m
         labels:
           severity: Rất Nguy Hiểm
@@ -25,7 +25,7 @@ groups:
 
       # CPU Rules
       - alert: CPU Tăng cao
-        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="jenkins-tuan", instance=~".+",mode="idle"}[1m])) * 100) > 0.0001
+        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="jenkins-tuan", instance=~".+",mode="idle"}[1m])) * 100) > 80
         for: 1m
         labels:
           severity: Rất Nguy Hiểm
@@ -39,7 +39,7 @@ groups:
 
       # Disk Rules
       - alert: Dung Lượng ổ cứng còn lại nhỏ hơn 10%
-        expr: ((node_filesystem_free_bytes{instance=~".+",job="jenkins-tuan",mountpoint="/"}) / (node_filesystem_size_bytes{instance=~".+",job="jenkins-tuan",mountpoint="/"})) * 100 > 1
+        expr: ((node_filesystem_free_bytes{instance=~".+",job="jenkins-tuan",mountpoint="/"}) / (node_filesystem_size_bytes{instance=~".+",job="jenkins-tuan",mountpoint="/"})) * 100 > 70
         for: 1m
         labels:
           severity: Rất Nguy Hiểm
