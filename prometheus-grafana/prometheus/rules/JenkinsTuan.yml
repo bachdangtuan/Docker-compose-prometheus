@@ -38,14 +38,14 @@ groups:
             CPU máy chủ sử dụng đạt tới  {{ printf "%.2f" $value }}% / 100%
 
       # Disk Rules
-      - alert: Dung Lượng ổ cứng còn lại nhỏ hơn 10%
-        expr: ((node_filesystem_free_bytes{instance=~".+",job="jenkins-tuan",mountpoint="/"}) / (node_filesystem_size_bytes{instance=~".+",job="jenkins-tuan",mountpoint="/"})) * 100 < 70
+      - alert: Dung Lượng ổ cứng còn lại nhỏ hơn 95%
+        expr: ((node_filesystem_free_bytes{instance=~".+",job="jenkins-tuan",mountpoint="/"}) / (node_filesystem_size_bytes{instance=~".+",job="jenkins-tuan",mountpoint="/"})) * 100 > 95
         for: 1m
         labels:
           severity: Rất Nguy Hiểm
           app_type: jenkins-tuan
           category: disk
         annotations:
-          summary: "Dung lượng ổ cứng server còn lại < 10%"
+          summary: "Dung lượng ổ cứng server còn lại < 95%"
           description: | 
            Dung lượng sắp đầy (< 10% left)\n  Dung lượng còn trống {{ printf "%.2f" $value }}% / 100%
