@@ -15,7 +15,7 @@ receivers:
 
 - name: nhidongthanhpho-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-901133248'
+  - url: 'http://10.0.0.13:9087/alert/-932865047'
 
 route:
   continue: false
