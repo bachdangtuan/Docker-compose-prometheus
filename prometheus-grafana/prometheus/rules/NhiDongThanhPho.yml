@@ -7,7 +7,7 @@ groups:
         for: 1m
         labels:
           severity: Rất Nguy Hiểm
-          app_type: Nhi Đồng Thành Phố
+          app_type: Nhi-Dong-Thanh-Pho
           category: memory
           instance: "{{ $labels.instance }}"
         annotations:
@@ -29,7 +29,7 @@ groups:
         for: 1m
         labels:
           severity: Rất Nguy Hiểm
-          app_type: Nhi Đồng Thành Phố
+          app_type: Nhi-Dong-Thanh-Pho
           category: cpu
           instance: "{{ $labels.instance }}"
         annotations:
@@ -43,7 +43,7 @@ groups:
         for: 1m
         labels:
           severity: Rất Nguy Hiểm
-          app_type: Nhi Đồng Thành Phố
+          app_type: Nhi-Dong-Thanh-Pho
           category: disk
         annotations:
           summary: "Dung lượng ổ cứng server còn lại < 95%"
