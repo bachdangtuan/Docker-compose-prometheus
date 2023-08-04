@@ -28,7 +28,7 @@ route:
 # RAM 
     - match:
         app_type: Nhi Đồng Thành Phố
-        instance: 10.0.2.38
+        instance: '10.0.2.38'
         category: memory  
       receiver: nhidongthanhpho-telegram
       group_wait: 2s
@@ -41,7 +41,7 @@ route:
 # CPU
     - match:
         app_type: Nhi Đồng Thành Phố
-        instance: 10.0.2.38
+        instance: '10.0.2.38'
         category: cpu  
       receiver: nhidongthanhpho-telegram
       group_wait: 1s
