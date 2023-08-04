@@ -25,7 +25,7 @@ groups:
 
       # CPU Rules
       - alert: CPU Usage High
-        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="Mediplus", instance=~".+",mode="idle"}[1m])) * 100) > 0.0001
+        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="jenkins-tuan", instance=~".+",mode="idle"}[1m])) * 100) > 0.0001
         for: 1m
         labels:
           severity: Rất Nguy Hiểm
