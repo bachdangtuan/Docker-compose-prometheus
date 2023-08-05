@@ -138,7 +138,7 @@ route:
       group_wait: 2s
     - match:
         app_type: Phòng Khám 40
-        instance: 192.168.10.231:19100
+        instance: 192.168.10.231:9100
         category: cpu  
       receiver: phongkham40-telegram
       group_wait: 2s
