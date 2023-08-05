@@ -65,7 +65,7 @@ groups:
           summary: "Ổ CỨNG SẮP ĐẦY"
           description: | 
           
-              TOTAL disk:  {{ query (printf "node_filesystem_free_bytes{job='Dai-Hoc-Y',mountpoint=~".+", instance=~'%s'}" $labels.instance) | first | value  }}
+              TOTAL disk:  {{ query (printf "node_filesystem_free_bytes{job='Dai-Hoc-Y',mountpoint=~".+", instance=~'%%s'}" $labels.instance) | first | value  }}
 
 
               DUNG LƯỢNG Ổ CỨNG SỬ DỤNG ĐẠT
