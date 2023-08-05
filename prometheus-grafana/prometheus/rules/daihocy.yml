@@ -54,6 +54,23 @@ groups:
             CPU máy chủ sử dụng đạt tới  {{ printf "%.2f" $value }}% / 100%
 
       # Disk Rules
+      # - alert: Dung lượng DISK
+      #   expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Dai-Hoc-Y",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Dai-Hoc-Y",mountpoint=~".+"}))* 100) > 95
+      #   for: 1m
+      #   labels:
+      #     severity: Khẩn cấp
+      #     app_type: Đại Học Y
+      #     category: disk
+      #   annotations:
+      #     summary: "Ổ CỨNG SẮP ĐẦY"
+      #     description: | 
+
+      #         DUNG LƯỢNG Ổ CỨNG SỬ DỤNG ĐẠT
+              
+      #         {{ printf "%.2f" $value }}% / 100%
+
+      #         Vào fix đi anh em !
+
       - alert: Dung lượng DISK
         expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Dai-Hoc-Y",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Dai-Hoc-Y",mountpoint=~".+"}))* 100) > 95
         for: 1m
@@ -64,10 +81,11 @@ groups:
         annotations:
           summary: "Ổ CỨNG SẮP ĐẦY"
           description: | 
-
               DUNG LƯỢNG Ổ CỨNG SỬ DỤNG ĐẠT
               
               {{ printf "%.2f" $value }}% / 100%
 
               Vào fix đi anh em !
-
+              
+              Device: {{ device }}
+              Mountpoint: {{ mountpoint }}
