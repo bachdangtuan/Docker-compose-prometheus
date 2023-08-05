@@ -6,7 +6,7 @@ groups:
         expr:  up{job="Phong-Kham-40",instance=~".+"} == 0
         for: 1m
         labels:
-          severity: Rất Nguy Hiểm
+          severity: Khẩn cấp
           app_type: Phòng Khám 40
           category: server
           instance: "{{ $labels.instance }}"
@@ -20,7 +20,7 @@ groups:
         expr: (node_memory_MemTotal_bytes{job="Phong-Kham-40", instance=~".+"} - node_memory_MemFree_bytes{job="Phong-Kham-40", instance=~".+"}) / (node_memory_MemTotal_bytes{job="Phong-Kham-40", instance=~".+"}) * 100 >= 80
         for: 1m
         labels:
-          severity: Rất Nguy Hiểm
+          severity: Khẩn cấp
           app_type: Phòng Khám 40
           category: memory
           instance: "{{ $labels.instance }}"
@@ -44,7 +44,7 @@ groups:
         expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="Phong-Kham-40", instance=~".+",mode="idle"}[1m])) * 100) > 80
         for: 1m
         labels:
-          severity: Rất Nguy Hiểm
+          severity: Khẩn cấp
           app_type: Phòng Khám 40
           category: cpu
           instance: "{{ $labels.instance }}"
@@ -58,7 +58,7 @@ groups:
         expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Benh-Vien-E",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Benh-Vien-E",mountpoint=~".+"}))* 100) > 90
         for: 1m
         labels:
-          severity: Rất Nguy Hiểm
+          severity: Khẩn cấp
           app_type: Phòng Khám 40
           category: disk
         annotations:

@@ -6,7 +6,7 @@ groups:
         expr:  up{job="Nhi-Dong-Thanh-Pho",instance=~".+"} == 0
         for: 1m
         labels:
-          severity: Rất Nguy Hiểm
+          severity: Khẩn cấp
           app_type: Nhi Đồng Thành Phố
           category: server
           instance: "{{ $labels.instance }}"
@@ -20,7 +20,7 @@ groups:
         expr: (node_memory_MemTotal_bytes{job="Nhi-Dong-Thanh-Pho", instance=~".+"} - node_memory_MemFree_bytes{job="Nhi-Dong-Thanh-Pho", instance=~".+"}) / (node_memory_MemTotal_bytes{job="Nhi-Dong-Thanh-Pho", instance=~".+"}) * 100 >= 90
         for: 1m
         labels:
-          severity: Rất Nguy Hiểm
+          severity: Khẩn cấp
           app_type: Nhi Đồng Thành Phố
           category: memory
           instance: "{{ $labels.instance }}"
@@ -45,7 +45,7 @@ groups:
         expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="Nhi-Dong-Thanh-Pho", instance=~".+",mode="idle"}[1m])) * 100) > 80
         for: 1m
         labels:
-          severity: Rất Nguy Hiểm
+          severity: Khẩn cấp
           app_type: Nhi Đồng Thành Phố
           category: cpu
           instance: "{{ $labels.instance }}"

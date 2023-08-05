@@ -35,7 +35,7 @@ route:
   continue: false
   group_by: ['instance']
   group_interval: 1m
-  group_wait: 10s
+  group_wait: 5s
   repeat_interval: 1m
   receiver: systems-team-telegram
   routes:

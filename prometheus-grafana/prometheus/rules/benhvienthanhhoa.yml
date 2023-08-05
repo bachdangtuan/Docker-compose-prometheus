@@ -21,7 +21,7 @@ groups:
         expr: (node_memory_MemTotal_bytes{job="Benh-Vien-DK-ThanhHoa", instance=~".+"} - node_memory_MemFree_bytes{job="Benh-Vien-DK-ThanhHoa", instance=~".+"}) / (node_memory_MemTotal_bytes{job="Benh-Vien-DK-ThanhHoa", instance=~".+"}) * 100 >= 80
         for: 1m
         labels:
-          severity: Rất Nguy Hiểm
+          severity: Khẩn cấp
           app_type: Bệnh Viện Đa Khoa Thanh Hóa
           category: memory
           instance: "{{ $labels.instance }}"
@@ -45,7 +45,7 @@ groups:
         expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="Benh-Vien-DK-ThanhHoa", instance=~".+",mode="idle"}[1m])) * 100) > 80
         for: 1m
         labels:
-          severity: Rất Nguy Hiểm
+          severity: Khẩn cấp
           app_type: Bệnh Viện Đa Khoa Thanh Hóa
           category: cpu
           instance: "{{ $labels.instance }}"
@@ -60,7 +60,7 @@ groups:
         expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Benh-Vien-DK-ThanhHoa",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Benh-Vien-DK-ThanhHoa",mountpoint=~".+"}))* 100) > 90
         for: 1m
         labels:
-          severity: Rất Nguy Hiểm
+          severity: Khẩn cấp
           app_type: Bệnh Viện Đa Khoa Thanh Hóa
           category: disk
         annotations:
