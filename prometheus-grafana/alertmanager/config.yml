@@ -43,16 +43,8 @@ receivers:
 # Thêm các receivers khác ở đây
 
 route:
-  continue: false
-  group_by: ['instance']
-  group_interval: 1m
-  group_wait: 10s
-  repeat_interval: 1m
-  receiver: System-Team
-# Sử dụng include để chèn cấu hình luật cảnh báo của từng máy chủ
-  route:
   - receiver: System-Team
     group_by: ['instance']
     routes:
-      - include: '/include/to/test.yml'
+      - include: '/include/test.yml'
       # Chèn các tệp cấu hình luật cảnh báo cho các máy chủ khác
