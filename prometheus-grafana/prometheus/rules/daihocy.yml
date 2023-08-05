@@ -7,7 +7,7 @@ groups:
         for: 1m
         labels:
           severity: Khẩn cấp
-          app_type: Phòng Khám 40
+          app_type: Đại Học Y
           category: server
           instance: "{{ $labels.instance }}"
         annotations:
@@ -21,7 +21,7 @@ groups:
         for: 1m
         labels:
           severity: Khẩn cấp
-          app_type: Phòng Khám 40
+          app_type: Đại Học Y
           category: memory
           instance: "{{ $labels.instance }}"
         annotations:
@@ -45,7 +45,7 @@ groups:
         for: 1m
         labels:
           severity: Khẩn cấp
-          app_type: Phòng Khám 40
+          app_type: Đại Học Y
           category: cpu
           instance: "{{ $labels.instance }}"
         annotations:
@@ -59,7 +59,7 @@ groups:
         for: 1m
         labels:
           severity: Khẩn cấp
-          app_type: Phòng Khám 40
+          app_type: Đại Học Y
           category: disk
         annotations:
           summary: "Ổ CỨNG SẮP ĐẦY"
