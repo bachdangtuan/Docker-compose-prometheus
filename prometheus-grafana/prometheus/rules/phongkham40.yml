@@ -3,7 +3,7 @@ groups:
     rules:
       # Ram Rules
       - alert: Cảnh báo RAM
-        expr: (node_memory_MemTotal_bytes{job="Phong-Kham-40", instance=~".+"} - node_memory_MemFree_bytes{job="Phong-Kham-40", instance=~".+"}) / (node_memory_MemTotal_bytes{job="Phong-Kham-40", instance=~".+"}) * 100 >= 90
+        expr: (node_memory_MemTotal_bytes{job="Phong-Kham-40", instance=~".+"} - node_memory_MemFree_bytes{job="Phong-Kham-40", instance=~".+"}) / (node_memory_MemTotal_bytes{job="Phong-Kham-40", instance=~".+"}) * 100 >= 80
         for: 1m
         labels:
           severity: Rất Nguy Hiểm
@@ -11,7 +11,7 @@ groups:
           category: memory
           instance: "{{ $labels.instance }}"
         annotations:
-          summary: "RAM Server > 90%"
+          summary: "RAM Server > 80%"
           description: |
             RAM đã sử dụng chiếm {{ printf "%.2f" $value }}% / 100%
                  * Ram sử dụng (ram dùng + ram cache/buffer)
