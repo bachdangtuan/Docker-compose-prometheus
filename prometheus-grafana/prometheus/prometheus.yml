@@ -13,6 +13,7 @@ rule_files:
   - "rules/benhviene.yml"
   - "rules/benhvienquany110.yml"
   - "rules/benhvienthanhhoa.yml"
+  - "rules/daihocy.yml"
 
 # alert
 alerting:
