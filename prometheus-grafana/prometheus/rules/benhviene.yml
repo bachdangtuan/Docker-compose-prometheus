@@ -56,7 +56,8 @@ groups:
 
       # Disk Rules
       - alert: Dung lượng DISK
-        expr: ((node_filesystem_free_bytes{instance=~".+",job="Benh-Vien-E",mountpoint="/"}) / (node_filesystem_size_bytes{instance=~".+",job="Benh-Vien-E",mountpoint="/"})) * 100 > 90
+        # expr: ((node_filesystem_free_bytes{instance=~".+",job="Benh-Vien-E",mountpoint="/"}) / (node_filesystem_size_bytes{instance=~".+",job="Benh-Vien-E",mountpoint="/"})) * 100 > 90
+        expr: ((node_filesystem_free_bytes{instance=~".+",job="Benh-Vien-E",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Benh-Vien-E",mountpoint=~".+"})) * 100 > 90
         for: 1m
         labels:
           severity: Rất Nguy Hiểm
