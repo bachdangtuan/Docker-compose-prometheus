@@ -64,13 +64,9 @@ groups:
         annotations:
           summary: "Ổ CỨNG SẮP ĐẦY"
           description: | 
-          
-              TOTAL disk:  {{ query (printf "node_filesystem_free_bytes{job='Dai-Hoc-Y', instance=~'%s'}" $labels.instance) | first | value  }}
-
 
               DUNG LƯỢNG Ổ CỨNG SỬ DỤNG ĐẠT
-
-
+              
               {{ printf "%.2f" $value }}% / 100%
 
               Vào fix đi anh em !
