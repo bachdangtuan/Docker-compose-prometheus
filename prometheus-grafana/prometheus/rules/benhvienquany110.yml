@@ -1,14 +1,14 @@
 groups:
-  - name: Bệnh Viện E-Rules
+  - name: Bệnh Viện Quân Y 110-Rules
     rules:
 
       # Node Down
       - alert: Node-export bị tắt
-        expr:  up{job="Benh-Vien-E",instance=~".+"} == 0
+        expr:  up{job="Benh-Vien-110",instance=~".+"} == 0
         for: 1m
         labels:
           severity: Rất Nguy Hiểm
-          app_type: Bệnh Viện E
+          app_type: Bệnh Viện Quân Y 110
           category: server
           instance: "{{ $labels.instance }}"
         annotations:
@@ -18,11 +18,11 @@ groups:
 
       # Ram Rules
       - alert: Cảnh báo RAM
-        expr: (node_memory_MemTotal_bytes{job="Benh-Vien-E", instance=~".+"} - node_memory_MemFree_bytes{job="Benh-Vien-E", instance=~".+"}) / (node_memory_MemTotal_bytes{job="Benh-Vien-E", instance=~".+"}) * 100 >= 80
+        expr: (node_memory_MemTotal_bytes{job="Benh-Vien-110", instance=~".+"} - node_memory_MemFree_bytes{job="Benh-Vien-110", instance=~".+"}) / (node_memory_MemTotal_bytes{job="Benh-Vien-110", instance=~".+"}) * 100 >= 80
         for: 1m
         labels:
           severity: Rất Nguy Hiểm
-          app_type: Bệnh Viện E
+          app_type: Bệnh Viện Quân Y 110
           category: memory
           instance: "{{ $labels.instance }}"
         annotations:
@@ -34,19 +34,19 @@ groups:
                  
             Thông Tin Cụ Thể:
 
-                 * TOTAL RAM:  {{ query (printf "node_memory_MemTotal_bytes{job='Benh-Vien-E', instance=~'%s'}" $labels.instance) | first | value | humanize }}
+                 * TOTAL RAM:  {{ query (printf "node_memory_MemTotal_bytes{job='Benh-Vien-110', instance=~'%s'}" $labels.instance) | first | value | humanize }}
 
-                 * Ram sử dụng:  {{ query (printf "node_memory_MemTotal_bytes{job='Benh-Vien-E', instance=~'%s'} - node_memory_MemFree_bytes{job='Benh-Vien-E', instance=~'%s'}" $labels.instance $labels.instance ) | first | value | humanize }}
+                 * Ram sử dụng:  {{ query (printf "node_memory_MemTotal_bytes{job='Benh-Vien-110', instance=~'%s'} - node_memory_MemFree_bytes{job='Benh-Vien-110', instance=~'%s'}" $labels.instance $labels.instance ) | first | value | humanize }}
                   
-                 * Ram còn lại:  {{ query (printf "node_memory_MemFree_bytes{job='Benh-Vien-E', instance=~'%s'}" $labels.instance) | first | value | humanize }}
+                 * Ram còn lại:  {{ query (printf "node_memory_MemFree_bytes{job='Benh-Vien-110', instance=~'%s'}" $labels.instance) | first | value | humanize }}
 
       # CPU Rules
       - alert: CPU Tăng cao
-        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="Benh-Vien-E", instance=~".+",mode="idle"}[1m])) * 100) > 80
+        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="Benh-Vien-110", instance=~".+",mode="idle"}[1m])) * 100) > 80
         for: 1m
         labels:
           severity: Rất Nguy Hiểm
-          app_type: Bệnh Viện E
+          app_type: Bệnh Viện Quân Y 110
           category: cpu
           instance: "{{ $labels.instance }}"
         annotations:
@@ -56,12 +56,12 @@ groups:
 
       # Disk Rules
       - alert: Dung lượng DISK
-        # expr: ((node_filesystem_free_bytes{instance=~".+",job="Benh-Vien-E",mountpoint="/"}) / (node_filesystem_size_bytes{instance=~".+",job="Benh-Vien-E",mountpoint="/"})) * 100 > 90
-        expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Benh-Vien-E",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Benh-Vien-E",mountpoint=~".+"}))* 100) > 90
+        # expr: ((node_filesystem_free_bytes{instance=~".+",job="Benh-Vien-110",mountpoint="/"}) / (node_filesystem_size_bytes{instance=~".+",job="Benh-Vien-110",mountpoint="/"})) * 100 > 90
+        expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Benh-Vien-110",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Benh-Vien-110",mountpoint=~".+"}))* 100) > 90
         for: 1m
         labels:
           severity: Rất Nguy Hiểm
-          app_type: Bệnh Viện E
+          app_type: Bệnh Viện Quân Y 110
           category: disk
         annotations:
           summary: "Ổ CỨNG SẮP ĐẦY"

@@ -18,6 +18,12 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-901133248'
 
+- name: quany110-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.13:9087/alert/-858234435'
+
+
+
 - name: systems-team-telegram
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-815609975'
