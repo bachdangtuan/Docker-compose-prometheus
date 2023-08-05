@@ -1,9 +1,9 @@
 groups:
-  - name: Phòng Khám 40-Rules
+  - name: Đại Học Y-Rules
     rules:
       # Node Down
       - alert: Cảnh Báo Server
-        expr:  up{job="Phong-Kham-40",instance=~".+"} == 0
+        expr:  up{job="Dai-Hoc-Y",instance=~".+"} == 0
         for: 1m
         labels:
           severity: Khẩn cấp
@@ -17,7 +17,7 @@ groups:
 
       # Ram Rules
       - alert: Cảnh báo RAM
-        expr: (node_memory_MemTotal_bytes{job="Phong-Kham-40", instance=~".+"} - node_memory_MemFree_bytes{job="Phong-Kham-40", instance=~".+"}) / (node_memory_MemTotal_bytes{job="Phong-Kham-40", instance=~".+"}) * 100 >= 90
+        expr: (node_memory_MemTotal_bytes{job="Dai-Hoc-Y", instance=~".+"} - node_memory_MemFree_bytes{job="Dai-Hoc-Y", instance=~".+"}) / (node_memory_MemTotal_bytes{job="Dai-Hoc-Y", instance=~".+"}) * 100 >= 90
         for: 1m
         labels:
           severity: Khẩn cấp
@@ -33,15 +33,15 @@ groups:
                  
             Thông Tin Cụ Thể:
 
-                 * TOTAL RAM:  {{ query (printf "node_memory_MemTotal_bytes{job='Phong-Kham-40', instance=~'%s'}" $labels.instance) | first | value | humanize }}
+                 * TOTAL RAM:  {{ query (printf "node_memory_MemTotal_bytes{job='Dai-Hoc-Y', instance=~'%s'}" $labels.instance) | first | value | humanize }}
 
-                 * Ram sử dụng:  {{ query (printf "node_memory_MemTotal_bytes{job='Phong-Kham-40', instance=~'%s'} - node_memory_MemFree_bytes{job='Phong-Kham-40', instance=~'%s'}" $labels.instance $labels.instance ) | first | value | humanize }}
+                 * Ram sử dụng:  {{ query (printf "node_memory_MemTotal_bytes{job='Dai-Hoc-Y', instance=~'%s'} - node_memory_MemFree_bytes{job='Dai-Hoc-Y', instance=~'%s'}" $labels.instance $labels.instance ) | first | value | humanize }}
                   
-                 * Ram còn lại:  {{ query (printf "node_memory_MemFree_bytes{job='Phong-Kham-40', instance=~'%s'}" $labels.instance) | first | value | humanize }}
+                 * Ram còn lại:  {{ query (printf "node_memory_MemFree_bytes{job='Dai-Hoc-Y', instance=~'%s'}" $labels.instance) | first | value | humanize }}
 
       # CPU Rules
       - alert: CPU Tăng cao
-        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="Phong-Kham-40", instance=~".+",mode="idle"}[1m])) * 100) > 90
+        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="Dai-Hoc-Y", instance=~".+",mode="idle"}[1m])) * 100) > 90
         for: 1m
         labels:
           severity: Khẩn cấp
@@ -55,7 +55,7 @@ groups:
 
       # Disk Rules
       - alert: Dung lượng DISK
-        expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Phong-Kham-40",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Phong-Kham-40",mountpoint=~".+"}))* 100) > 95
+        expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Dai-Hoc-Y",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Dai-Hoc-Y",mountpoint=~".+"}))* 100) > 95
         for: 1m
         labels:
           severity: Khẩn cấp
