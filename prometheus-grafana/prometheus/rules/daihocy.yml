@@ -67,6 +67,8 @@ groups:
 
               DUNG LƯỢNG Ổ CỨNG SỬ DỤNG ĐẠT
               
+              {{ $labels.mountpoint }}
+
               {{ printf "%.2f" $value }}% / 100%
 
               Vào fix đi anh em !
