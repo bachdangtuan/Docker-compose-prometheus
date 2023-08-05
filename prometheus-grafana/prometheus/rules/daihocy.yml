@@ -29,7 +29,7 @@ groups:
           description: |
             RAM đã sử dụng chiếm {{ printf "%.2f" $value }}% / 100%
             
-                 * Ram sử dụng (ram dùng + ram cache/buffer)
+                 * Ram sử dụng = ram used + ram cache/buffer
                  
             Thông Tin Cụ Thể:
 
@@ -65,12 +65,15 @@ groups:
           summary: "Ổ CỨNG SẮP ĐẦY"
           description: | 
           
-              DUNG LƯỢNG Device: {{ $labels.device }} mount vào thư mục: {{ $labels.mountpoint }} 
-              đạt tới {{ printf "%.2f" $value }}% / 100%
+              Dung lượng {{ $labels.device }} mount vào thư mục {{ $labels.mountpoint }} đã đạt tới {{ printf "%.2f" $value }}% / 100%
 
               Thông Tin Cụ Thể:
 
-              * TOTAL Disk:  {{ query (printf "node_filesystem_free_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint) | first | value | humanize}}
+                  * TOTAL DISK:  {{ query (printf "node_filesystem_size_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint) | first | value | humanize}}
+
+                  * KL Đã dùng:  {{ query (printf "node_filesystem_size_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~'%s'} - node_filesystem_free_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint $labels.instance $labels.mountpoint) | first | value | humanize}}
+
+                  * KL Còn lại:  {{ query (printf "node_filesystem_free_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint) | first | value | humanize}}
 
               Vào fix đi anh em !
               
