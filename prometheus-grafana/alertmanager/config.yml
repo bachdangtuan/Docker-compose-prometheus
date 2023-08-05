@@ -3,15 +3,8 @@ global:
 
 receivers:
 - name: System-Team
-  telegram_configs:
-  - api_url: https://api.telegram.org
-    bot_token: 6612849064:AAGR795EyHyn278L0WRLeqiTyBuCWRRhjMg
-    chat_id: -998222571
-    disable_notifications: false
-    http_config:
-      follow_redirects: true
-    send_resolved: true
-    parse_mode: ""
+  webhook_configs:
+  - url: 'http://10.0.0.13:9087/alert/-815609975'
 
 - name: BV-BachMai-telegram
   webhook_configs:
@@ -34,44 +27,7 @@ route:
   repeat_interval: 1m
   receiver: System-Team
   routes:
-# RAM 
-    - match:
-        app_type: jenkins-tuan
-        instance: 10.0.0.211:19100
-        category: memory  
-      receiver: jenkins-tuan-telegram
-      group_wait: 2s
-    - match:
-        app_type: jenkins-tuan
-        instance: 10.0.0.210:9100
-        category: memory  
-      receiver: jenkins-tuan-telegram
-      group_wait: 4s
-# CPU
-    - match:
-        app_type: jenkins-tuan
-        instance: 10.0.0.210:9100
-        category: cpu  
-      receiver: jenkins-tuan-telegram
-      group_wait: 1s
-    - match:
-        app_type: jenkins-tuan
-        instance: 10.0.0.211:19100
-        category: cpu  
-      receiver: jenkins-tuan-telegram
-      group_wait: 1s
-# DISK
-    - match:
-        app_type: jenkins-tuan
-        instance: 10.0.0.210:9100
-        category: disk  
-      receiver: jenkins-tuan-telegram
-      group_wait: 1s
-    - match:
-        app_type: jenkins-tuan
-        instance: 10.0.0.211:19100
-        category: disk  
-      receiver: jenkins-tuan-telegram
-      group_wait: 1s
+   - include: './alertmanager/include/*.yml'
+
 
 
