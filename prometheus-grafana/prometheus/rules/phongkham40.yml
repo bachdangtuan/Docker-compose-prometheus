@@ -54,7 +54,7 @@ groups:
             CPU máy chủ sử dụng đạt tới  {{ printf "%.2f" $value }}% / 100%
 
       # Disk Rules
-      - alert: Dung Lượng ổ cứng còn lại nhỏ hơn 95%
+      - alert: Dung lượng DISK
         expr: ((node_filesystem_free_bytes{instance=~".+",job="Phong-Kham-40",mountpoint="/"}) / (node_filesystem_size_bytes{instance=~".+",job="Phong-Kham-40",mountpoint="/"})) * 100 > 95
         for: 1m
         labels:
@@ -64,4 +64,9 @@ groups:
         annotations:
           summary: "Dung lượng ổ cứng server còn lại < 95%"
           description: | 
-           Dung lượng sắp đầy (< 10% left)\n  Dung lượng còn trống {{ printf "%.2f" $value }}% / 100%
+
+              Thôi chết mẹ rồi ổ cứng sắp đầy
+
+              Dung lượng ổ cứng đã sử dụng đạt {{ printf "%.2f" $value }}% / 100%
+
+              Vào fix đi anh em !
