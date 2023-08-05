@@ -18,7 +18,7 @@ groups:
 
       # Ram Rules
       - alert: Cảnh báo RAM
-        expr: (node_memory_MemTotal_bytes{job="Benh-Vien-DK-ThanhHoa", instance=~".+"} - node_memory_MemFree_bytes{job="Benh-Vien-DK-ThanhHoa", instance=~".+"}) / (node_memory_MemTotal_bytes{job="Benh-Vien-DK-ThanhHoa", instance=~".+"}) * 100 >= 80
+        expr: (node_memory_MemTotal_bytes{job="Benh-Vien-DK-ThanhHoa", instance=~".+"} - node_memory_MemFree_bytes{job="Benh-Vien-DK-ThanhHoa", instance=~".+"}) / (node_memory_MemTotal_bytes{job="Benh-Vien-DK-ThanhHoa", instance=~".+"}) * 100 >= 90
         for: 1m
         labels:
           severity: Khẩn cấp
@@ -26,7 +26,7 @@ groups:
           category: memory
           instance: "{{ $labels.instance }}"
         annotations:
-          summary: "RAM Server > 80%"
+          summary: "RAM Server > 90%"
           description: |
             RAM đã sử dụng chiếm {{ printf "%.2f" $value }}% / 100%
 
@@ -42,7 +42,7 @@ groups:
 
       # CPU Rules
       - alert: CPU Tăng cao
-        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="Benh-Vien-DK-ThanhHoa", instance=~".+",mode="idle"}[1m])) * 100) > 80
+        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="Benh-Vien-DK-ThanhHoa", instance=~".+",mode="idle"}[1m])) * 100) > 90
         for: 1m
         labels:
           severity: Khẩn cấp
@@ -57,7 +57,7 @@ groups:
       # Disk Rules
       - alert: Dung lượng DISK
         # expr: ((node_filesystem_free_bytes{instance=~".+",job="Benh-Vien-DK-ThanhHoa",mountpoint="/"}) / (node_filesystem_size_bytes{instance=~".+",job="Benh-Vien-DK-ThanhHoa",mountpoint="/"})) * 100 > 90
-        expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Benh-Vien-DK-ThanhHoa",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Benh-Vien-DK-ThanhHoa",mountpoint=~".+"}))* 100) > 90
+        expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Benh-Vien-DK-ThanhHoa",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Benh-Vien-DK-ThanhHoa",mountpoint=~".+"}))* 100) > 95
         for: 1m
         labels:
           severity: Khẩn cấp

@@ -42,7 +42,7 @@ groups:
 
       # CPU Rules
       - alert: CPU Tăng cao
-        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="Nhi-Dong-Thanh-Pho", instance=~".+",mode="idle"}[1m])) * 100) > 80
+        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="Nhi-Dong-Thanh-Pho", instance=~".+",mode="idle"}[1m])) * 100) > 90
         for: 1m
         labels:
           severity: Khẩn cấp
