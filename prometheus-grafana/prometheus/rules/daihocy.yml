@@ -65,13 +65,13 @@ groups:
           summary: "Ổ CỨNG SẮP ĐẦY"
           description: | 
           
-              Device:' {{ $labels.device }} '
+              DUNG LƯỢNG Device: {{ $labels.device }} mount vào thư mục: {{ $labels.mountpoint }} 
+              đạt tới {{ printf "%.2f" $value }}% / 100%
 
-              Thư mục:' {{ $labels.mountpoint }} '
+              Thông Tin Cụ Thể:
 
-              DUNG LƯỢNG Ổ CỨNG SỬ DỤNG ĐẠT
-              
-              {{ printf "%.2f" $value }}% / 100%
+              * TOTAL Disk:  {{ query (printf "node_memory_MemTotal_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~"%s"}" $labels.instance $labels.mountpoint ) | first | value | humanize }}
+
 
               Vào fix đi anh em !
               
