@@ -5,6 +5,11 @@ global:
 
 
 receivers:
+
+- name: benhviene-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.13:9087/alert/-944876422'
+
 - name: phongkham40-telegram
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-988783003'
@@ -27,6 +32,56 @@ route:
   receiver: systems-team-telegram
   routes:
 ##################### RAM #######################
+    # Bệnh Viện E
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.238:9100
+        category: memory  
+      receiver: benhviene-telegram
+      group_wait: 2s
+      
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.245:9100
+        category: memory  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.244:9100
+        category: memory  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.247:9100
+        category: memory  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.242:9100
+        category: memory  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.250:9100
+        category: memory  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.251:9100
+        category: memory  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
     # PHòng Khám 40
     - match:
         app_type: Phòng Khám 40
@@ -92,7 +147,84 @@ route:
       receiver: nhidongthanhpho-telegram
       group_wait: 2s   
    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
 #################### CPU ##################################
+#################### CPU ##################################
+#################### CPU ##################################
+    # Bệnh Viện E
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.238:9100
+        category: cpu  
+      receiver: benhviene-telegram
+      group_wait: 2s
+      
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.245:9100
+        category: cpu  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.244:9100
+        category: cpu  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.247:9100
+        category: cpu  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.242:9100
+        category: cpu  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.250:9100
+        category: cpu  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.251:9100
+        category: cpu  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
     # PHòng Khám 40
     - match:
         app_type: Phòng Khám 40
@@ -159,6 +291,58 @@ route:
 
 
 #################### DISK ##############################
+#################### DISK ##############################
+#################### DISK ##############################
+    # Bệnh Viện E
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.238:9100
+        category: disk  
+      receiver: benhviene-telegram
+      group_wait: 2s
+      
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.245:9100
+        category: disk  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.244:9100
+        category: disk  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.247:9100
+        category: disk  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.242:9100
+        category: disk  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.250:9100
+        category: disk  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.251:9100
+        category: disk  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
     # PHòng Khám 40
     - match:
         app_type: Phòng Khám 40
