@@ -2,7 +2,7 @@ groups:
   - name: Nhi Đồng Thành Phố-Rules
     rules:
       # Node Down
-      - alert: Node-export bị tắt
+      - alert: Cảnh Báo Server
         expr:  up{job="Nhi-Dong-Thanh-Pho",instance=~".+"} == 0
         for: 1m
         labels:

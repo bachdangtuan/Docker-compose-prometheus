@@ -3,7 +3,7 @@ groups:
     rules:
 
       # Node Down
-      - alert: Node-export bị tắt
+      - alert: Cảnh Báo Server
         expr:  up{job="Benh-Vien-DK-ThanhHoa",instance=~".+"} == 0
         for: 1m
         labels:
