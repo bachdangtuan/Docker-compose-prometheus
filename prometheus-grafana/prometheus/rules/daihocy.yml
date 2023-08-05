@@ -61,19 +61,17 @@ groups:
           severity: Khẩn cấp
           app_type: Đại Học Y
           category: disk
-        annotations:
-          summary: "Ổ CỨNG SẮP ĐẦY"
-          description: | 
-
+          annotations:
+            summary: "Ổ CỨNG SẮP ĐẦY"
+            description: | 
               DUNG LƯỢNG Ổ CỨNG SỬ DỤNG ĐẠT
               
-              {{ range query "node_filesystem_free_bytes{instance=~'.+', job='Dai-Hoc-Y', mountpoint=~'.+'}" }}
-                - Mountpoint: {{ .metric.mountpoint }}
-                  Value: {{ .value | humanize }}
-              {{ end }}  
-                        
+              {{- $filesystemQuery := query (printf "node_filesystem_free_bytes{instance=~'.+', job='Dai-Hoc-Y', mountpoint=~'.+'}" $labels.instance) -}}
+              {{- $filesystemMountpoint := $filesystemQuery | first | .metric.mountpoint -}}
+              Mountpoint cụ thể: {{ $filesystemMountpoint }}
 
               {{ printf "%.2f" $value }}% / 100%
 
               Vào fix đi anh em !
+
 
