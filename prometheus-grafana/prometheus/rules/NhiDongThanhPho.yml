@@ -66,12 +66,9 @@ groups:
           summary: "Ổ CỨNG SẮP ĐẦY"
           description: | 
 
-              Ổ CỨNG SẮP ĐẦY RỒI
-
-              Dung lượng ổ cứng đã sử dụng đạt 
+              DUNG LƯỢNG Ổ CỨNG SỬ DỤNG ĐẠT
               
               {{ printf "%.2f" $value }}% / 100%
 
               Vào fix đi anh em !
-              
               
