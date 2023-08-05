@@ -1,3 +1,33 @@
+# global:
+#   resolve_timeout: 1m
+
+# receivers:
+# - name: System-Team
+#   webhook_configs:
+#   - url: 'http://10.0.0.13:9087/alert/-815609975'
+
+# - name: BV-BachMai-telegram
+#   webhook_configs:
+#   - url: 'http://10.0.0.232:9087/alert/-932865047'
+
+# - name: Mediplus-telegram
+#   webhook_configs:
+#   - url: 'http://10.0.0.232:9087/alert/-866646704'
+
+# - name: jenkins-tuan-telegram
+#   webhook_configs:
+#   - url: 'http://10.0.0.232:9087/alert/-866646704'
+
+# route:
+#   continue: false
+#   group_by: ['instance']
+#   group_interval: 1m
+#   group_wait: 10s
+#   repeat_interval: 1m
+#   receiver: System-Team
+#   routes:
+#    - include: '/include/*.yml'
+
 global:
   resolve_timeout: 1m
 
@@ -10,13 +40,7 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.232:9087/alert/-932865047'
 
-- name: Mediplus-telegram
-  webhook_configs:
-  - url: 'http://10.0.0.232:9087/alert/-866646704'
-
-- name: jenkins-tuan-telegram
-  webhook_configs:
-  - url: 'http://10.0.0.232:9087/alert/-866646704'
+# Thêm các receivers khác ở đây
 
 route:
   continue: false
@@ -25,5 +49,10 @@ route:
   group_wait: 10s
   repeat_interval: 1m
   receiver: System-Team
-  routes:
-   - include: '/include/*.yml'
+# Sử dụng include để chèn cấu hình luật cảnh báo của từng máy chủ
+  route:
+  - receiver: System-Team
+    group_by: ['instance']
+    routes:
+      - include: '/include/to/test.yml'
+      # Chèn các tệp cấu hình luật cảnh báo cho các máy chủ khác
