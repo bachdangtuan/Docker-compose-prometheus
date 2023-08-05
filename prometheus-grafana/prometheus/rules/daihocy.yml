@@ -66,9 +66,7 @@ groups:
             description: | 
               DUNG LƯỢNG Ổ CỨNG SỬ DỤNG ĐẠT
               
-              {{- $filesystemQuery := query (printf "node_filesystem_free_bytes{instance=~'.+', job='Dai-Hoc-Y', mountpoint=~'.+'}" $labels.instance) -}}
-              {{- $filesystemMountpoint := $filesystemQuery | first | .metric.mountpoint -}}
-              Mountpoint cụ thể: {{ $filesystemMountpoint }}
+              {{ query (printf "node_filesystem_free_bytes{instance=~'.+', job='Dai-Hoc-Y', mountpoint=~'.+'}" $labels.instance) }}
 
               {{ printf "%.2f" $value }}% / 100%
 
