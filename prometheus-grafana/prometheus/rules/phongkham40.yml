@@ -1,5 +1,5 @@
 groups:
-  - name: Nhi Đồng Thành Phố-Rules
+  - name: Phòng Khám 40-Rules
     rules:
       # Ram Rules
       - alert: Cảnh báo RAM
