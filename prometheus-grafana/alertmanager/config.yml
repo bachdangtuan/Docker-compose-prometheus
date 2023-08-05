@@ -39,6 +39,64 @@ route:
   routes:
 
 ##################### SERVER-NODE EXPORTER #######################
+
+    # Bệnh Viện Quân 110
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.55.11:9100
+        category: server  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.115.112:9100
+        category: server  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.115.89:9100
+        category: server  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.102.67:9100
+        category: server  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.115.110:9100
+        category: server  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.102.113:9100
+        category: server  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.102.88:9100
+        category: server  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.102.109:9100
+        category: server  
+      receiver: quany110-telegram
+      group_wait: 3s
+
     # Bệnh Viện E
     - match:
         app_type: Bệnh Viện E
@@ -154,8 +212,69 @@ route:
       receiver: nhidongthanhpho-telegram
       group_wait: 2s   
    
-
 ##################### RAM #######################
+##################### RAM #######################
+##################### RAM #######################
+
+    # Bệnh Viện Quân 110
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.55.11:9100
+        category: memory  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.115.112:9100
+        category: memory  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.115.89:9100
+        category: memory  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.102.67:9100
+        category: memory  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.115.110:9100
+        category: memory  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.102.113:9100
+        category: memory  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.102.88:9100
+        category: memory  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.102.109:9100
+        category: memory  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+
+
     # Bệnh Viện E
     - match:
         app_type: Bệnh Viện E
@@ -275,6 +394,66 @@ route:
 #################### CPU ##################################
 #################### CPU ##################################
 #################### CPU ##################################
+
+    # Bệnh Viện Quân 110
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.55.11:9100
+        category: cpu  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.115.112:9100
+        category: cpu  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.115.89:9100
+        category: cpu  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.102.67:9100
+        category: cpu  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.115.110:9100
+        category: cpu  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.102.113:9100
+        category: cpu  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.102.88:9100
+        category: cpu  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.102.109:9100
+        category: cpu  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+
+
     # Bệnh Viện E
     - match:
         app_type: Bệnh Viện E
