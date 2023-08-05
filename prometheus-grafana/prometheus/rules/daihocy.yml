@@ -64,11 +64,13 @@ groups:
         annotations:
           summary: "Ổ CỨNG SẮP ĐẦY"
           description: | 
+          
+              Device:' {{ $labels.device }} '
+
+              Thư mục:' {{ $labels.mountpoint }} '
 
               DUNG LƯỢNG Ổ CỨNG SỬ DỤNG ĐẠT
               
-              {{ $labels.mountpoint }}
-
               {{ printf "%.2f" $value }}% / 100%
 
               Vào fix đi anh em !
