@@ -27,8 +27,15 @@ scrape_configs:
     scrape_interval: 5s
     static_configs:
       - targets:
-          - 10.0.2.38:19100
+        # Nhi Đồng Thành Phố
+          - 10.0.2.38:9100
           - 10.0.2.40:9100
           - 10.0.2.41:9100
           - 10.0.2.42:9100
           - 10.0.2.43:9100
+  - job_name: 'Phong-Kham-40'
+    scrape_interval: 5s
+    static_configs:
+      - targets:
+        # Phòng Khám 40
+          - 192.168.10.230:19100
