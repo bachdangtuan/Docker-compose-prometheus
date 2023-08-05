@@ -7,7 +7,7 @@ global:
 receivers:
 - name: phongkham40-telegram
   webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-901133248'
+  - url: 'http://10.0.0.13:9087/alert/-921182723'
 
 - name: nhidongthanhpho-telegram
   webhook_configs:
