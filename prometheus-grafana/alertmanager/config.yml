@@ -2,13 +2,21 @@ global:
   resolve_timeout: 1m
 
 receivers:
-- name: nhidongthanhpho-telegram
-  webhook_configs:
-  - url: 'http://10.0.0.13:9087/alert/-901133248'
-
-- name: systems-team-telegram
+- name: System-Team
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-815609975'
+
+- name: BV-BachMai-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.232:9087/alert/-932865047'
+
+- name: Mediplus-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.232:9087/alert/-866646704'
+
+- name: jenkins-tuan-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.232:9087/alert/-866646704'
 
 route:
   continue: false
@@ -16,18 +24,6 @@ route:
   group_interval: 1m
   group_wait: 10s
   repeat_interval: 1m
-  receiver: systems-team-telegram
+  receiver: System-Team
   routes:
-    - match:
-        app_type: Nhi Đồng Thành Phố
-        instance: 10.0.2.38:9100
-        category: memory
-      receiver: nhidongthanhpho-telegram
-      group_wait: 2s
-
-# Sử dụng route để include các cấu hình alert khác
-routes:
-  - receiver: systems-team-telegram
-    group_by: ['instance']
-    routes:
-      - include: 'include/*.yml'
+   - include: '/include/*.yml'
