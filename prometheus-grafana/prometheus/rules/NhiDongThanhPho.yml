@@ -62,13 +62,16 @@ groups:
           severity: Rất Nguy Hiểm
           app_type: Nhi Đồng Thành Phố
           category: disk
-        annotations:
-          summary: "Ổ CỨNG SẮP ĐẦY"
           description: | 
+          
+              Dung lượng {{ $labels.device }} mount vào thư mục {{ $labels.mountpoint }} đã đạt tới {{ printf "%.2f" $value }}% / 100%
 
-              DUNG LƯỢNG Ổ CỨNG SỬ DỤNG ĐẠT
-              
-              {{ printf "%.2f" $value }}% / 100%
+              Thông Tin Cụ Thể:
+
+                  * TOTAL DISK:  {{ query (printf "node_filesystem_size_bytes{job='Nhi-Dong-Thanh-Pho', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint) | first | value | humanize}}
+
+                  * KL Đã dùng:  {{ query (printf "node_filesystem_size_bytes{job='Nhi-Dong-Thanh-Pho', instance=~'%s', mountpoint=~'%s'} - node_filesystem_free_bytes{job='Nhi-Dong-Thanh-Pho', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint $labels.instance $labels.mountpoint) | first | value | humanize}}
+
+                  * KL Còn lại:  {{ query (printf "node_filesystem_free_bytes{job='Nhi-Dong-Thanh-Pho', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint) | first | value | humanize}}
 
               Vào fix đi anh em !
-              
