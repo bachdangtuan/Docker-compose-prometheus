@@ -62,12 +62,13 @@ groups:
           app_type: Phòng Khám 40
           category: disk
         annotations:
-          summary: "Dung lượng ổ cứng server còn lại < 95%"
+          summary: "Ổ CỨNG SẮP ĐẦY"
           description: | 
 
-              Thôi chết mẹ rồi ổ cứng sắp đầy
+              Ổ CỨNG SẮP ĐẦY RỒI
 
-              Dung lượng ổ cứng đã sử dụng đạt {{ printf "%.2f" $value }}% / 100%
+              Dung lượng ổ cứng đã sử dụng đạt 
+              
+              {{ printf "%.2f" $value }}% / 100%
 
               Vào fix đi anh em !
-              
