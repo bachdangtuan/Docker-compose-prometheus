@@ -6,11 +6,15 @@ global:
   external_labels:
     monitor: 'Hospitals'
 
+# Rules config 
 rule_files:
   # - 'rules/BachMaiRules.yml'
   # - "rules/MediplusRules.yml"
   - "rules/NhiDongThanhPho.yml"
   - "rules/phongkham40.yml"
+  - "rules/benhviene.yml"
+
+
 # alert
 alerting:
   alertmanagers:
