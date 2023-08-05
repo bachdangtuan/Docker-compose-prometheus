@@ -70,3 +70,4 @@ groups:
               Dung lượng ổ cứng đã sử dụng đạt {{ printf "%.2f" $value }}% / 100%
 
               Vào fix đi anh em !
+              
