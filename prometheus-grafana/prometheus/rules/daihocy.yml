@@ -72,6 +72,5 @@ groups:
 
               * TOTAL Disk:  {{ query (printf "node_memory_MemTotal_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint ) | value | humanize }}
 
-
               Vào fix đi anh em !
               
