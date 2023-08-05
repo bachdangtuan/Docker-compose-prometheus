@@ -55,7 +55,7 @@ groups:
 
       # Disk Rules
       - alert: Dung lượng DISK
-        expr: ((node_filesystem_free_bytes{instance=~".+",job="Phong-Kham-40",mountpoint="/"}) / (node_filesystem_size_bytes{instance=~".+",job="Phong-Kham-40",mountpoint="/"})) * 100 > 95
+        expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Benh-Vien-E",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Benh-Vien-E",mountpoint=~".+"}))* 100) > 90
         for: 1m
         labels:
           severity: Rất Nguy Hiểm
@@ -70,4 +70,4 @@ groups:
               {{ printf "%.2f" $value }}% / 100%
 
               Vào fix đi anh em !
-              
+
