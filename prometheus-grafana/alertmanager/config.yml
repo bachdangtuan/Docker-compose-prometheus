@@ -75,47 +75,68 @@
 #       group_wait: 1s
 
 
+# global:
+#   resolve_timeout: 1m
+
+# receivers:
+# - name: System-Team
+#   telegram_configs:
+#   - api_url: https://api.telegram.org
+#     bot_token: 6612849064:AAGR795EyHyn278L0WRLeqiTyBuCWRRhjMg
+#     chat_id: -998222571
+#     disable_notifications: false
+#     http_config:
+#       follow_redirects: true
+#     send_resolved: true
+#     parse_mode: ""
+
+# - name: BV-BachMai-telegram
+#   webhook_configs:
+#   - url: 'http://10.0.0.232:9087/alert/-932865047'
+
+
+# - name: Mediplus-telegram
+#   webhook_configs:
+#   - url: 'http://10.0.0.232:9087/alert/-866646704'
+
+# - name: jenkins-tuan-telegram
+#   webhook_configs:
+#   - url: 'http://10.0.0.232:9087/alert/-866646704'
+
+# route:
+#   continue: false
+#   group_by: ['instance']
+#   group_interval: 1m
+#   group_wait: 10s
+#   repeat_interval: 1m
+#   receiver: System-Team
+#   routes:
+# # RAM 
+#     include: "./include/test.yml"
+# # CPU
+    
+# # DISK
+
+
 global:
   resolve_timeout: 1m
 
-receivers:
-- name: System-Team
-  telegram_configs:
-  - api_url: https://api.telegram.org
-    bot_token: 6612849064:AAGR795EyHyn278L0WRLeqiTyBuCWRRhjMg
-    chat_id: -998222571
-    disable_notifications: false
-    http_config:
-      follow_redirects: true
-    send_resolved: true
-    parse_mode: ""
-
-- name: BV-BachMai-telegram
-  webhook_configs:
-  - url: 'http://10.0.0.232:9087/alert/-932865047'
-
-
-- name: Mediplus-telegram
-  webhook_configs:
-  - url: 'http://10.0.0.232:9087/alert/-866646704'
-
-- name: jenkins-tuan-telegram
-  webhook_configs:
-  - url: 'http://10.0.0.232:9087/alert/-866646704'
-
 route:
-  continue: false
-  group_by: ['instance']
-  group_interval: 1m
-  group_wait: 10s
-  repeat_interval: 1m
   receiver: System-Team
   routes:
-# RAM 
-    include: "./include/test.yml"
-# CPU
-    
-# DISK
+    - include: "./include/server1.yml"
+    - include: "./include/server2.yml"
+    # ... include other server-specific route files ...
 
-
+receivers:
+  - name: System-Team
+    telegram_configs:
+      - api_url: https://api.telegram.org
+        bot_token: 6612849064:AAGR795EyHyn278L0WRLeqiTyBuCWRRhjMg
+        chat_id: -998222571
+        disable_notifications: false
+        http_config:
+          follow_redirects: true
+        send_resolved: true
+        parse_mode: ""
 
