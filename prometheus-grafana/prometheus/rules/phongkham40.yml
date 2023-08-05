@@ -2,7 +2,7 @@ groups:
   - name: Phòng Khám 40-Rules
     rules:
       # Node Down
-      - alert: Node-export bị tắt
+      - alert: Cảnh Báo Server
         expr:  up{job="Phong-Kham-40",instance=~".+"} == 0
         for: 1m
         labels:
@@ -11,7 +11,7 @@ groups:
           category: server
           instance: "{{ $labels.instance }}"
         annotations:
-          summary: "Node-export trên server {{ $labels.instance }} bị tắt"
+          summary: "Server bị tắt"
           description: | 
                 Vui lòng kiểm tra lại node-exporter trên server hoặc kiểm tra server có bị tắt hay không ?
 
@@ -28,8 +28,10 @@ groups:
           summary: "RAM Server > 80%"
           description: |
             RAM đã sử dụng chiếm {{ printf "%.2f" $value }}% / 100%
+            
                  * Ram sử dụng (ram dùng + ram cache/buffer)
-            Thông tin cụ thể:
+                 
+            Thông Tin Cụ Thể:
 
                  * TOTAL RAM:  {{ query (printf "node_memory_MemTotal_bytes{job='Phong-Kham-40', instance=~'%s'}" $labels.instance) | first | value | humanize }}
 

@@ -1,7 +1,7 @@
 {{if eq .Status "resolved"}}
 ✅💙PHỤC HỒI💙✅
 ------------------------------------------------------
-Nội dung: {{.CommonAnnotations.summary}}
+Nội dung: Đã giải quyết vấn đề {{.CommonAnnotations.summary}}
 Nhóm Cảnh báo: {{ .CommonLabels.alertname }}
 Máy Chủ: {{ .CommonLabels.instance }}
 Status:  {{ .Status  | str_UpperCase}}
