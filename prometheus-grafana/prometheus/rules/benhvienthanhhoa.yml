@@ -1,0 +1,75 @@
+groups:
+  - name: Bệnh Viện Đa Khoa Thanh Hóa-Rules
+    rules:
+
+      # Node Down
+      - alert: Node-export bị tắt
+        expr:  up{job="Benh-Vien-DK-ThanhHoa",instance=~".+"} == 0
+        for: 1m
+        labels:
+          severity: Rất Nguy Hiểm
+          app_type: Bệnh Viện Đa Khoa Thanh Hóa
+          category: server
+          instance: "{{ $labels.instance }}"
+        annotations:
+          summary: "Node-export trên server {{ $labels.instance }} bị tắt"
+          description: | 
+            Vui lòng kiểm tra lại node-exporter trên server hoặc kiểm tra server có bị tắt hay không ?
+
+      # Ram Rules
+      - alert: Cảnh báo RAM
+        expr: (node_memory_MemTotal_bytes{job="Benh-Vien-DK-ThanhHoa", instance=~".+"} - node_memory_MemFree_bytes{job="Benh-Vien-DK-ThanhHoa", instance=~".+"}) / (node_memory_MemTotal_bytes{job="Benh-Vien-DK-ThanhHoa", instance=~".+"}) * 100 >= 80
+        for: 1m
+        labels:
+          severity: Rất Nguy Hiểm
+          app_type: Bệnh Viện Đa Khoa Thanh Hóa
+          category: memory
+          instance: "{{ $labels.instance }}"
+        annotations:
+          summary: "RAM Server > 80%"
+          description: |
+            RAM đã sử dụng chiếm {{ printf "%.2f" $value }}% / 100%
+
+                 * Ram sử dụng (ram dùng + ram cache/buffer)
+                 
+            Thông Tin Cụ Thể:
+
+                 * TOTAL RAM:  {{ query (printf "node_memory_MemTotal_bytes{job='Benh-Vien-DK-ThanhHoa', instance=~'%s'}" $labels.instance) | first | value | humanize }}
+
+                 * Ram sử dụng:  {{ query (printf "node_memory_MemTotal_bytes{job='Benh-Vien-DK-ThanhHoa', instance=~'%s'} - node_memory_MemFree_bytes{job='Benh-Vien-DK-ThanhHoa', instance=~'%s'}" $labels.instance $labels.instance ) | first | value | humanize }}
+                  
+                 * Ram còn lại:  {{ query (printf "node_memory_MemFree_bytes{job='Benh-Vien-DK-ThanhHoa', instance=~'%s'}" $labels.instance) | first | value | humanize }}
+
+      # CPU Rules
+      - alert: CPU Tăng cao
+        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="Benh-Vien-DK-ThanhHoa", instance=~".+",mode="idle"}[1m])) * 100) > 80
+        for: 1m
+        labels:
+          severity: Rất Nguy Hiểm
+          app_type: Bệnh Viện Đa Khoa Thanh Hóa
+          category: cpu
+          instance: "{{ $labels.instance }}"
+        annotations:
+          summary: "CPU Server > 90%"
+          description: | 
+            CPU máy chủ sử dụng đạt tới  {{ printf "%.2f" $value }}% / 100%
+
+      # Disk Rules
+      - alert: Dung lượng DISK
+        # expr: ((node_filesystem_free_bytes{instance=~".+",job="Benh-Vien-DK-ThanhHoa",mountpoint="/"}) / (node_filesystem_size_bytes{instance=~".+",job="Benh-Vien-DK-ThanhHoa",mountpoint="/"})) * 100 > 90
+        expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Benh-Vien-DK-ThanhHoa",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Benh-Vien-DK-ThanhHoa",mountpoint=~".+"}))* 100) > 90
+        for: 1m
+        labels:
+          severity: Rất Nguy Hiểm
+          app_type: Bệnh Viện Đa Khoa Thanh Hóa
+          category: disk
+        annotations:
+          summary: "Ổ CỨNG SẮP ĐẦY"
+          description: | 
+
+              DUNG LƯỢNG Ổ CỨNG SỬ DỤNG ĐẠT
+              
+              {{ printf "%.2f" $value }}% / 100%
+
+              Vào fix đi anh em !
+              

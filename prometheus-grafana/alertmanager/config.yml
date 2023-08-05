@@ -22,7 +22,9 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-858234435'
 
-
+- name: dakhoathanhhoa-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.13:9087/alert/-921182723'
 
 - name: systems-team-telegram
   webhook_configs:
@@ -39,6 +41,103 @@ route:
   routes:
 
 ##################### SERVER-NODE EXPORTER #######################
+##################### SERVER-NODE EXPORTER #######################
+##################### SERVER-NODE EXPORTER #######################
+##################### SERVER-NODE EXPORTER #######################
+##################### SERVER-NODE EXPORTER #######################
+##################### SERVER-NODE EXPORTER #######################
+
+
+    # Bệnh Viện Đa khoa thanh hóa
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.152:9100
+        category: server  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.153:9100
+        category: server  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.154:9100
+        category: server  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+      
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.155:9100
+        category: server  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.156:9100
+        category: server  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+      
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.157:9100
+        category: server  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.158:9100
+        category: server  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+      
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.160:9100
+        category: server  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.199:9100
+        category: server  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+      
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.200:9100
+        category: server  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.202:9100
+        category: server  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.203:9100
+        category: server  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.210:9100
+        category: server  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
 
     # Bệnh Viện Quân 110
     - match:
@@ -215,6 +314,103 @@ route:
 ##################### RAM #######################
 ##################### RAM #######################
 ##################### RAM #######################
+##################### RAM #######################
+##################### RAM #######################
+##################### RAM #######################
+
+
+    # Bệnh Viện Đa khoa thanh hóa
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.152:9100
+        category: memory  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.153:9100
+        category: memory  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.154:9100
+        category: memory  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+      
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.155:9100
+        category: memory  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.156:9100
+        category: memory  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+      
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.157:9100
+        category: memory  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.158:9100
+        category: memory  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+      
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.160:9100
+        category: memory  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.199:9100
+        category: memory  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+      
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.200:9100
+        category: memory  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.202:9100
+        category: memory  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.203:9100
+        category: memory  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.210:9100
+        category: memory  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+
 
     # Bệnh Viện Quân 110
     - match:
@@ -394,6 +590,106 @@ route:
 #################### CPU ##################################
 #################### CPU ##################################
 #################### CPU ##################################
+#################### CPU ##################################
+#################### CPU ##################################
+#################### CPU ##################################
+#################### CPU ##################################
+#################### CPU ##################################
+#################### CPU ##################################
+
+
+    # Bệnh Viện Đa khoa thanh hóa
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.152:9100
+        category: cpu  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.153:9100
+        category: cpu  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.154:9100
+        category: cpu  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+      
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.155:9100
+        category: cpu  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.156:9100
+        category: cpu  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+      
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.157:9100
+        category: cpu  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.158:9100
+        category: cpu  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+      
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.160:9100
+        category: cpu  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.199:9100
+        category: cpu  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+      
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.200:9100
+        category: cpu  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.202:9100
+        category: cpu  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.203:9100
+        category: cpu  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.210:9100
+        category: cpu  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+
 
     # Bệnh Viện Quân 110
     - match:
@@ -504,7 +800,7 @@ route:
       receiver: benhviene-telegram
       group_wait: 2s
 
-    # PHòng Khám 40
+############# PHòng Khám 40
     - match:
         app_type: Phòng Khám 40
         instance: 192.168.10.230:19100
@@ -568,10 +864,13 @@ route:
       receiver: nhidongthanhpho-telegram
       group_wait: 1s
 
+#################### DISK ##############################
+#################### DISK ##############################
+#################### DISK ##############################
+#################### DISK ##############################
+#################### DISK ##############################
+#################### DISK ##############################
 
-#################### DISK ##############################
-#################### DISK ##############################
-#################### DISK ##############################
     # Bệnh Viện E
     - match:
         app_type: Bệnh Viện E
@@ -686,3 +985,150 @@ route:
       receiver: nhidongthanhpho-telegram
       group_wait: 1s
 
+##### Bệnh Viện Đa khoa thanh hóa
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.152:9100
+        category: disk  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.153:9100
+        category: disk  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.154:9100
+        category: disk  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+      
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.155:9100
+        category: disk  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.156:9100
+        category: disk  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+      
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.157:9100
+        category: disk  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.158:9100
+        category: disk  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+      
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.160:9100
+        category: disk  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.199:9100
+        category: disk  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+      
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.200:9100
+        category: disk  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.202:9100
+        category: disk  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.203:9100
+        category: disk  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Đa Khoa Thanh Hóa
+        instance: 192.168.18.210:9100
+        category: disk  
+      receiver: dakhoathanhhoa-telegram
+      group_wait: 3s
+
+    # Bệnh Viện Quân 110
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.55.11:9100
+        category: disk  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.115.112:9100
+        category: disk  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.115.89:9100
+        category: disk  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.102.67:9100
+        category: disk  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.115.110:9100
+        category: disk  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.102.113:9100
+        category: disk  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.102.88:9100
+        category: disk  
+      receiver: quany110-telegram
+      group_wait: 3s
+
+    - match:
+        app_type: Bệnh Viện Quân Y 110
+        instance: 10.110.102.109:9100
+        category: disk  
+      receiver: quany110-telegram
+      group_wait: 3s
