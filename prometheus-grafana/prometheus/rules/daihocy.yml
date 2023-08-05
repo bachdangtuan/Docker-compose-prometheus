@@ -70,7 +70,7 @@ groups:
 
               Thông Tin Cụ Thể:
 
-              * TOTAL Disk:  {{ query (printf "node_memory_MemTotal_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~"%s"}" $labels.instance $labels.mountpoint ) | first | value | humanize }}
+              * TOTAL Disk:  {{ query (printf "node_memory_MemTotal_bytes{job='Dai-Hoc-Y', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint ) | first | value | humanize }}
 
 
               Vào fix đi anh em !
