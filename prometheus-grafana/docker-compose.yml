@@ -24,7 +24,7 @@ services:
       - alertmanager:alertmanager
   # Alert Manager
   alertmanager:
-    image: nguyenngochuy/alertmanage-vip
+    image: nguyenngochuy/alertmanager-vip
     container_name: sys-isofh-alertmanager
     restart: always
     ports:
