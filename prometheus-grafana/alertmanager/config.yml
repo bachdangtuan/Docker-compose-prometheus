@@ -31,6 +31,133 @@ route:
   repeat_interval: 1m
   receiver: systems-team-telegram
   routes:
+
+##################### SERVER-NODE EXPORTER #######################
+    # Bệnh Viện E
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.238:9100
+        category: server  
+      receiver: benhviene-telegram
+      group_wait: 2s
+      
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.245:9100
+        category: server  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.244:9100
+        category: server  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.247:9100
+        category: server  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.242:9100
+        category: server  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.250:9100
+        category: server  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.251:9100
+        category: server  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
+    # PHòng Khám 40
+    - match:
+        app_type: Phòng Khám 40
+        instance: 192.168.10.230:19100
+        category: server  
+      receiver: phongkham40-telegram
+      group_wait: 2s
+      
+    - match:
+        app_type: Phòng Khám 40
+        instance: 192.168.10.231:9100
+        category: server  
+      receiver: phongkham40-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Phòng Khám 40
+        instance: 192.168.10.234:19100
+        category: server  
+      receiver: phongkham40-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Phòng Khám 40
+        instance: 192.168.10.235:9100
+        category: server  
+      receiver: phongkham40-telegram
+      group_wait: 2s
+
+    # Nhi Đồng Thành Phố
+    - match:
+        app_type: Nhi Đồng Thành Phố
+        instance: 10.0.2.38:9100
+        category: server  
+      receiver: nhidongthanhpho-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Nhi Đồng Thành Phố
+        instance: 10.0.2.40:9100
+        category: server  
+      receiver: nhidongthanhpho-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Nhi Đồng Thành Phố
+        instance: 10.0.2.41:9100
+        category: server  
+      receiver: nhidongthanhpho-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Nhi Đồng Thành Phố
+        instance: 10.0.2.42:9100
+        category: server  
+      receiver: nhidongthanhpho-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Nhi Đồng Thành Phố
+        instance: 10.0.2.43:9100
+        category: server  
+      receiver: nhidongthanhpho-telegram
+      group_wait: 2s   
+   
+
+
+
+
+
+
+
+
+
+
 ##################### RAM #######################
     # Bệnh Viện E
     - match:
@@ -152,26 +279,6 @@ route:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
 #################### CPU ##################################
 #################### CPU ##################################
 #################### CPU ##################################

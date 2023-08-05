@@ -1,6 +1,20 @@
 groups:
   - name: Phòng Khám 40-Rules
     rules:
+      # Node Down
+      - alert: Node-export bị tắt
+        expr:  up{job="Phong-Kham-40",instance=~".+"} == 0
+        for: 1m
+        labels:
+          severity: Rất Nguy Hiểm
+          app_type: Phòng Khám 40
+          category: server
+          instance: "{{ $labels.instance }}"
+        annotations:
+          summary: "Node-export trên server {{ $labels.instance }} bị tắt"
+          description: | 
+                Vui lòng kiểm tra lại node-exporter trên server hoặc kiểm tra server có bị tắt hay không ?
+
       # Ram Rules
       - alert: Cảnh báo RAM
         expr: (node_memory_MemTotal_bytes{job="Phong-Kham-40", instance=~".+"} - node_memory_MemFree_bytes{job="Phong-Kham-40", instance=~".+"}) / (node_memory_MemTotal_bytes{job="Phong-Kham-40", instance=~".+"}) * 100 >= 80

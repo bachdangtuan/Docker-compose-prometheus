@@ -1,6 +1,20 @@
 groups:
   - name: Nhi Đồng Thành Phố-Rules
     rules:
+      # Node Down
+      - alert: Node-export bị tắt
+        expr:  up{job="Nhi-Dong-Thanh-Pho",instance=~".+"} == 0
+        for: 1m
+        labels:
+          severity: Rất Nguy Hiểm
+          app_type: Nhi Đồng Thành Phố
+          category: server
+          instance: "{{ $labels.instance }}"
+        annotations:
+          summary: "Node-export trên server {{ $labels.instance }} bị tắt"
+          description: | 
+                Vui lòng kiểm tra lại node-exporter trên server hoặc kiểm tra server có bị tắt hay không ?
+
       # Ram Rules
       - alert: Cảnh báo RAM
         expr: (node_memory_MemTotal_bytes{job="Nhi-Dong-Thanh-Pho", instance=~".+"} - node_memory_MemFree_bytes{job="Nhi-Dong-Thanh-Pho", instance=~".+"}) / (node_memory_MemTotal_bytes{job="Nhi-Dong-Thanh-Pho", instance=~".+"}) * 100 >= 90
