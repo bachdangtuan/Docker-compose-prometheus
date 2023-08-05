@@ -27,7 +27,7 @@ route:
   repeat_interval: 1m
   receiver: System-Team
   routes:
-   - include: './alertmanager/include/*.yml'
+   - include: '/include/*.yml'
 
 
 
