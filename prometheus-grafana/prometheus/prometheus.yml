@@ -28,7 +28,7 @@ alerting:
     - targets: ['10.0.0.13:9093']
     basic_auth:
       username: admin
-      password: vietnam@1234
+      password: toivaban
 
 scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
