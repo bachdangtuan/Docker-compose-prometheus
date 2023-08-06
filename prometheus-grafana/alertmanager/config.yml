@@ -35,6 +35,9 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-999844035'
 
+- name: mediplus-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.13:9087/alert/-866646704'
 
 # Group Dự phòng
 - name: systems-team-telegram
@@ -57,7 +60,64 @@ route:
 ##################### SERVER-NODE EXPORTER #######################
 ##################### SERVER-NODE EXPORTER #######################
 ##################### SERVER-NODE EXPORTER #######################
-    # Doctor Allen
+    # Phòng Khám Mediplus
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.17:9100
+        category: server  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.81:9100
+        category: server  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.82:9100
+        category: server  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.83:9100
+        category: server  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.84:9100
+        category: server  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.85:9100
+        category: server  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.95:9100
+        category: server  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.96:9100
+        category: server  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    # Bệnh Viện Saint Paul
     - match:
         app_type: Bệnh Viện Saint Paul
         instance: 172.16.16.14:9100
@@ -532,7 +592,65 @@ route:
 ##################### RAM #######################
 ##################### RAM #######################
 
-    # Doctor Allen
+    # Phòng Khám Mediplus
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.17:9100
+        category: memory  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.81:9100
+        category: memory  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.82:9100
+        category: memory  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.83:9100
+        category: memory  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.84:9100
+        category: memory  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.85:9100
+        category: memory  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.95:9100
+        category: memory  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.96:9100
+        category: memory  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+
+    # Bệnh Viện Saint Paul
     - match:
         app_type: Bệnh Viện Saint Paul
         instance: 172.16.16.14:9100
@@ -1018,7 +1136,66 @@ route:
 #################### CPU ##################################
 #################### CPU ##################################
 
-   # Doctor Allen
+   # Phòng Khám Mediplus
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.17:9100
+        category: cpu  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.81:9100
+        category: cpu  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.82:9100
+        category: cpu  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.83:9100
+        category: cpu  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.84:9100
+        category: cpu  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.85:9100
+        category: cpu  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.95:9100
+        category: cpu  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.96:9100
+        category: cpu  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+
+
+   # Bệnh Viện Saint Paul
     - match:
         app_type: Bệnh Viện Saint Paul
         instance: 172.16.16.14:9100
@@ -1498,7 +1675,65 @@ route:
 #################### DISK ##############################
 #################### DISK ##############################
 
-   # Doctor Allen
+   # Phòng Khám Mediplus
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.17:9100
+        category: disk  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.81:9100
+        category: disk  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.82:9100
+        category: disk  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.83:9100
+        category: disk  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.84:9100
+        category: disk  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.85:9100
+        category: disk  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.95:9100
+        category: disk  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Mediplus
+        instance: 10.3.0.96:9100
+        category: disk  
+      receiver: mediplus-telegram
+      group_wait: 1s
+
+
+   # Bệnh Viện Saint Paul
     - match:
         app_type: Bệnh Viện Saint Paul
         instance: 172.16.16.14:9100
