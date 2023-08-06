@@ -18,6 +18,7 @@ rule_files:
   - "rules/benhviensaintpaul.yml"
   - "rules/phongkhammediplus.yml"
   - "rules/trungtamtimmach.yml"
+  - "rules/benhvienphoi.yml"
 
 # alert
 alerting:
@@ -159,6 +160,7 @@ scrape_configs:
           - '10.3.0.95:9100'
           - '10.3.0.96:9100'
 
+#  Chưa làm alert về group
   - job_name: 'Trung-Tam-Tim-Mach'
     scrape_interval: 5s
     static_configs:
