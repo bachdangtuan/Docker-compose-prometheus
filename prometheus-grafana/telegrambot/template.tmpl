@@ -12,12 +12,12 @@ Xử lý cảnh báo lúc: <code>{{ $val.StartsAt | str_FormatDate }}</code>
 {{end -}}
 
 {{if eq .Status "firing"}}
-🚨SỰ CỐ {{ .CommonLabels.app_type }}🚨
+🚨SỰ CỐ {{ .CommonLabels.app_type | str_UpperCase }}🚨
 ------------------------------------------------------
 Nội dung: {{.CommonAnnotations.summary}}
 Nhóm Cảnh báo: {{ .CommonLabels.alertname }}
 
-Hệ thống viện: <b> <code> {{ .CommonLabels.app_type }} </code> </b>
+Hệ thống viện: <b> {{ .CommonLabels.app_type | str_UpperCase }} </b>
 
 Máy Chủ: {{ .CommonLabels.instance }}
 Thông tin: {{.CommonAnnotations.description}}
