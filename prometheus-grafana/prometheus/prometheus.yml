@@ -15,6 +15,7 @@ rule_files:
   - "rules/benhvienthanhhoa.yml"
   - "rules/daihocy.yml"
   - "rules/drallen.yml"
+  - "rules/benhviensaintpaul.yml"
 
 # alert
 alerting:
