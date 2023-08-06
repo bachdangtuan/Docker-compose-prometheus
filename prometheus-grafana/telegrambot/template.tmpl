@@ -12,7 +12,7 @@ Xử lý cảnh báo lúc: <code>{{ $val.StartsAt | str_FormatDate }}</code>
 {{end -}}
 
 {{if eq .Status "firing"}}
-🚨SỰ CỐ {{ .CommonLabels.app_type | str_UpperCase }}🚨
+🚨🆘CẢNH BÁO🆘🚨
 ------------------------------------------------------
 Nội dung: {{.CommonAnnotations.summary}}
 Nhóm Cảnh báo: {{ .CommonLabels.alertname }}
