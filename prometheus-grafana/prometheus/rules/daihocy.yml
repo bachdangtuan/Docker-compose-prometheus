@@ -28,9 +28,7 @@ groups:
           summary: "RAM Server > 90%"
           description: |
             RAM đã sử dụng chiếm {{ printf "%.2f" $value }}% / 100%
-            
-                 * Ram sử dụng = ram used + ram cache/buffer
-                 
+                             
             Thông Tin Cụ Thể:
 
                  * TOTAL RAM:  {{ query (printf "node_memory_MemTotal_bytes{job='Dai-Hoc-Y', instance=~'%s'}" $labels.instance) | first | value | humanize }}

@@ -28,8 +28,6 @@ groups:
           summary: "RAM Server > 90%"
           description: |
             RAM đã sử dụng chiếm {{ printf "%.2f" $value }}% / 100%
-            
-                 * Ram sử dụng (ram dùng + ram cache/buffer)
                  
             Thông Tin Cụ Thể:
 
