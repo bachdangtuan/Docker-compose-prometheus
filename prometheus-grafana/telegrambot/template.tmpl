@@ -7,7 +7,7 @@ Máy Chủ: {{ .CommonLabels.instance }}
 Status:  {{ .Status  | str_UpperCase}}
 ------------------------------------------------------
 {{- range $val := .Alerts }}
-THỜI GIAN: <code>{{ $val.StartsAt | str_FormatDate }}</code>
+Xử lý cảnh báo lúc: <code>{{ $val.StartsAt | str_FormatDate }}</code>
 {{- end -}}
 {{end -}}
 
