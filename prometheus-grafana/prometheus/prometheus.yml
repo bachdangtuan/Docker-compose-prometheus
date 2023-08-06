@@ -14,6 +14,7 @@ rule_files:
   - "rules/benhvienquany110.yml"
   - "rules/benhvienthanhhoa.yml"
   - "rules/daihocy.yml"
+  - "rules/drallen.yml"
 
 # alert
 alerting:
@@ -116,3 +117,12 @@ scrape_configs:
           - '192.168.55.192:9100'
           - '192.168.55.195:9100'
           - '192.168.55.197:9100'
+
+  - job_name: 'Dr-Allen'
+    scrape_interval: 5s
+    static_configs:
+      - targets:
+        # Bệnh Viện Đại Học Y
+          - '27.71.235.143:9100'
+          - '27.71.235.144:9100'
+          - '27.71.235.145:9100'
