@@ -30,6 +30,9 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-870297775'
 
+- name: allen-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.13:9087/alert/-918887592'
 
 
 - name: systems-team-telegram
@@ -52,6 +55,27 @@ route:
 ##################### SERVER-NODE EXPORTER #######################
 ##################### SERVER-NODE EXPORTER #######################
 ##################### SERVER-NODE EXPORTER #######################
+    # Doctor Allen
+    - match:
+        app_type: Doctor Allen
+        instance: 27.71.235.143:9100
+        category: server  
+      receiver: allen-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Doctor Allen
+        instance: 27.71.235.144:9100
+        category: server  
+      receiver: allen-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Doctor Allen
+        instance: 27.71.235.145:9100
+        category: server  
+      receiver: allen-telegram
+      group_wait: 1s
 
     # Bệnh Viện Y
     - match:
@@ -443,6 +467,29 @@ route:
 ##################### RAM #######################
 ##################### RAM #######################
 
+    # Doctor Allen
+    - match:
+        app_type: Doctor Allen
+        instance: 27.71.235.143:9100
+        category: memory  
+      receiver: allen-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Doctor Allen
+        instance: 27.71.235.144:9100
+        category: memory  
+      receiver: allen-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Doctor Allen
+        instance: 27.71.235.145:9100
+        category: memory  
+      receiver: allen-telegram
+      group_wait: 1s
+
+
     # Bệnh Viện Đa khoa thanh hóa
     - match:
         app_type: Đại Học Y
@@ -840,6 +887,28 @@ route:
 #################### CPU ##################################
 #################### CPU ##################################
 #################### CPU ##################################
+
+    # Doctor Allen
+    - match:
+        app_type: Doctor Allen
+        instance: 27.71.235.143:9100
+        category: cpu  
+      receiver: allen-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Doctor Allen
+        instance: 27.71.235.144:9100
+        category: cpu  
+      receiver: allen-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Doctor Allen
+        instance: 27.71.235.145:9100
+        category: cpu  
+      receiver: allen-telegram
+      group_wait: 1s
 
     # Bệnh Viện Y
     - match:
@@ -1234,6 +1303,28 @@ route:
 #################### DISK ##############################
 #################### DISK ##############################
 #################### DISK ##############################
+    # Doctor Allen
+    - match:
+        app_type: Doctor Allen
+        instance: 27.71.235.143:9100
+        category: disk  
+      receiver: allen-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Doctor Allen
+        instance: 27.71.235.144:9100
+        category: disk  
+      receiver: allen-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Doctor Allen
+        instance: 27.71.235.145:9100
+        category: disk  
+      receiver: allen-telegram
+      group_wait: 1s
+
 
     # Bệnh Viện E
     - match:
