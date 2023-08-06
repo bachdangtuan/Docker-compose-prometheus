@@ -185,7 +185,6 @@ scrape_configs:
           - '10.0.30.200:9100'
           - '10.0.30.224:9100'
 
-#  Chưa làm alert về group
   - job_name: 'Trung-Tam-Tim-Mach'
     scrape_interval: 5s
     static_configs:

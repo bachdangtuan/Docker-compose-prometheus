@@ -43,6 +43,11 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-908574338'
 
+- name: trungtamtimmach-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.13:9087/alert/-969060421'
+
+
 # Group Dự phòng
 - name: systems-team-telegram
   webhook_configs:
@@ -64,6 +69,79 @@ route:
 ##################### SERVER-NODE EXPORTER #######################
 ##################### SERVER-NODE EXPORTER #######################
 ##################### SERVER-NODE EXPORTER #######################
+
+
+    # Trung Tâm Tim Mạch Viện E
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.97:9100
+        category: server  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.101:9100
+        category: server  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.104:9100
+        category: server  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.106:9100
+        category: server  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.107:9100
+        category: server  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.223:9100
+        category: server  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s      
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.241:9100
+        category: server  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.242:9100
+        category: server  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+      
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.243:9100
+        category: server  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.250:9100
+        category: server  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s      
+
 
     # Bệnh Viện Phổi
     - match:
@@ -731,6 +809,78 @@ route:
 ##################### RAM #######################
 ##################### RAM #######################
 ##################### RAM #######################
+
+    # Trung Tâm Tim Mạch Viện E
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.97:9100
+        category: memory  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.101:9100
+        category: memory  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.104:9100
+        category: memory  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.106:9100
+        category: memory  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.107:9100
+        category: memory  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.223:9100
+        category: memory  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s      
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.241:9100
+        category: memory  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.242:9100
+        category: memory  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+      
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.243:9100
+        category: memory  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.250:9100
+        category: memory  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s      
+
 
   # Bệnh Viện Phổi
     - match:
@@ -1411,6 +1561,78 @@ route:
 #################### CPU ##################################
 #################### CPU ##################################
 #################### CPU ##################################
+
+    # Trung Tâm Tim Mạch Viện E
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.97:9100
+        category: cpu  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.101:9100
+        category: cpu  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.104:9100
+        category: cpu  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.106:9100
+        category: cpu  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.107:9100
+        category: cpu  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.223:9100
+        category: cpu  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s      
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.241:9100
+        category: cpu  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.242:9100
+        category: cpu  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+      
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.243:9100
+        category: cpu  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.250:9100
+        category: cpu  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s      
+
  # Bệnh Viện Phổi
     - match:
         app_type: Bệnh Viện Phổi
@@ -2084,6 +2306,77 @@ route:
 #################### DISK ##############################
 #################### DISK ##############################
 #################### DISK ##############################
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.97:9100
+        category: disk  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.101:9100
+        category: disk  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.104:9100
+        category: disk  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.106:9100
+        category: disk  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.107:9100
+        category: disk  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.223:9100
+        category: disk  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s      
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.241:9100
+        category: disk  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.242:9100
+        category: disk  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+      
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.243:9100
+        category: disk  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Trung Tâm Tim Mạch
+        instance: 192.168.1.250:9100
+        category: disk  
+      receiver: trungtamtimmach-telegram
+      group_wait: 4s      
+
 
   # Bệnh Viện Phổi
     - match:
