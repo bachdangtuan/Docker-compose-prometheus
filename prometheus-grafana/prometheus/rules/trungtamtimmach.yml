@@ -7,7 +7,7 @@ groups:
         for: 1m
         labels:
           severity: Khẩn cấp
-          app_type: Trung-Tam-Tim-Mach
+          app_type: Trung Tâm Tim Mạch
           category: server
           instance: "{{ $labels.instance }}"
         annotations:
@@ -21,7 +21,7 @@ groups:
         for: 1m
         labels:
           severity: Khẩn cấp
-          app_type: Trung-Tam-Tim-Mach
+          app_type: Trung Tâm Tim Mạch
           category: memory
           instance: "{{ $labels.instance }}"
         annotations:
@@ -43,7 +43,7 @@ groups:
         for: 1m
         labels:
           severity: Khẩn cấp
-          app_type: Trung-Tam-Tim-Mach
+          app_type: Trung Tâm Tim Mạch
           category: cpu
           instance: "{{ $labels.instance }}"
         annotations:
@@ -57,7 +57,7 @@ groups:
         for: 1m
         labels:
           severity: Khẩn cấp
-          app_type: Trung-Tam-Tim-Mach
+          app_type: Trung Tâm Tim Mạch
           category: disk
         annotations:
           summary: "Ổ CỨNG SẮP ĐẦY"
