@@ -17,7 +17,7 @@ groups:
   # This rule can be very noisy in dynamic infra with legitimate container start/stop/deployment.
   - alert: ContainerAbsent
     expr: absent(container_last_seen)
-    for: 5m
+    for: 1m
     labels:
       severity: warning
     annotations:
