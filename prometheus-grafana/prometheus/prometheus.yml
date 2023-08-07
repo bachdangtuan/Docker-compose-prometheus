@@ -1,15 +1,13 @@
 # my global config
 global:
-  scrape_interval:     15s 
-  evaluation_interval: 15s 
+  scrape_interval:     1s 
+  evaluation_interval: 1s 
 
   external_labels:
-    monitor: 'Hospitals'
+    monitor: 'Hospitals-Container'
 
 rule_files:
-  - 'rules/BachMaiRules.yml'
-  - "rules/MediplusRules.yml"
-  - "rules/JenkinsTuan.yml"
+  - 'rules/container-demo.yml'
 
 # alert
 alerting:
@@ -22,18 +20,10 @@ alerting:
       password: vietnam@1234
 
 scrape_configs:
-  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
-  # - job_name: 'Bach-Mai'
-  #   scrape_interval: 5s
-  #   static_configs:
-  #     - targets: ['10.0.0.16:9100']
-
-  # - job_name: 'Mediplus'
-  #   scrape_interval: 5s
-  #   static_configs:
-  #     - targets: ['10.0.0.55:9100']
-
   - job_name: 'jenkins-tuan'
     scrape_interval: 5s
     static_configs:
-      - targets: ['10.0.0.211:19100','10.0.0.210:9100']
+      - targets: 
+        - '10.0.0.211:19100'
+        - '10.0.0.210:9100'
+        - '10.0.0.55:19092'

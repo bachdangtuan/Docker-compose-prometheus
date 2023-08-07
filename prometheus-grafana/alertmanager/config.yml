@@ -13,18 +13,9 @@ receivers:
     send_resolved: true
     parse_mode: ""
 
-- name: BV-BachMai-telegram
-  webhook_configs:
-  - url: 'http://10.0.0.232:9087/alert/-932865047'
-
-
-- name: Mediplus-telegram
-  webhook_configs:
-  - url: 'http://10.0.0.232:9087/alert/-866646704'
-
 - name: jenkins-tuan-telegram
   webhook_configs:
-  - url: 'http://10.0.0.232:9087/alert/-999710731'
+  - url: 'http://10.0.0.232:9087/alert/-824908019'
 
 route:
   continue: false
@@ -37,41 +28,8 @@ route:
 # RAM 
     - match:
         app_type: jenkins-tuan
-        instance: 10.0.0.211:19100
-        category: memory  
+        instance: 10.0.0.55:19100
+        category: container_service  
       receiver: jenkins-tuan-telegram
       group_wait: 2s
-    - match:
-        app_type: jenkins-tuan
-        instance: 10.0.0.210:9100
-        category: memory  
-      receiver: jenkins-tuan-telegram
-      group_wait: 4s
-# CPU
-    - match:
-        app_type: jenkins-tuan
-        instance: 10.0.0.210:9100
-        category: cpu  
-      receiver: jenkins-tuan-telegram
-      group_wait: 1s
-    - match:
-        app_type: jenkins-tuan
-        instance: 10.0.0.211:19100
-        category: cpu  
-      receiver: jenkins-tuan-telegram
-      group_wait: 1s
-# DISK
-    - match:
-        app_type: jenkins-tuan
-        instance: 10.0.0.210:9100
-        category: disk  
-      receiver: jenkins-tuan-telegram
-      group_wait: 1s
-    - match:
-        app_type: jenkins-tuan
-        instance: 10.0.0.211:19100
-        category: disk  
-      receiver: jenkins-tuan-telegram
-      group_wait: 1s
-
 

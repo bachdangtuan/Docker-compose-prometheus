@@ -1,0 +1,16 @@
+groups:
+  - name: Container Bị Tắt
+    rules:
+
+    - alert: Redis Container Tắt
+      expr: absent(container_last_seen{name="redis-server",instance="10.0.0.55:11092"}) == 1
+      for: 1m
+      labels:
+        severity: KHẨN
+        app_type: dr allen service dead
+        category: container_service
+      annotations:
+        summary: "REDIS container đã TẮT tại : [ {{ $labels.instance }} ]"
+        description: |
+          REDIS CONTAINER HIỆN TẠI ĐANG TẮT........
+        timestamp: "Thời gian bắt đầu xảy ra {{ $value }}"
