@@ -18,7 +18,7 @@ groups:
 
       # Ram Rules
       - alert: Cảnh báo RAM
-        expr: (node_memory_MemTotal_bytes{job="Benh-Vien-E", instance=~".+"} - node_memory_MemFree_bytes{job="Benh-Vien-E", instance=~".+"}) / (node_memory_MemTotal_bytes{job="Benh-Vien-E", instance=~".+"}) * 100 >= 90
+        expr: (node_memory_MemTotal_bytes{job="Benh-Vien-E", instance=~".+"} - node_memory_MemFree_bytes{job="Benh-Vien-E", instance=~".+"} - node_memory_Buffers_bytes{job="Benh-Vien-E", instance=~".+"} - node_memory_Cached_bytes{job="Benh-Vien-E", instance=~".+"} ) / (node_memory_MemTotal_bytes{job="Benh-Vien-E", instance=~".+"}) * 100 >= 90
         for: 1m
         labels:
           severity: Khẩn cấp
@@ -29,14 +29,16 @@ groups:
           summary: "RAM Server > 90%"
           description: |
             RAM đã sử dụng chiếm {{ printf "%.2f" $value }}% / 100%
-           
+
             Thông Tin Cụ Thể:
 
-                 * TOTAL RAM:  {{ query (printf "node_memory_MemTotal_bytes{job='Benh-Vien-E', instance=~'%s'}" $labels.instance) | first | value | humanize }}
+                 * TOTAL RAM: {{ query (printf "node_memory_MemTotal_bytes{job='Benh-Vien-E', instance=~'%s'}" $labels.instance) | first | value  | humanize1024}}
 
-                 * Ram sử dụng:  {{ query (printf "node_memory_MemTotal_bytes{job='Benh-Vien-E', instance=~'%s'} - node_memory_MemFree_bytes{job='Benh-Vien-E', instance=~'%s'}" $labels.instance $labels.instance ) | first | value | humanize }}
-                  
-                 * Ram còn lại:  {{ query (printf "node_memory_MemFree_bytes{job='Benh-Vien-E', instance=~'%s'}" $labels.instance) | first | value | humanize }}
+                 * Ram sử dụng: {{ query (printf "node_memory_MemTotal_bytes{job='Benh-Vien-E', instance=~'%s'} - node_memory_MemFree_bytes{job='Benh-Vien-E', instance=~'%s'} - node_memory_Cached_bytes{job='Benh-Vien-E', instance=~'%s'} - node_memory_Buffers_bytes{job='Benh-Vien-E', instance=~'%s'}" $labels.instance $labels.instance $labels.instance $labels.instance) | first | value | humanize1024 }}
+                                   
+                 * Ram Cache/buffe: {{ query (printf "node_memory_Cached_bytes{job='Benh-Vien-E', instance=~'%s'} + node_memory_Buffers_bytes{job='Benh-Vien-E', instance=~'%s'}" $labels.instance $labels.instance) | first | value  | humanize1024}}
+
+                 * Ram còn lại:  {{ query (printf "node_memory_MemFree_bytes{job='Benh-Vien-E', instance=~'%s'}" $labels.instance) | first | value | humanize1024 }}
 
       # CPU Rules
       - alert: CPU Tăng cao
@@ -54,7 +56,6 @@ groups:
 
       # Disk Rules
       - alert: Dung lượng DISK
-        # expr: ((node_filesystem_free_bytes{instance=~".+",job="Benh-Vien-E",mountpoint="/"}) / (node_filesystem_size_bytes{instance=~".+",job="Benh-Vien-E",mountpoint="/"})) * 100 > 90
         expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Benh-Vien-E",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Benh-Vien-E",mountpoint=~".+"}))* 100) > 95
         for: 1m
         labels:
@@ -69,11 +70,10 @@ groups:
 
               Thông Tin Cụ Thể:
 
-                  * TOTAL DISK:  {{ query (printf "node_filesystem_size_bytes{job='Benh-Vien-E', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint) | first | value | humanize}}
+                  * TOTAL DISK:  {{ query (printf "node_filesystem_size_bytes{job='Benh-Vien-E', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint) | first | value | humanize1024}}
 
-                  * KL Đã dùng:  {{ query (printf "node_filesystem_size_bytes{job='Benh-Vien-E', instance=~'%s', mountpoint=~'%s'} - node_filesystem_free_bytes{job='Benh-Vien-E', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint $labels.instance $labels.mountpoint) | first | value | humanize}}
+                  * KL Đã dùng:  {{ query (printf "node_filesystem_size_bytes{job='Benh-Vien-E', instance=~'%s', mountpoint=~'%s'} - node_filesystem_free_bytes{job='Benh-Vien-E', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint $labels.instance $labels.mountpoint) | first | value | humanize1024}}
 
-                  * KL Còn lại:  {{ query (printf "node_filesystem_free_bytes{job='Benh-Vien-E', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint) | first | value | humanize}}
+                  * KL Còn lại:  {{ query (printf "node_filesystem_free_bytes{job='Benh-Vien-E', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint) | first | value | humanize1024}}
 
               Vào fix đi anh em !
-              
