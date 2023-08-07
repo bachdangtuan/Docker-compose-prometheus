@@ -15,7 +15,7 @@ receivers:
 
 - name: jenkins-tuan-telegram
   webhook_configs:
-  - url: 'http://10.0.0.232:9087/alert/-824908019'
+  - url: 'http://10.0.0.232:9088/alert/-999710731'
 
 route:
   continue: false
