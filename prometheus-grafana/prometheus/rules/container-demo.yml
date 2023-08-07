@@ -1,23 +1,26 @@
 groups:
-  - name: Container Bị Tắt
-    rules:
-
-  # This rule can be very noisy in dynamic infra with legitimate container start/stop/deployment.
-  - alert: ContainerKilled
+- name: Container
+  rules:
+  - alert: Container Tắt
+    expr: container_memory_usage_bytes{name!=""} == 0
+    for: 1m
+    labels:
+      severity: KHẨN
+      app_type: Demo
+      category: container_service
+    annotations:
+      summary: "Container đã TẮT tại: [{{ $labels.instance }}]"
+      description: |
+        CONTAINER HIỆN TẠI ĐANG TẮT........
+      timestamp: "Thời gian bắt đầu xảy ra {{ $value }}"
+  - alert: ContainerDownNew
     expr: time() - container_last_seen > 60
-    for: 0m
+    for: 1m
     labels:
-      severity: warning
+      severity: critical
     annotations:
-      summary: Container killed (instance {{ $labels.instance }})
-      description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
-
-  # This rule can be very noisy in dynamic infra with legitimate container start/stop/deployment.
-  - alert: ContainerAbsent
-    expr: absent(container_last_seen)
-    for: 5m
-    labels:
-      severity: warning
-    annotations:
-      summary: Container absent (instance {{ $labels.instance }})
-      description: "A container is absent for 5 min\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+      Description: |-
+        A container is down for 30s
+          VALUE = {{ $value }}
+          LABELS = {{ $labels }}
+      Title: Container down (instance {{ $labels.instance }})
