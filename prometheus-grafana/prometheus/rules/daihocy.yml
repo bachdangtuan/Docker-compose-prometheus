@@ -28,11 +28,11 @@ groups:
           summary: "RAM Server > 90%"
           description: |
             RAM đã sử dụng chiếm {{ printf "%.2f" $value }}% / 100%
-                             
+
             Thông Tin Cụ Thể:
 
-                 * TOTAL RAM:  {{ query (printf "node_memory_MemTotal_bytes{job='Dai-Hoc-Y', instance=~'%s'}" $labels.instance) | first | value / (1024 * 1024 * 1024) }}
-                 
+            * TOTAL RAM: {{ query (printf "node_memory_MemTotal_bytes{job='Dai-Hoc-Y', instance=~'%s'}" $labels.instance) | first | value / (1024 * 1024 * 1024) }} GB
+
                  * Ram sử dụng:  {{ query (printf "node_memory_MemTotal_bytes{job='Dai-Hoc-Y', instance=~'%s'} - node_memory_MemFree_bytes{job='Dai-Hoc-Y', instance=~'%s'}" $labels.instance $labels.instance ) | first | value | humanize }}
                   
                  * Ram còn lại:  {{ query (printf "node_memory_MemFree_bytes{job='Dai-Hoc-Y', instance=~'%s'}" $labels.instance) | first | value | humanize }}
