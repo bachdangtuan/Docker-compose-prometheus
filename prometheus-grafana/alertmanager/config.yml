@@ -2,18 +2,7 @@ global:
   resolve_timeout: 1m
 
 receivers:
-- name: System-Team
-  telegram_configs:
-  - api_url: https://api.telegram.org
-    bot_token: 6612849064:AAGR795EyHyn278L0WRLeqiTyBuCWRRhjMg
-    chat_id: -998222571
-    disable_notifications: false
-    http_config:
-      follow_redirects: true
-    send_resolved: true
-    parse_mode: ""
-
-- name: jenkins-tuan-telegram
+- name: tuan-telegram
   webhook_configs:
   - url: 'http://10.0.0.232:9088/alert/-999710731'
 
@@ -23,13 +12,13 @@ route:
   group_interval: 1m
   group_wait: 10s
   repeat_interval: 1m
-  receiver: System-Team
+  receiver: tuan-telegram
   routes:
 # RAM 
     - match:
         app_type: jenkins-tuan
         instance: 10.0.0.55:19100
         category: container_service  
-      receiver: jenkins-tuan-telegram
+      receiver: tuan-telegram
       group_wait: 2s
 
