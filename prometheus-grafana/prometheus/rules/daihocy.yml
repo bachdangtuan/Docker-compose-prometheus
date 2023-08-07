@@ -31,7 +31,7 @@ groups:
 
             Thông Tin Cụ Thể:
 
-            * TOTAL RAM: {{ query (printf "node_memory_MemTotal_bytes{job='Dai-Hoc-Y', instance=~'%s'}" $labels.instance) | first | value / (1024 * 1024 * 1024) }} GB
+            * TOTAL RAM: {{ query (printf "node_memory_MemTotal_bytes{job='Dai-Hoc-Y', instance=~'%s'}" $labels.instance) | first | value  * 0}} GB
 
                  * Ram sử dụng:  {{ query (printf "node_memory_MemTotal_bytes{job='Dai-Hoc-Y', instance=~'%s'} - node_memory_MemFree_bytes{job='Dai-Hoc-Y', instance=~'%s'}" $labels.instance $labels.instance ) | first | value | humanize }}
                   
