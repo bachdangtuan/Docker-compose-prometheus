@@ -1,16 +1,25 @@
 groups:
-  - name: Container Bị Tắt
-    rules:
+  # - name: Container Bị Tắt
+  #   rules:
 
-    - alert: Redis Container Tắt
-      expr: absent(container_last_seen{name="redis-server",instance="10.0.0.55:11092"}) == 1
-      for: 1m
-      labels:
-        severity: KHẨN
-        app_type: Demo
-        category: container_service
-      annotations:
-        summary: "REDIS container đã TẮT tại : [ {{ $labels.instance }} ]"
-        description: |
-          REDIS CONTAINER HIỆN TẠI ĐANG TẮT........
-        timestamp: "Thời gian bắt đầu xảy ra {{ $value }}"
+  #   - alert: Redis Container Tắt
+  #     expr: absent(container_last_seen{name="redis-server",instance="10.0.0.55:11092"}) == 1
+  #     for: 1m
+  #     labels:
+  #       severity: KHẨN
+  #       app_type: Demo
+  #       category: container_service
+  #     annotations:
+  #       summary: "REDIS container đã TẮT tại : [ {{ $labels.instance }} ]"
+  #       description: |
+  #         REDIS CONTAINER HIỆN TẠI ĐANG TẮT........
+  #       timestamp: "Thời gian bắt đầu xảy ra {{ $value }}"
+  # This rule can be very noisy in dynamic infra with legitimate container start/stop/deployment.
+  - alert: ContainerAbsent
+    expr: absent(container_last_seen)
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: Container absent (instance {{ $labels.instance }})
+      description: "A container is absent for 5 min\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
