@@ -7,7 +7,7 @@ groups:
       for: 1m
       labels:
         severity: KHẨN
-        app_type: dr allen service dead
+        app_type: Demo
         category: container_service
       annotations:
         summary: "REDIS container đã TẮT tại : [ {{ $labels.instance }} ]"
