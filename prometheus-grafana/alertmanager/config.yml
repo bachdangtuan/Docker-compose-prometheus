@@ -17,7 +17,7 @@ route:
 # RAM 
     - match:
         app_type: Demo
-        instance: 10.0.0.55:19092
+        instance: 10.0.0.55:11092
         category: container_service  
       receiver: tuan-telegram
       group_wait: 2s
