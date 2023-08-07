@@ -30,7 +30,7 @@ datasources:
   # <string> basic auth username, if used
   basicAuthUser: admin
   # <string> basic auth password, if used
-  basicAuthPassword: toivaban
+  basicAuthPassword: $2a$12$o1AkcTi6sOgbs7uzjV0sR.hMb7PgariXpwV6zFbD4h5lWzXT6AvWy
   # <bool> enable/disable with credentials headers
   withCredentials:
   # <bool> mark as default datasource. Max one per org
