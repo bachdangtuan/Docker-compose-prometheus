@@ -2,12 +2,12 @@ groups:
 - name: Container
   rules:
   - alert: Container Tắt
-    expr: time() - container_last_seen > 60
+    expr: (time() - container_last_seen) - 10 > 60
     for: 0s
     labels:
       severity: critical
     annotations:
       summary: Container killed (instance {{ $labels.instance }})
       description: |
-       A container has disappeared {{ $labels.name }}
+       A container has disappeared
 
