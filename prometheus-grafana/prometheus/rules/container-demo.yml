@@ -7,8 +7,5 @@ groups:
     labels:
       severity: critical
     annotations:
-      Description: |
-        {{$labels.name}}
-           {{$labels.instance}}
-           {{$labels.image}}
-        A container is down for 30s
+      summary: Container killed (instance {{ $labels.instance }})
+      description: "A container has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
