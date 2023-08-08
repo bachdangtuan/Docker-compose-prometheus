@@ -8,7 +8,7 @@ receivers:
 
 route:
   continue: false
-  group_by: ['instance']
+  group_by: ['instance', 'container_name']
   group_interval: 30s
   group_wait: 10s
   repeat_interval: 1m
@@ -16,7 +16,6 @@ route:
   routes:
 # RAM 
     - match:
-        app_type: Demo
         instance: 10.0.0.55:11092
         category: container
         list_service: .*
