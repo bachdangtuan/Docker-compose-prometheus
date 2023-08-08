@@ -2,7 +2,7 @@ groups:
 - name: Container
   rules:
   - alert: Container Tắt
-    expr: count(container_last_seen{name=~".+"} > (time() - 60))
+    expr: absent(container_start_time_seconds{name=~".*"})
     for: 1s
     labels:
       severity: critical
