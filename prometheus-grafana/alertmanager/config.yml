@@ -363,6 +363,21 @@ route:
         category: server  
       receiver: saintpaul-telegram
       group_wait: 1s
+
+    - match:
+        app_type: Bệnh Viện Saint Paul
+        instance: 172.16.16.18:9100
+        category: server  
+      receiver: saintpaul-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Bệnh Viện Saint Paul
+        instance: 172.16.16.19:9100
+        category: server  
+      receiver: saintpaul-telegram
+      group_wait: 1s
+
     - match:
         app_type: Bệnh Viện Saint Paul
         instance: 172.16.16.22:9100
@@ -1091,6 +1106,21 @@ route:
         category: memory  
       receiver: saintpaul-telegram
       group_wait: 1s
+
+    - match:
+        app_type: Bệnh Viện Saint Paul
+        instance: 172.16.16.18:9100
+        category: memory  
+      receiver: saintpaul-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Bệnh Viện Saint Paul
+        instance: 172.16.16.19:9100
+        category: memory  
+      receiver: saintpaul-telegram
+      group_wait: 1s
+
     - match:
         app_type: Bệnh Viện Saint Paul
         instance: 172.16.16.22:9100
@@ -1831,6 +1861,21 @@ route:
         category: cpu  
       receiver: saintpaul-telegram
       group_wait: 1s
+
+    - match:
+        app_type: Bệnh Viện Saint Paul
+        instance: 172.16.16.18:9100
+        category: cpu  
+      receiver: saintpaul-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Bệnh Viện Saint Paul
+        instance: 172.16.16.19:9100
+        category: cpu  
+      receiver: saintpaul-telegram
+      group_wait: 1s
+
     - match:
         app_type: Bệnh Viện Saint Paul
         instance: 172.16.16.22:9100
@@ -2563,6 +2608,21 @@ route:
         category: disk  
       receiver: saintpaul-telegram
       group_wait: 1s
+
+    - match:
+        app_type: Bệnh Viện Saint Paul
+        instance: 172.16.16.18:9100
+        category: disk  
+      receiver: saintpaul-telegram
+      group_wait: 1s
+
+    - match:
+        app_type: Bệnh Viện Saint Paul
+        instance: 172.16.16.19:9100
+        category: disk  
+      receiver: saintpaul-telegram
+      group_wait: 1s
+
     - match:
         app_type: Bệnh Viện Saint Paul
         instance: 172.16.16.22:9100
