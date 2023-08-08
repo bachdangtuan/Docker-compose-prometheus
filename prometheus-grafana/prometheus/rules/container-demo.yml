@@ -7,7 +7,7 @@ groups:
     labels:
       severity: critical
       category: container
-      list_service: {{ $labels.name }}
+      list_service: {{ $value.name }}
     annotations:
       summary: Container bị tắt {{ $labels.name }}  )
       description: |
