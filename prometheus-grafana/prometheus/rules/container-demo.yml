@@ -3,13 +3,11 @@ groups:
   rules:
   - alert: Container Tắt
     expr: time() - container_last_seen > 60
-    for: 0m
+    for: 1m
     labels:
       severity: critical
     annotations:
-      Description: |-
+      Description: |
+
         A container is down for 30s
           VALUE = {{ $value }}
-          LABELS = {{ $labels.name }}
-      timestamp: "Thời gian bắt đầu xảy ra {{ $value }}"
-      Title: Container down (instance {{ $labels.instance }})
