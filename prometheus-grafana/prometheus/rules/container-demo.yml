@@ -3,7 +3,7 @@ groups:
   rules:
   - alert: Container Tắt
     expr: time() - container_last_seen > 60
-    for: 0m
+    for: 10s
     labels:
       severity: critical
     annotations:
