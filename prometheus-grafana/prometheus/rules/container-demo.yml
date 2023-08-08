@@ -2,7 +2,7 @@ groups:
 - name: Container
   rules:
   - alert: Container Tắt
-    expr: time() - container_last_seen > 60
+    expr: container_state_status{status='exited'} == 1
     for: 1s
     labels:
       severity: critical
