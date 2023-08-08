@@ -8,7 +8,7 @@ receivers:
 
 route:
   continue: false
-  group_by: ['instance', 'container_name']
+  group_by: ['instance']
   group_interval: 30s
   group_wait: 10s
   repeat_interval: 1m
@@ -16,9 +16,10 @@ route:
   routes:
 # RAM 
     - match:
+        app_type: Demo
         instance: 10.0.0.55:11092
         category: container
-        list_service: .*
+        list_service: 
       receiver: tuan-telegram
       group_wait: 2s
 
