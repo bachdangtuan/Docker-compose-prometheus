@@ -7,12 +7,10 @@ groups:
     labels:
       severity: critical
       category: container
-      list_service: check
     annotations:
-      summary: Container bị tắt {{ $labels.name }}  )
+      summary: Container killed (instance {{ $labels.instance }}  )
       description: |
        Tuấn
-       
        {{ $labels.name }}
        A container has disappeared
 
