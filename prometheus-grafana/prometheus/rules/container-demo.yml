@@ -8,7 +8,7 @@ groups:
       severity: critical
       category: container
     annotations:
-      summary: Container killed (instance {{ $labels.instance }})
+      summary: Container killed (instance {{ $labels.instance }}   {{ $labels.name }} )
       description: |
        Tuấn
        {{ $labels.name }}
