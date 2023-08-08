@@ -8,6 +8,7 @@ groups:
       severity: critical
     annotations:
       Description: |
-
+        {{$labels.name}}
+           {{$labels.instance}}
+           {{$labels.image}}
         A container is down for 30s
-          VALUE = {{ $value }}
