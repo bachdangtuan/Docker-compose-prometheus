@@ -6,9 +6,11 @@ groups:
     for: 1s
     labels:
       severity: critical
+      category: container
     annotations:
       summary: Container killed (instance {{ $labels.instance }})
       description: |
        Tuấn
+       {{ $labels.name }}
        A container has disappeared
 
