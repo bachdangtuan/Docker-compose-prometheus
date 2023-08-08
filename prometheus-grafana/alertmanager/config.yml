@@ -18,8 +18,7 @@ route:
     - match:
         app_type: Demo
         instance: 10.0.0.55:11092
-        category: container 
-        list_service: {{ $value.name }} 
+        category: container  
       receiver: tuan-telegram
       group_wait: 2s
 
