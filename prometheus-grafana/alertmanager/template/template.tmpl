@@ -9,9 +9,11 @@ Status: <b>{{.Status | toUpper}} ✅</b>
 {{end}}
 <b>Instance: DEMO</b>
 Labels:
-{{ range .Labels }}
-  - {{ .name }} = {{ .value }}
-{{ end }}
+{{ range $key,$val := .Labels -}}
+    <> {{$val}}</b>
+{{- end }} 
+
+
 
 {{- end -}}
 
