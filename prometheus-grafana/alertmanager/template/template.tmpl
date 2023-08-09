@@ -12,6 +12,7 @@ Labels:
 
 {{ range $key,$val := .GroupLabels -}}
     <b>[</b> {{$val}} <b>]</b>
+    <b>[</b> {{$key}} <b>]</b>
 {{- end }} 
 
 
