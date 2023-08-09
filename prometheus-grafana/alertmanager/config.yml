@@ -11,7 +11,7 @@ receivers:
   - api_url: https://api.telegram.org
     bot_token: 6623410843:AAFXWQcnUEqQviOLo_YtxKqNoM5xw8Snoic
     chat_id: -999710731
-    # template: template.tmpl 
+    template: /etc/alertmanager/template/*.tmpl
     disable_notifications: false
     http_config:
       follow_redirects: true
@@ -35,5 +35,5 @@ route:
       receiver: System-Team
       group_wait: 2s
 
-templates:
-- /etc/alertmanager/template/*.tmpl
+# templates:
+# - /etc/alertmanager/template/*.tmpl
