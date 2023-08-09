@@ -1,10 +1,10 @@
-{{ define "telegram.default.message" }}
-DEMO ALERT TELEGRAM
-
-
 {{ if gt (len .Alerts.Firing) 0 }}
 Alerts Firing:
-{{ template "__text_alert_list" .Alerts.Firing }}
+{{ range .Alerts.Firing }}
+  {{ range .Labels }}
+    {{ if eq .name "alertname" }}
+      {{ .name }} = {{ .value }}
+    {{ end }}
+  {{ end }}
 {{ end }}
-
 {{ end }}
