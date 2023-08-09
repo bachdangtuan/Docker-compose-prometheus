@@ -16,7 +16,7 @@ receivers:
     http_config:
       follow_redirects: true
     send_resolved: true
-    parse_mode: ""
+    parse_mode: 'HTML'
 
 
 

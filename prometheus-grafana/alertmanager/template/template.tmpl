@@ -1,11 +1,6 @@
 {{ define "telegram.default.message" }}
 DEMO ALERT TELEGRAM
 
-
-{{ $length := len .GroupLabels -}} {{ if ne $length 0 }}
-{{ range $key,$val := .GroupLabels -}}
-    <b>[</b> {{$val}} <b>]</b>
-{{- end }} 
 {{if eq .Status "firing"}}
 Status: <b>{{.Status | toUpper }} 🔥</b>
 {{end}}
@@ -16,5 +11,3 @@ Status: <b>{{.Status | toUpper}} ✅</b>
 
 {{- end -}}
 
-
-{{ end }}
