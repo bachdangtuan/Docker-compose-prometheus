@@ -10,26 +10,7 @@ Status: <b>{{.Status | toUpper}} ✅</b>
 <b>Instance: DEMO</b>
 Labels:
 
-{{ range $key,$val := .GroupLabels -}}
-    <b>[</b> {{$val}} <b>]</b>
-    <b>[</b> {{$key}} <b>]</b>
-{{- end }} 
-
-
-{{- if gt (len .CommonLabels) (len .GroupLabels) -}}
-{{" "}}(
-
-{{- with .CommonLabels.Remove .GroupLabels.Names }}
-
-{{- range $index, $label := .SortedPairs -}}
-
-{{ if $index }}, {{ end }}
-
-{{- $label.Name }}="{{ $label.Value -}}"
-
-{{- end }}
-
-{{- end -}}
-
-{{- end -}}
-
+{{- if eq (len .CommonLabels) (len .GroupLabels) }}
+      Labels: ìnoo  
+{{end}}
+{{end}}
