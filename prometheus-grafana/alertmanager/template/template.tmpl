@@ -9,8 +9,4 @@ Status: <b>{{.Status | toUpper }} 🔥</b>
 Status: <b>{{.Status | toUpper}} ✅</b>
 {{end}}
 <b>Instance:</b>
-{{- range $val := .Alerts }}
- [ {{index $val.Labels "instance" | instanceMapping }} ]
- value: <b>{{index $val.Annotations "value" | measurePrecision }}{{index $val.Annotations "measureUnit"}}</b>   
-{{- end -}}
 {{- end -}}
