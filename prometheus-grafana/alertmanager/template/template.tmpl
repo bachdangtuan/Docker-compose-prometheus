@@ -4,7 +4,7 @@
 Nội dung: {{.CommonAnnotations.summary}}
 Nhóm Cảnh báo: {{ .CommonLabels.alertname }}
 Máy Chủ: {{ .CommonLabels.instance }}
-Status:  {{ .Status  | str_UpperCase}}
+Status:  {{ .Status  }}
 ------------------------------------------------------
 {{end -}}
 
@@ -16,10 +16,10 @@ Nhóm Cảnh báo: {{ .CommonLabels.alertname }}
 Hệ thống viện: <code> {{ .CommonLabels.app_type }} </code>
 Máy Chủ: {{ .CommonLabels.instance }}
 Thông tin: {{.CommonAnnotations.description}}
-Mức Độ:  <code> 🔥 {{ .CommonLabels.severity | str_UpperCase }} 🔥 </code>
+Mức Độ:  <code> 🔥 {{ .CommonLabels.severity  }} 🔥 </code>
 
 ------------------------------------------------------
 {{- range $val := .Alerts }}
-THỜI GIAN XẢY RA: <code>{{ $val.StartsAt | str_FormatDate }}</code>
+THỜI GIAN XẢY RA: <code>{{ $val.StartsAt  }}</code>
 {{- end -}}
 {{end }}
