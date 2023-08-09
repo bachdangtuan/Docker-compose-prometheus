@@ -1,3 +1,10 @@
 {{ define "telegram.default.message" }}
 DEMO ALERT TELEGRAM
+
+
+{{ if gt (len .Alerts.Firing) 0 }}
+Alerts Firing:
+{{ template "__text_alert_list" .Alerts.Firing }}
+{{ end }}
+
 {{ end }}
