@@ -9,7 +9,16 @@ Status: <b>{{.Status | toUpper}} ✅</b>
 {{end}}
 <b>Instance: DEMO</b>
 Labels:
-{{ .Alerts }}
+
+
+{{ range .Alerts }}
+    Status: {{ .Status }}
+    Labels: {{ .Labels }}
+    Annotations: {{ .Annotations }}
+{{ end }}
+
+
+
 {{ range $key,$val := .GroupLabels -}}
     <b>[</b> {{$val}} <b>]</b>
     <b>[</b> {{$key}} <b>]</b>
