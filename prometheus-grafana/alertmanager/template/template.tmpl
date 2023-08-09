@@ -10,7 +10,17 @@ Status: <b>{{.Status | toUpper}} ✅</b>
 <b>Instance: DEMO</b>
 Labels:
 
-{{- if eq (len .CommonLabels) (len .GroupLabels) }}
-      Labels: ìnoo  
-{{end}}
-{{end}}
+{{ range $key,$val := .GroupLabels -}}
+    <b>[</b> {{$val}} <b>]</b>
+    <b>[</b> {{$key}} <b>]</b>
+
+{{- end }} 
+
+
+  [{{ .Status | toUpper -}}
+  {{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{- end -}}
+  ] {{ .CommonLabels.alertname }}
+
+  
+{{- end -}}
+
