@@ -3,13 +3,18 @@
 
 {{if eq .Status "firing"}}
 Status: <b>{{.Status | toUpper }} 🔥</b>
-Labels:
-{{ range .Alerts }}
-Trạng thái Container: {{ .Status }}   {{ .CommonLabels.status  }}
-Thông tin chi tiết: {{ .Annotations.description }}
-{{ end }}
-{{- end -}}
 {{end}}
 {{- if eq .Status "resolved"}}
 Status: <b>{{.Status | toUpper}} ✅</b>
 {{end}}
+
+
+Cảnh báo:   {{ .CommonLabels.status  }}
+{{ range .Alerts }}
+Trạng thái Container: {{ .Status }}
+Thông tin chi tiết: {{ .Annotations.description }}
+
+{{ end }}
+  
+{{- end -}}
+
