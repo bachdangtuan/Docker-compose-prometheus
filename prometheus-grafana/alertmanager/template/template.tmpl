@@ -1,6 +1,16 @@
-{{ if gt (len .Alerts.Firing) 0 }}
-
-CẢNH BÁO CONTAINER
-
-
-{{ end }}
+{{ $length := len .GroupLabels -}} {{ if ne $length 0 }}
+{{ range $key,$val := .GroupLabels -}}
+    <b>[</b> {{$val}} <b>]</b>
+{{- end }} 
+{{if eq .Status "firing"}}
+Status: <b>{{.Status | toUpper }} 🔥</b>
+{{end}}
+{{- if eq .Status "resolved"}}
+Status: <b>{{.Status | toUpper}} ✅</b>
+{{end}}
+<b>Instance:</b>
+{{- range $val := .Alerts }}
+ [ {{index $val.Labels "instance" | instanceMapping }} ]
+ value: <b>{{index $val.Annotations "value" | measurePrecision }}{{index $val.Annotations "measureUnit"}}</b>   
+{{- end -}}
+{{- end -}}
