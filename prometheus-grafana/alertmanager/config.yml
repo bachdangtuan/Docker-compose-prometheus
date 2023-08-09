@@ -6,6 +6,20 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.232:9088/alert/-999710731'
 
+- name: System-Team
+  telegram_configs:
+  - api_url: https://api.telegram.org
+    bot_token: 6623410843:AAFXWQcnUEqQviOLo_YtxKqNoM5xw8Snoic
+    chat_id: -999710731
+    # template: template.tmpl 
+    disable_notifications: false
+    http_config:
+      follow_redirects: true
+    send_resolved: true
+    parse_mode: ""
+
+
+
 route:
   continue: false
   group_by: ['instance']
@@ -16,9 +30,10 @@ route:
   routes:
 # RAM 
     - match:
-        app_type: Demo
-        instance: 10.0.0.55:11092
+        instance: 10.0.0.55:8080
         category: container  
-      receiver: tuan-telegram
+      receiver: System-Team
       group_wait: 2s
 
+templates:
+- /etc/alertmanager/template/*.tmpl
