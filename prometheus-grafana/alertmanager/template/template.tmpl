@@ -1,20 +1,15 @@
 {{ define "telegram.default.message" }}
-DEMO ALERT TELEGRAM
+🔥 CẢNH BÁO CONTAINER 🔥
 
 {{if eq .Status "firing"}}
 Status: <b>{{.Status | toUpper }} 🔥</b>
+Labels:
+{{ range .Alerts }}
+Trạng thái Container: {{ .Status }}   {{ .CommonLabels.status  }}
+Thông tin chi tiết: {{ .Annotations.description }}
+{{ end }}
+{{- end -}}
 {{end}}
 {{- if eq .Status "resolved"}}
 Status: <b>{{.Status | toUpper}} ✅</b>
 {{end}}
-<b>Instance: DEMO</b>
-Labels:
-
-
-{{ range .Alerts }}
-    Status: {{ .Status }}
-    Annotations: {{ .Annotations.description }}
-{{ end }}
-  
-{{- end -}}
-
