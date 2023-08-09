@@ -23,13 +23,16 @@ Labels:
   {{ .CommonLabels.alertname }}
   {{ .CommonLabels.status  }}
   {{ .CommonLabels.name  }}
-
+    category
   {{ .CommonLabels.category  }}
+  id container
   {{ .CommonLabels.id   }}
+    images container
   {{ .CommonLabels.image   }}
-
+    name
   {{ .Labels.name   }}
-  {{ .Labels.CommonLabels.name   }}  
 
+  {{ .image   }}  
+ {{ .name   }}  
 {{- end -}}
 
