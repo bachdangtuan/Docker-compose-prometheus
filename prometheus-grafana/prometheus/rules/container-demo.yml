@@ -10,7 +10,5 @@ groups:
     annotations:
       summary: Container killed (instance {{ $labels.instance }}  ) {{ $labels.name }}
       description: |
-       Tuấn
-       {{ $labels.name }}
-       A container has disappeared
-      
+       Container đã bị tắt: {{ $labels.name }}
+       Các con vợ vui lòng kiểm tra lại.

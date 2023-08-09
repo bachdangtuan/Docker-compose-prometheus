@@ -9,9 +9,9 @@ Status: <b>{{.Status | toUpper}} ✅</b>
 {{end}}
 
 
-Cảnh báo:   {{ .CommonLabels.status  }}
+Cảnh báo:   
 {{ range .Alerts }}
-Trạng thái Container: {{ .Status }}
+Trạng thái Container: {{ .CommonLabels.status  }}
 Thông tin chi tiết: {{ .Annotations.description }}
 
 {{ end }}
