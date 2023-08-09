@@ -36,4 +36,4 @@ route:
       group_wait: 2s
 
 templates:
-- /etc/alertmanager/template/template.tmpl
+- '/etc/alertmanager/template/template.tmpl'

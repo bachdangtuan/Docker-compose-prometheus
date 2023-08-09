@@ -1,1 +1,6 @@
-<b> Alert Grafana </b>
+{{- range .Alerts }}
+{{- if .IsFiring }}
+🚨<b>{{ .Labels.alertname }}</b>
+  ➡️ {{ .Annotations.message }}
+{{- end }}
+{{- end }}
