@@ -1,8 +1,12 @@
 {{ define "telegram.default.message" }}
 🔥 CẢNH BÁO CONTAINER 🔥
-
 {{if eq .Status "firing"}}
 Status: <b>{{.Status | toUpper }} 🔥</b>
+Cảnh báo Trạng thái Container:  {{ .CommonLabels.status  }}
+{{ range .Alerts }}
+Trạng thái Container: {{ .Status }}
+Thông tin chi tiết: {{ .Annotations.description }}
+
 {{end}}
 {{- if eq .Status "resolved"}}
 Status: <b>{{.Status | toUpper}} ✅</b>
