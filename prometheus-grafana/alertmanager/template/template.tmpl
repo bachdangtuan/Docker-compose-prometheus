@@ -1,10 +1,6 @@
 {{ if gt (len .Alerts.Firing) 0 }}
-Alerts Firing:
-{{ range .Alerts.Firing }}
-  {{ range .Labels }}
-    {{ if eq .name "alertname" }}
-      {{ .name }} = {{ .value }}
-    {{ end }}
-  {{ end }}
-{{ end }}
+
+CẢNH BÁO CONTAINER
+
+
 {{ end }}
