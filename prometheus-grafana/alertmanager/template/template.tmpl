@@ -19,8 +19,13 @@ Labels:
 
   [{{ .Status | toUpper -}}
   {{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{- end -}}
-  ] {{ .CommonLabels.alertname }}
+  ] 
+  {{ .CommonLabels.alertname }}
+  {{ .CommonLabels.status  }}
+  {{ .CommonLabels.name  }}
 
-  
+
+
+
 {{- end -}}
 
