@@ -9,6 +9,5 @@ groups:
       category: container
     annotations:
       summary: Container killed (instance {{ $labels.instance }}  ) {{ $labels.name }}
-      description: |
-       Container đã bị tắt: {{ $labels.name }}
-       Các con vợ vui lòng kiểm tra lại.
+      description: " Container đã bị tắt : {{ $labels.name }} "
+
