@@ -16,23 +16,12 @@ Labels:
 
 {{- end }} 
 
+{{ .CommonLabels }}
+{{ .CommonAnnotations }}
 
   [{{ .Status | toUpper -}}
   {{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{- end -}}
   ] 
-  {{ .CommonLabels.alertname }}
-  {{ .CommonLabels.status  }}
-  {{ .CommonLabels.name  }}
-    category
-  {{ .CommonLabels.category  }}
-  id container
-  {{ .CommonLabels.id   }}
-    images container
-  {{ .CommonLabels.image   }}
-    name
-  {{ .Labels.name   }}
-
-  {{ .image   }}  
- {{ .name   }}  
+  
 {{- end -}}
 
