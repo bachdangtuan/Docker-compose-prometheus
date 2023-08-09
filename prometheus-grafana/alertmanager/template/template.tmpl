@@ -13,7 +13,7 @@ Labels:
 
 {{ range .Alerts }}
     Status: {{ .Status }}
-    Annotations: {{ .Annotations }}
+    Annotations: {{ .Annotations.description }}
 {{ end }}
   
 {{- end -}}
