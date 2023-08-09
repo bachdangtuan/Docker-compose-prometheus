@@ -16,21 +16,6 @@ Labels:
     Labels: {{ .Labels }}
     Annotations: {{ .Annotations }}
 {{ end }}
-
-
-
-{{ range $key,$val := .GroupLabels -}}
-    <b>[</b> {{$val}} <b>]</b>
-    <b>[</b> {{$key}} <b>]</b>
-
-{{- end }} 
-
-{{ .CommonLabels }}
-{{ .CommonAnnotations }}
-{{ .Annotations.message }}
-  [{{ .Status | toUpper -}}
-  {{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{- end -}}
-  ] 
   
 {{- end -}}
 
