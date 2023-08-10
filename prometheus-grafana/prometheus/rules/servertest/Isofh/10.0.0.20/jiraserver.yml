@@ -16,7 +16,7 @@ groups:
        Container bị tắt
 
   - alert: Container Memory
-    expr: container_memory_usage_bytes{name="jira-cluster-isofh_node1_1",instance="10.0.0.55:11092"} 
+    expr: container_memory_usage_bytes{name="jira-cluster-isofh_node1_1",instance="10.0.0.20:19092"} 
     for: 10s
     labels:
       severity: khẩn cấp
