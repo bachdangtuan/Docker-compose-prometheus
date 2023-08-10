@@ -36,6 +36,12 @@ route:
       receiver: tuan-telegram
       group_wait: 2s
 
+    - match:
+        instance: 10.0.0.55:8080
+        category: container
+        container_name: golang-app 
+      receiver: tuan-telegram
+      group_wait: 2s
 
 
 
