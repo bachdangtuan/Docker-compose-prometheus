@@ -20,6 +20,7 @@ groups:
     for: 10s
     labels:
       severity: critical
+      category: container-memory
       app_type: Server Demo
       container_name: searching-service
     annotations:

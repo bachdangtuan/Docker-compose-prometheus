@@ -6,7 +6,7 @@ groups:
     for: 10s
     labels:
       severity: critical
-      category: container
+      category: container-memory
       container_name: golang-app
       app_type: Server Demo
     annotations:
@@ -21,6 +21,7 @@ groups:
     labels:
       severity: critical
       app_type: Server Demo
+      category: container-memory    
       container_name: golang-app
     annotations:
       summary: "Memory of container is high on {{ $labels.instance }} for more than 1 minutes"
