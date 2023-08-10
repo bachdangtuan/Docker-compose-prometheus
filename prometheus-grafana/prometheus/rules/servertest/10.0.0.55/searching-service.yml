@@ -25,7 +25,7 @@ groups:
       container_name: searching-service
     annotations:
       summary: " RAM container > 90%"
-      container_name: {{ $labels.name }}
+      title: "{{ $labels.name }}"
       description: |
       
         Thông tin cụ thể: 
