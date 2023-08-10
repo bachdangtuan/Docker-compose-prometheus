@@ -47,6 +47,9 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-969060421'
 
+- name: ykhn-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.13:9087/alert/-906386087'
 
 # Group Dự phòng
 - name: systems-team-telegram
@@ -70,6 +73,13 @@ route:
 ##################### SERVER-NODE EXPORTER #######################
 ##################### SERVER-NODE EXPORTER #######################
 
+    # Y Khoa Hà Nội
+    - match:
+        app_type: Y Khoa Hà Nội
+        instance: 113.190.44.104:19100
+        category: server  
+      receiver: ykhn-telegram
+      group_wait: 4s
 
     # Trung Tâm Tim Mạch Viện E
     - match:
@@ -811,6 +821,15 @@ route:
 ##################### RAM #######################
 ##################### RAM #######################
 ##################### RAM #######################
+
+    # Y Khoa Hà Nội
+    - match:
+        app_type: Y Khoa Hà Nội
+        instance: 113.190.44.104:19100
+        category: memory  
+      receiver: ykhn-telegram
+      group_wait: 4s
+
 
     # Trung Tâm Tim Mạch Viện E
     - match:
@@ -1568,6 +1587,15 @@ route:
 #################### CPU ##################################
 #################### CPU ##################################
 
+    # Y Khoa Hà Nội
+    - match:
+        app_type: Y Khoa Hà Nội
+        instance: 113.190.44.104:19100
+        category: cpu  
+      receiver: ykhn-telegram
+      group_wait: 4s
+
+
     # Trung Tâm Tim Mạch Viện E
     - match:
         app_type: Trung Tâm Tim Mạch
@@ -2315,6 +2343,14 @@ route:
 #################### DISK ##############################
 #################### DISK ##############################
 #################### DISK ##############################
+
+    # Y Khoa Hà Nội
+    - match:
+        app_type: Y Khoa Hà Nội
+        instance: 113.190.44.104:19100
+        category: disk  
+      receiver: ykhn-telegram
+      group_wait: 4s
 
     - match:
         app_type: Trung Tâm Tim Mạch
