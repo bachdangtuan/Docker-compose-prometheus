@@ -25,10 +25,9 @@ groups:
       container_name: searching-service
     annotations:
       summary: " RAM container > 90%"
+      container_name: {{ $labels.name }}
       description: |
       
-        Container name: {{ $labels.name | str_UpperCase }}
-
         Thông tin cụ thể: 
 
               * RAM USED: {{ query (printf "container_memory_usage_bytes{name='searching-service',instance=~'%s'}"   $labels.instance) | first | value | humanize}} 
