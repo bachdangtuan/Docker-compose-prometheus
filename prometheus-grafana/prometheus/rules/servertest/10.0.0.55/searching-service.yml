@@ -6,11 +6,10 @@ groups:
     for: 10s
     labels:
       severity: critical
-      category: container-status
+      category: container
       container_name: searching-service
     annotations:
       summary: Container killed (instance {{ $labels.instance }}  ) {{ $labels.name }}
       description: |
        Container name:{{ $labels.name }}
        A container has disappeared
-

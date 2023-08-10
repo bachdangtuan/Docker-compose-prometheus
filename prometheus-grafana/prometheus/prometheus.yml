@@ -7,7 +7,8 @@ global:
     monitor: 'Hospitals-Container'
 
 rule_files:
-  - 'rules/container-demo.yml'
+  - './rules/servertest/10.0.0.55/golang-app.yml'
+  - './rules/servertest/10.0.0.55/searching-service.yml'
 
 # alert
 alerting:

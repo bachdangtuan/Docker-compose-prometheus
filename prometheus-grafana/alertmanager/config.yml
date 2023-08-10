@@ -31,9 +31,29 @@ route:
 # RAM 
     - match:
         instance: 10.0.0.55:8080
-        category: container  
-      receiver: System-Team
+        category: container
+        container_name: searching-service 
+      receiver: tuan-telegram
       group_wait: 2s
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 templates:
 - '/etc/alertmanager/template/template.tmpl'
