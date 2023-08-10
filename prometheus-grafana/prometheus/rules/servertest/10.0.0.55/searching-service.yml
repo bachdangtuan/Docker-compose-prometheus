@@ -24,11 +24,11 @@ groups:
       app_type: Server Demo
       container_name: searching-service
     annotations:
-      summary: "RAM container quá 90%"
+      summary: " RAM container > 90%"
       description: |
       
         Container name: {{ $labels.name }}
 
         Thông tin cụ thể: 
 
-          RAM USED: {{ query (printf "container_memory_usage_bytes{name='searching-service',instance=~'%s'}"   $labels.instance) | first | value | humanize}} 
+              * RAM USED: {{ query (printf "container_memory_usage_bytes{name='searching-service',instance=~'%s'}"   $labels.instance) | first | value | humanize}} 
