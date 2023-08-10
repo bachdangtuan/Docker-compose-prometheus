@@ -33,13 +33,15 @@ route:
         instance: 10.0.0.55:8080
         category: container
         container_name: searching-service 
+        app_type: Server Demo
       receiver: tuan-telegram
       group_wait: 2s
 
     - match:
         instance: 10.0.0.55:8080
         category: container
-        container_name: golang-app 
+        container_name: golang-app
+        app_type: Server Demo 
       receiver: tuan-telegram
       group_wait: 2s
 

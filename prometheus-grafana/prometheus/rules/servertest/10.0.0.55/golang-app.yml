@@ -8,6 +8,7 @@ groups:
       severity: critical
       category: container
       container_name: golang-app
+      app_type: Server Demo
     annotations:
       summary: Container killed (instance {{ $labels.instance }}  ) {{ $labels.name }}
       description: |
