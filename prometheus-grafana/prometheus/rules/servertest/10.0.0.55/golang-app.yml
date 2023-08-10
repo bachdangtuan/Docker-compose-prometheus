@@ -5,7 +5,7 @@ groups:
     expr: container_state_status{status='exited',name='golang-app'} == 1
     for: 10s
     labels:
-      severity: critical
+      severity: khẩn cấp
       category: container-memory
       container_name: golang-app
       app_type: Server Demo
@@ -19,12 +19,17 @@ groups:
     expr: container_memory_usage_bytes{name="golang-app",instance="10.0.0.55:11092"} 
     for: 10s
     labels:
-      severity: critical
+      severity: khẩn cấp
       app_type: Server Demo
       category: container-memory    
       container_name: golang-app
     annotations:
-      summary: "Memory of container is high on {{ $labels.instance }} for more than 1 minutes"
+      summary: "RAM container quá 90%"
       description: |
-        Container name:{{ $labels.name }}
-        RAM container sử dụng: => [ {{ query (printf "container_memory_usage_bytes{name='golang-app',instance=~'%s'}"   $labels.instance) | first | value | humanize}} ]
+      
+        Container name: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ query (printf "container_memory_usage_bytes{name='golang-app',instance=~'%s'}"   $labels.instance) | first | value | humanize}} 
+
