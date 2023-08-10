@@ -15,11 +15,10 @@ Nội dung: {{.CommonAnnotations.summary}}
 Nhóm Cảnh báo: {{ .CommonLabels.alertname }}
 Hệ thống viện: <code> {{ .CommonLabels.app_type }} </code>
 Máy Chủ: {{ .CommonLabels.instance }}
-
-Container Name: {{.CommonAnnotations.title | str_UpperCase}}
-
 Thông tin: {{.CommonAnnotations.description}}
+
 Mức Độ:  <code> 🔥 {{ .CommonLabels.severity | str_UpperCase }} 🔥 </code>
+
 ------------------------------------------------------
 {{- range $val := .Alerts }}
 THỜI GIAN XẢY RA: <code>{{ $val.StartsAt | str_FormatDate }}</code>
