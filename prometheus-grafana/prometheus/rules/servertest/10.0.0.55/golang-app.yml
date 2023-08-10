@@ -16,7 +16,7 @@ groups:
        A container has disappeared
 
   - alert: Container Memory
-    expr: container_memory_usage_bytes{name="redis-server",instance="10.0.0.55:11092"}
+    expr: container_memory_usage_bytes{name="golang-app",instance="10.0.0.55:11092"} 
     for: 10s
     labels:
       severity: critical
@@ -25,4 +25,4 @@ groups:
     annotations:
       summary: "Memory of container is high on {{ $labels.instance }} for more than 1 minutes"
       description: |
-        RAM container sử dụng: => [ {{ query (printf "container_memory_usage_bytes{name='redis-server',instance=~'%s'}"   $labels.instance) | first | value | humanize}} ]
+        RAM container sử dụng: => [ {{ query (printf "container_memory_usage_bytes{name='golang-app',instance=~'%s'}"   $labels.instance) | first | value | humanize}} ]
