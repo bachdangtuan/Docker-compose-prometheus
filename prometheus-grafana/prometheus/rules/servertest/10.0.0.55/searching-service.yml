@@ -26,4 +26,5 @@ groups:
     annotations:
       summary: "Memory of container is high on {{ $labels.instance }} for more than 1 minutes"
       description: |
+        Container name:{{ $labels.name }}
         RAM container sử dụng: => [ {{ query (printf "container_memory_usage_bytes{name='searching-service',instance=~'%s'}"   $labels.instance) | first | value | humanize}} ]
