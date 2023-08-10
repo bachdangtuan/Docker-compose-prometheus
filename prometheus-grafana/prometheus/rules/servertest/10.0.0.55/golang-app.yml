@@ -2,7 +2,7 @@ groups:
 - name: Container
   rules:
   - alert: Container Tắt
-    expr: container_state_status{status='exited'} == 1
+    expr: container_state_status{status='exited',name='golang-app'} == 1
     for: 10s
     labels:
       severity: critical
