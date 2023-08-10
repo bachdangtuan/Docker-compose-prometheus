@@ -1,7 +1,7 @@
 groups:
 - name: Container
   rules:
-  - alert: Container Tắt
+  - alert: Container Status
     expr: container_state_status{status='exited',name='golang-app'} == 1
     for: 10s
     labels:
@@ -10,7 +10,19 @@ groups:
       container_name: golang-app
       app_type: Server Demo
     annotations:
-      summary: Container killed (instance {{ $labels.instance }}  ) {{ $labels.name }}
+      summary: Container killed (instance {{ $labels.instance }}  )
       description: |
        Container name:{{ $labels.name }}
        A container has disappeared
+
+  - alert: Container Memory
+    expr: container_memory_usage_bytes{name="redis-server",instance="10.0.0.55:11092"}
+    for: 10s
+    labels:
+      severity: critical
+      app_type: Server Demo
+      container_name: golang-app
+    annotations:
+      summary: "Memory of container is high on {{ $labels.instance }} for more than 1 minutes"
+      description: |
+        RAM container sử dụng: => [ {{ query (printf "container_memory_usage_bytes{name='redis-server',instance=~'%s'}"   $labels.instance) | first | value | humanize}} ]
