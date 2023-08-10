@@ -13,11 +13,8 @@ Thông tin chi tiết: {{ .Annotations.description }}
 
 {{end}}
 
-{{- if eq .Status "resolved" -}}
-{{- if eq .CommonLabels.status "running" -}}
-
-Status: <b>{{.Status | toUpper}} ✅</b>
-{{end}}
+{{- if and (eq .Status "resolved") (eq .CommonLabels.status "running") -}}
+        Status: <b>{{.Status | toUpper}} ✅</b>
 {{end}}
 
 {{- end -}}
