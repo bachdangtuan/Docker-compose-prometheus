@@ -19,7 +19,7 @@ rule_files:
   - "rules/phongkhammediplus.yml"
   - "rules/trungtamtimmach.yml"
   - "rules/benhvienphoi.yml"
-
+  - "rules/phongkhamykhn.yml"
 # alert
 alerting:
   alertmanagers:
