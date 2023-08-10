@@ -12,7 +12,7 @@ groups:
     annotations:
       summary: Container killed (instance {{ $labels.instance }}  ) {{ $labels.name }}
       description: |
-       Container name:{{ $labels.name }}
+       Container name:{{ $labels.name | str_UpperCase }}
        A container has disappeared
 
   - alert: Container Memory
@@ -27,7 +27,7 @@ groups:
       summary: " RAM container > 90%"
       description: |
       
-        Container name: {{ $labels.name }}
+        Container name: {{ $labels.name | str_UpperCase }}
 
         Thông tin cụ thể: 
 
