@@ -3,7 +3,7 @@ groups:
   rules:
   - alert: Container Tắt
     expr: container_state_status{status='exited'} == 1
-    for: 1m
+    for: 10s
     labels:
       severity: critical
       category: container
