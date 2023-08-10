@@ -25,7 +25,7 @@ route:
   group_by: ['instance']
   group_interval: 30s
   group_wait: 10s
-  repeat_interval: 5m
+  repeat_interval: 1m
   receiver: System-Team
   routes:
 # RAM 
