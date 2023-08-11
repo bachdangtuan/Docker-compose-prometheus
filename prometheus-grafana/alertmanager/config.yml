@@ -55,6 +55,11 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-932865047'
 
+- name: ivirse-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.13:9087/alert/-856704110'
+
+
 # Group Dự phòng
 - name: systems-team-telegram
   webhook_configs:
@@ -77,10 +82,60 @@ route:
 ##################### SERVER-NODE EXPORTER #######################
 ##################### SERVER-NODE EXPORTER #######################
 
+    # Hệ Thống ivirse
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.17:9100
+        category: server  
+      receiver: ivirse-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.44:9100
+        category: server  
+      receiver: ivirse-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.57:9100
+        category: server  
+      receiver: ivirse-telegram
+      group_wait: 4s
+      
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.82:9100
+        category: server  
+      receiver: ivirse-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.87:9100
+        category: server  
+      receiver: ivirse-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.120:9100
+        category: server  
+      receiver: ivirse-telegram
+      group_wait: 4s
+      
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.175:9100
+        category: server  
+      receiver: ivirse-telegram
+      group_wait: 4s
+      
     # Bệnh Viện Bạch Mai
     - match:
         app_type: Bệnh Viện Bạch Mai
-        instance: 113.190.44.104:19100
+        instance: 10.0.1.34:9100
         category: server  
       receiver: bachmai-telegram
       group_wait: 4s
@@ -834,10 +889,60 @@ route:
 ##################### RAM #######################
 ##################### RAM #######################
 
+    # Hệ Thống ivirse
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.17:9100
+        category: memory  
+      receiver: ivirse-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.44:9100
+        category: memory  
+      receiver: ivirse-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.57:9100
+        category: memory  
+      receiver: ivirse-telegram
+      group_wait: 4s
+      
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.82:9100
+        category: memory  
+      receiver: ivirse-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.87:9100
+        category: memory  
+      receiver: ivirse-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Bệnh Viện Bạch Mai
+        instance: 109.9.211.120:9100
+        category: memory  
+      receiver: ivirse-telegram
+      group_wait: 4s
+      
+    - match:
+        app_type: Bệnh Viện Bạch Mai
+        instance: 109.9.211.175:9100
+        category: memory  
+      receiver: ivirse-telegram
+      group_wait: 4s
+
     # Bệnh Viện Bạch Mai
     - match:
         app_type: Bệnh Viện Bạch Mai
-        instance: 113.190.44.104:19100
+        instance: 10.0.1.34:9100
         category: memory  
       receiver: bachmai-telegram
       group_wait: 4s
@@ -1606,11 +1711,61 @@ route:
 #################### CPU ##################################
 #################### CPU ##################################
 #################### CPU ##################################
+    # Hệ Thống ivirse
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.17:9100
+        category: cpu  
+      receiver: ivirse-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.44:9100
+        category: cpu  
+      receiver: ivirse-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.57:9100
+        category: cpu  
+      receiver: ivirse-telegram
+      group_wait: 4s
+      
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.82:9100
+        category: cpu  
+      receiver: ivirse-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.87:9100
+        category: cpu  
+      receiver: ivirse-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.120:9100
+        category: cpu  
+      receiver: ivirse-telegram
+      group_wait: 4s
+      
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.175:9100
+        category: cpu  
+      receiver: ivirse-telegram
+      group_wait: 4s
+
 
     # Bệnh Viện Bạch Mai
     - match:
         app_type: Bệnh Viện Bạch Mai
-        instance: 113.190.44.104:19100
+        instance: 10.0.1.34:19100
         category: cpu  
       receiver: bachmai-telegram
       group_wait: 4s
@@ -2371,6 +2526,59 @@ route:
 #################### DISK ##############################
 #################### DISK ##############################
 #################### DISK ##############################
+
+    # Hệ Thống ivirse
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.17:9100
+        category: disk  
+      receiver: ivirse-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.44:9100
+        category: disk  
+      receiver: ivirse-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.57:9100
+        category: disk  
+      receiver: ivirse-telegram
+      group_wait: 4s
+      
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.82:9100
+        category: disk  
+      receiver: ivirse-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.87:9100
+        category: disk  
+      receiver: ivirse-telegram
+      group_wait: 4s
+
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.120:9100
+        category: disk  
+      receiver: ivirse-telegram
+      group_wait: 4s
+      
+    - match:
+        app_type: Ivirse Project
+        instance: 109.9.211.175:9100
+        category: disk  
+      receiver: ivirse-telegram
+      group_wait: 4s
+
+
+
 
     # Bệnh Viện Bạch Mai
     - match:
