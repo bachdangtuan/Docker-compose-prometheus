@@ -12,7 +12,7 @@ groups:
       container_name: isofh_caserver_1
       app_type: IVIRSE
     annotations:
-      summary: Container killed (instance {{ $labels.instance }}  )
+      summary: Container exited
       description: |
 
        Container name:{{ $labels.name }}
@@ -28,7 +28,7 @@ groups:
       container_name: cadvisor
       app_type: IVIRSE
     annotations:
-      summary: Container killed (instance {{ $labels.instance }}  )
+      summary: Container exited
       description: |
 
        Container name:{{ $labels.name }}
@@ -44,7 +44,7 @@ groups:
       container_name: isofh_migrate_1
       app_type: IVIRSE
     annotations:
-      summary: Container killed (instance {{ $labels.instance }}  )
+      summary: Container exited
       description: |
 
        Container name:{{ $labels.name }}
