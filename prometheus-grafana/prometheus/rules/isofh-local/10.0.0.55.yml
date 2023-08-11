@@ -1,0 +1,114 @@
+groups:
+- name: Container
+
+
+  rules:
+  - alert: Container Status 
+    expr: container_state_status{status="exited",name=~"golang-app"} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: golang-app
+      app_type: Server Test
+    annotations:
+      summary: Container exited
+      description: |
+
+       Container name:{{ $labels.name }}
+
+       Container bị EXITED
+
+  - alert: Container Status 
+    expr: container_state_status{status="exited",name=~"searching-service"} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: searching-service
+      app_type: Server Test
+    annotations:
+      summary: Container exited
+      description: |
+
+       Container name:{{ $labels.name }}
+
+       Container bị EXITED
+
+  - alert: Container Status 
+    expr: container_state_status{status="exited",name=~"flamboyant_dubinsky"} == 1
+    for: 1s
+    labels:
+      severity: khẩn cấp
+      category: container-status
+      container_name: flamboyant_dubinsky
+      app_type: Server Test
+    annotations:
+      summary: Container exited
+      description: |
+
+       Container name:{{ $labels.name }}
+
+       Container bị EXITED
+
+
+
+################################################  
+################## RAM #########################  
+################################################  
+
+  - alert: Container Memory
+    expr: container_memory_usage_bytes{name="flamboyant_dubinsky",instance="103.9.211.120:9092"} 
+    for: 10s
+    labels:
+      severity: khẩn cấp
+      app_type: IVIRSE
+      category: container-memory    
+      container_name: flamboyant_dubinsky
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        Container name: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ query (printf "container_memory_usage_bytes{name='flamboyant_dubinsky',instance=~'%s'}"   $labels.instance) | first | value | humanize}} 
+
+
+  - alert: Container Memory
+    expr: container_memory_usage_bytes{name="golang-app",instance="103.9.211.120:9092"} 
+    for: 10s
+    labels:
+      severity: khẩn cấp
+      app_type: IVIRSE
+      category: container-memory    
+      container_name: golang-app
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        Container name: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ query (printf "container_memory_usage_bytes{name='golang-app',instance=~'%s'}"   $labels.instance) | first | value | humanize}} 
+
+
+  - alert: Container Memory
+    expr: container_memory_usage_bytes{name="searching-service",instance="103.9.211.120:9092"} 
+    for: 10s
+    labels:
+      severity: khẩn cấp
+      app_type: IVIRSE
+      category: container-memory    
+      container_name: searching-service
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        Container name: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ query (printf "container_memory_usage_bytes{name='searching-service',instance=~'%s'}"   $labels.instance) | first | value | humanize}} 
