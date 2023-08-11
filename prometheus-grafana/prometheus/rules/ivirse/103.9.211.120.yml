@@ -2,7 +2,7 @@ groups:
 - name: Container
   rules:
   - alert: Container Status isofh_caserver_1
-    expr: container_state_status{status="exited",name=~"isofh_caserver_1"}
+    expr: container_state_status{status="exited",name=~"isofh_caserver_1"} == 1
     for: 10s
     labels:
       severity: khẩn cấp
@@ -16,7 +16,7 @@ groups:
        A container has disappeared
 
   - alert: Container Status cAdvisor isofh_caserver_1
-    expr: container_state_status{status="exited",name=~"cadvisor"}
+    expr: container_state_status{status="exited",name=~"cadvisor"} == 1
     for: 10s
     labels:
       severity: khẩn cấp
