@@ -35,21 +35,21 @@ groups:
 
        Container bị EXITED
 
-  - alert: Container Status 
-    expr: container_state_status{status="exited",name=~"isofh_migrate_1"} == 1
-    for: 1s
-    labels:
-      severity: khẩn cấp
-      category: container-status
-      container_name: isofh_migrate_1
-      app_type: IVIRSE
-    annotations:
-      summary: Container exited
-      description: |
+  # - alert: Container Status 
+  #   expr: container_state_status{status="exited",name=~"isofh_migrate_1"} == 1
+  #   for: 1s
+  #   labels:
+  #     severity: khẩn cấp
+  #     category: container-status
+  #     container_name: isofh_migrate_1
+  #     app_type: IVIRSE
+  #   annotations:
+  #     summary: Container exited
+  #     description: |
 
-       Container name:{{ $labels.name }}
+  #      Container name:{{ $labels.name }}
 
-       Container bị EXITED
+  #      Container bị EXITED
 
 
 
@@ -74,9 +74,6 @@ groups:
         Thông tin cụ thể: 
 
           RAM USED: {{ query (printf "container_memory_usage_bytes{name='isofh_migrate_1',instance=~'%s'}"   $labels.instance) | first | value | humanize}} 
-
-
-
 
 
   - alert: Container Memory
