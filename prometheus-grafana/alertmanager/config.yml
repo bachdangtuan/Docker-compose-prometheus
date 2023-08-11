@@ -4,11 +4,11 @@ global:
 receivers:
 - name: ivirse-telegram
   webhook_configs:
-  - url: 'http://10.0.0.232:9088/alert/-856704110'
+  - url: 'http://10.0.0.14:9088/alert/-856704110'
 
 - name: System-Team
   webhook_configs:
-  - url: 'http://10.0.0.232:9088/alert/-856704110'
+  - url: 'http://10.0.0.14:9088/alert/-856704110'
 
 route:
   continue: false
