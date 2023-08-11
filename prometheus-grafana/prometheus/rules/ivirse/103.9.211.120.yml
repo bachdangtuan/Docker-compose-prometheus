@@ -93,3 +93,21 @@ groups:
         Thông tin cụ thể: 
 
           RAM USED: {{ query (printf "container_memory_usage_bytes{name='isofh_caserver_1',instance=~'%s'}"   $labels.instance) | first | value | humanize}} 
+
+  - alert: Container Memory
+    expr: container_memory_usage_bytes{name="isofh_postgres_1",instance="103.9.211.120:9092"} 
+    for: 10s
+    labels:
+      severity: khẩn cấp
+      app_type: IVIRSE
+      category: container-memory    
+      container_name: isofh_postgres_1
+    annotations:
+      summary: "RAM container quá 90%"
+      description: |
+      
+        Container name: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          RAM USED: {{ query (printf "container_memory_usage_bytes{name='isofh_postgres_1',instance=~'%s'}"   $labels.instance) | first | value | humanize}} 
