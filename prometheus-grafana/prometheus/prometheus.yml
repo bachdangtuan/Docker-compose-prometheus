@@ -7,8 +7,7 @@ global:
     monitor: 'Hospitals-Container'
 
 rule_files:
-  - './rules/servertest/10.0.0.55/golang-app.yml'
-  - './rules/servertest/10.0.0.55/searching-service.yml'
+  - './rules/ivirse/103.9.211.120.yml'
 
 # alert
 alerting:
@@ -21,11 +20,9 @@ alerting:
       password: toivaban
 
 scrape_configs:
-  - job_name: 'jenkins-tuan'
+  - job_name: 'ivirse'
     scrape_interval: 5s
     static_configs:
       - targets: 
-        - '10.0.0.211:19100'
-        - '10.0.0.210:9100'
-        - '10.0.0.55:11092'
-        - '10.0.0.55:8080'
+        - '103.9.211.120:19092'
+        - '103.9.211.120:9092'
