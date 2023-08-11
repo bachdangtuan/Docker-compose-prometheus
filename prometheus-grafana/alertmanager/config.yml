@@ -2,23 +2,13 @@ global:
   resolve_timeout: 30s
 
 receivers:
-- name: tuan-telegram
+- name: ivirse-telegram
   webhook_configs:
-  - url: 'http://10.0.0.232:9088/alert/-898458642'
+  - url: 'http://10.0.0.232:9088/alert/-856704110'
 
 - name: System-Team
-  telegram_configs:
-  - api_url: https://api.telegram.org
-    bot_token: 6623410843:AAFXWQcnUEqQviOLo_YtxKqNoM5xw8Snoic
-    chat_id: -999710731
-    # template: /etc/alertmanager/template/template.tmpl
-    disable_notifications: false
-    http_config:
-      follow_redirects: true
-    send_resolved: true
-    parse_mode: 'HTML'
-
-
+  webhook_configs:
+  - url: 'http://10.0.0.232:9088/alert/-856704110'
 
 route:
   continue: false
@@ -28,35 +18,29 @@ route:
   repeat_interval: 1m
   receiver: System-Team
   routes:
-# RAM 
+
+  ################### STATUS #################
+  #  IVIRSE
     - match:
-        category: container
-        container_name: searching-service 
-        app_type: Server Demo
-      receiver: tuan-telegram
+        category: container-status
+        container_name: isofh_caserver_1
+        app_type: IVIRSE
+      receiver: ivirse-telegram
       group_wait: 2s
 
     - match:
-        category: container
-        container_name: golang-app
-        app_type: Server Demo 
-      receiver: tuan-telegram
-      group_wait: 2s
-
-    - match:
-        category: container-memory
-        container_name: searching-service 
-        app_type: Server Demo
-      receiver: tuan-telegram
+        category: container-status
+        container_name: cadvisor
+        app_type: IVIRSE
+      receiver: ivirse-telegram
       group_wait: 2s
 
     - match:
         category: container-memory
-        container_name: golang-app
-        app_type: Server Demo 
-      receiver: tuan-telegram
+        container_name: cadvisor
+        app_type: IVIRSE
+      receiver: ivirse-telegram
       group_wait: 2s
-
 
 
 
