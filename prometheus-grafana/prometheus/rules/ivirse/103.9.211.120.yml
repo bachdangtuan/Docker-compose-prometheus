@@ -3,9 +3,9 @@ groups:
 
 
   rules:
-  - alert: Container Status isofh_caserver_1
+  - alert: Container Status 
     expr: container_state_status{status="exited",name=~"isofh_caserver_1"} == 1
-    for: 10s
+    for: 1s
     labels:
       severity: khẩn cấp
       category: container-status
@@ -14,12 +14,14 @@ groups:
     annotations:
       summary: Container killed (instance {{ $labels.instance }}  )
       description: |
-       Container name:{{ $labels.name }}
-       A container has disappeared
 
-  - alert: Container Status cAdvisor isofh_caserver_1
+       Container name:{{ $labels.name }}
+
+       Container bị EXITED
+
+  - alert: Container Status 
     expr: container_state_status{status="exited",name=~"cadvisor"} == 1
-    for: 10s
+    for: 1s
     labels:
       severity: khẩn cấp
       category: container-status
@@ -28,12 +30,14 @@ groups:
     annotations:
       summary: Container killed (instance {{ $labels.instance }}  )
       description: |
-       Container name:{{ $labels.name }}
-       A container has disappeared
 
-  - alert: Container Status cAdvisor isofh_migrate_1
+       Container name:{{ $labels.name }}
+
+       Container bị EXITED
+
+  - alert: Container Status 
     expr: container_state_status{status="exited",name=~"isofh_migrate_1"} == 1
-    for: 10s
+    for: 1s
     labels:
       severity: khẩn cấp
       category: container-status
@@ -42,8 +46,10 @@ groups:
     annotations:
       summary: Container killed (instance {{ $labels.instance }}  )
       description: |
+
        Container name:{{ $labels.name }}
-       A container has disappeared
+
+       Container bị EXITED
 
 
 
@@ -51,7 +57,7 @@ groups:
 ################## RAM #########################  
 ################################################  
 
-  - alert: Container Memory isofh_migrate_1
+  - alert: Container Memory
     expr: container_memory_usage_bytes{name="isofh_migrate_1",instance="103.9.211.120:9092"} 
     for: 10s
     labels:
@@ -73,7 +79,7 @@ groups:
 
 
 
-  - alert: Container Memory isofh_caserver_1
+  - alert: Container Memory
     expr: container_memory_usage_bytes{name="isofh_caserver_1",instance="103.9.211.120:9092"} 
     for: 10s
     labels:
