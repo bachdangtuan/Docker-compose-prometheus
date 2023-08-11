@@ -5,6 +5,7 @@ Nội dung: {{.CommonAnnotations.summary}}
 Nhóm Cảnh báo: {{ .CommonLabels.alertname }}
 Máy Chủ: {{ .CommonLabels.instance }}
 Status: ✅💙 {{ .Status  | str_UpperCase}}💙✅
+
 Thông tin: {{.CommonAnnotations.description}}
 ------------------------------------------------------
 {{end -}}
