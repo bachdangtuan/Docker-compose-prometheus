@@ -51,6 +51,10 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-906386087'
 
+- name: bachmai-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.13:9087/alert/-932865047'
+
 # Group Dự phòng
 - name: systems-team-telegram
   webhook_configs:
@@ -72,6 +76,14 @@ route:
 ##################### SERVER-NODE EXPORTER #######################
 ##################### SERVER-NODE EXPORTER #######################
 ##################### SERVER-NODE EXPORTER #######################
+
+    # Bệnh Viện Bạch Mai
+    - match:
+        app_type: Bệnh Viện Bạch Mai
+        instance: 113.190.44.104:19100
+        category: server  
+      receiver: bachmai-telegram
+      group_wait: 4s
 
     # Y Khoa Hà Nội
     - match:
@@ -821,6 +833,14 @@ route:
 ##################### RAM #######################
 ##################### RAM #######################
 ##################### RAM #######################
+
+    # Bệnh Viện Bạch Mai
+    - match:
+        app_type: Bệnh Viện Bạch Mai
+        instance: 113.190.44.104:19100
+        category: memory  
+      receiver: bachmai-telegram
+      group_wait: 4s
 
     # Y Khoa Hà Nội
     - match:
@@ -1587,6 +1607,14 @@ route:
 #################### CPU ##################################
 #################### CPU ##################################
 
+    # Bệnh Viện Bạch Mai
+    - match:
+        app_type: Bệnh Viện Bạch Mai
+        instance: 113.190.44.104:19100
+        category: cpu  
+      receiver: bachmai-telegram
+      group_wait: 4s
+
     # Y Khoa Hà Nội
     - match:
         app_type: Y Khoa Hà Nội
@@ -2343,6 +2371,15 @@ route:
 #################### DISK ##############################
 #################### DISK ##############################
 #################### DISK ##############################
+
+    # Bệnh Viện Bạch Mai
+    - match:
+        app_type: Bệnh Viện Bạch Mai
+        instance: 113.190.44.104:19100
+        category: disk  
+      receiver: bachmai-telegram
+      group_wait: 4s
+
 
     # Y Khoa Hà Nội
     - match:
