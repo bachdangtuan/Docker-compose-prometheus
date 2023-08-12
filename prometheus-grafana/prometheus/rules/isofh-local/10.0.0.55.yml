@@ -69,7 +69,7 @@ groups:
       summary: "RAM container quá 90%"
       description: |
       
-        CONTAINER NAME: {{ $labels.container-name }}
+        CONTAINER NAME: flamboyant_dubinsky
 
         Thông tin cụ thể: 
 
@@ -88,7 +88,7 @@ groups:
       summary: "RAM container quá 90%"
       description: |
       
-        CONTAINER NAME: {{ $labels.container-name }}
+        CONTAINER NAME: golang-app
 
         Thông tin cụ thể: 
 
@@ -107,7 +107,7 @@ groups:
       summary: "RAM container quá 90%"
       description: |
       
-        CONTAINER NAME: {{ $labels.container-name }}
+        CONTAINER NAME: searching-service
 
         Thông tin cụ thể: 
 
