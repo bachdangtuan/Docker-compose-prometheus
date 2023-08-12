@@ -111,3 +111,26 @@ groups:
         Thông tin cụ thể: 
 
           RAM USED: {{ query (printf "container_memory_usage_bytes{name='isofh_postgres_1',instance=~'%s'}"   $labels.instance) | first | value | humanize}} 
+
+
+################################################  
+################## CPU #########################  
+################################################  
+
+  - alert: Container CPU
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='ivirse',name='isofh_postgres_1'}[1m])) BY (instance, name) * 100) > 95
+    for: 10s
+    labels:
+      severity: khẩn cấp
+      app_type: Server Test
+      category: container-memory    
+      container_name: isofh_postgres_1
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%

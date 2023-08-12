@@ -119,7 +119,7 @@ groups:
 ################################################  
 
   - alert: Container CPU
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='isofhlocal',name='searching-service'}[1m])) BY (instance, name) * 100) > 0.0004
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='isofhlocal',name='searching-service'}[1m])) BY (instance, name) * 100) > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -127,7 +127,7 @@ groups:
       category: container-memory    
       container_name: searching-service
     annotations:
-      summary: "CPU container quá 90%"
+      summary: "CPU container quá 95%"
       description: |
       
         CONTAINER NAME: {{ $labels.name }}
@@ -135,4 +135,3 @@ groups:
         Thông tin cụ thể: 
 
           CPU USED : {{ printf "%.2f" $value}}%
-          CPU USED : {{ query (printf "container_memory_usage_bytes{name='searching-service',instance=~'%s'}"   $labels.instance) | first | value | humanize}} 
