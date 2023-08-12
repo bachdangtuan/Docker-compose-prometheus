@@ -134,5 +134,5 @@ groups:
 
         Thông tin cụ thể: 
 
-          CPU USED : {{$value | humanize}}%
+          CPU USED : {{$value}}%
           CPU USED : {{ query (printf "container_memory_usage_bytes{name='searching-service',instance=~'%s'}"   $labels.instance) | first | value | humanize}} 
