@@ -58,7 +58,7 @@ groups:
 ################################################  
 
   - alert: Container Memory
-    expr: container_memory_usage_bytes{name="flamboyant_dubinsky",instance="10.0.0.55:19093"} > 1231809536
+    expr: sum(container_memory_working_set_bytes{job='isofhlocal', name='flamboyant_dubinsky'}) / sum(container_spec_memory_limit_bytes{job="isofhlocal", id="/", instance='10.0.0.55:19093'}) * 100
     for: 10s
     labels:
       severity: khẩn cấp
@@ -73,11 +73,11 @@ groups:
 
         Thông tin cụ thể: 
 
-          RAM USED: {{ query (printf "container_memory_usage_bytes{name='flamboyant_dubinsky',instance=~'%s'}"   $labels.instance) | first | value | humanize}} 
+          RAM USED: {{ printf "%.2f" $value}}%
 
 
   - alert: Container Memory
-    expr: container_memory_usage_bytes{name="golang-app",instance="10.0.0.55:19093"} > 1231809536
+    expr: sum(container_memory_working_set_bytes{job='isofhlocal', name='golang-app'}) / sum(container_spec_memory_limit_bytes{job="isofhlocal", id="/", instance='10.0.0.55:19093'}) * 100
     for: 10s
     labels:
       severity: khẩn cấp
@@ -92,11 +92,11 @@ groups:
 
         Thông tin cụ thể: 
 
-          RAM USED: {{ query (printf "container_memory_usage_bytes{name='golang-app',instance=~'%s'}"   $labels.instance) | first | value | humanize}} 
+          RAM USED: {{ printf "%.2f" $value}}%
 
 
   - alert: Container Memory
-    expr: container_memory_usage_bytes{name="searching-service",instance="10.0.0.55:19093"} > 1231809536
+    expr: sum(container_memory_working_set_bytes{job='isofhlocal', name='searching-service'}) / sum(container_spec_memory_limit_bytes{job="isofhlocal", id="/", instance='10.0.0.55:19093'}) * 100
     for: 10s
     labels:
       severity: khẩn cấp
@@ -111,7 +111,7 @@ groups:
 
         Thông tin cụ thể: 
 
-          RAM USED: {{ query (printf "container_memory_usage_bytes{name='searching-service',instance=~'%s'}"   $labels.instance) | first | value | humanize}} 
+          RAM USED: {{ printf "%.2f" $value}}%
 
 
 ################################################  
