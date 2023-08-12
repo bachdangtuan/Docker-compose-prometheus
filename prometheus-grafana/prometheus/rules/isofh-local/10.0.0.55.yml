@@ -10,7 +10,7 @@ groups:
       severity: khẩn cấp
       category: container-status
       container_name: golang-app
-      app_type: Server Test
+      app_type: Server Isofh
     annotations:
       summary: Container exited
       description: |
@@ -26,7 +26,7 @@ groups:
       severity: khẩn cấp
       category: container-status
       container_name: searching-service
-      app_type: Server Test
+      app_type: Server Isofh
     annotations:
       summary: Container exited
       description: |
@@ -42,7 +42,7 @@ groups:
       severity: khẩn cấp
       category: container-status
       container_name: flamboyant_dubinsky
-      app_type: Server Test
+      app_type: Server Isofh
     annotations:
       summary: Container exited
       description: |
@@ -62,7 +62,7 @@ groups:
     for: 10s
     labels:
       severity: khẩn cấp
-      app_type: IVIRSE
+      app_type: Server Isofh
       category: container-memory    
       container_name: flamboyant_dubinsky
     annotations:
@@ -81,7 +81,7 @@ groups:
     for: 10s
     labels:
       severity: khẩn cấp
-      app_type: IVIRSE
+      app_type: Server Isofh
       category: container-memory    
       container_name: golang-app
     annotations:
@@ -100,7 +100,7 @@ groups:
     for: 10s
     labels:
       severity: khẩn cấp
-      app_type: IVIRSE
+      app_type: Server Isofh
       category: container-memory    
       container_name: searching-service
     annotations:
@@ -112,3 +112,26 @@ groups:
         Thông tin cụ thể: 
 
           RAM USED: {{ query (printf "container_memory_usage_bytes{name='searching-service',instance=~'%s'}"   $labels.instance) | first | value | humanize}} 
+
+
+################################################  
+################## CPU #########################  
+################################################  
+
+  - alert: Container CPU
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='ivirse'}[1m])) BY (instance, name) * 100) > 0.44
+    for: 10s
+    labels:
+      severity: khẩn cấp
+      app_type: Server Isofh
+      category: container-memory    
+      container_name: searching-service
+    annotations:
+      summary: "CPU container quá 90%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED: {{ query (printf "container_memory_usage_bytes{name='searching-service',instance=~'%s'}"   $labels.instance) | first | value | humanize}} 
