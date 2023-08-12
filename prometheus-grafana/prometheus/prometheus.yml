@@ -20,6 +20,7 @@ rule_files:
   - "rules/trungtamtimmach.yml"
   - "rules/benhvienphoi.yml"
   - "rules/benhvienbachmai.yml"
+  - "rules/phongkhamykhn.yml"
   - "rules/ivirse.yml"
 # alert
 alerting:
