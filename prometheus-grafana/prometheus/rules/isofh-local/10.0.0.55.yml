@@ -130,7 +130,7 @@ groups:
       summary: "CPU container quá 95%"
       description: |
       
-        CONTAINER NAME: {{ $labels.container_name }}
+        CONTAINER NAME: {{ $labels.name }}
 
         Thông tin cụ thể: 
 
