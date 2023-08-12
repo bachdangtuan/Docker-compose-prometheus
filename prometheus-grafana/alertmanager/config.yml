@@ -8,7 +8,7 @@ receivers:
 
 - name: System-Team
   webhook_configs:
-  - url: 'http://10.0.0.14:9088/alert/-856704110'
+  - url: 'http://10.0.0.14:9088/alert/-983667254'
 
 - name: isofh-server
   webhook_configs:
@@ -34,7 +34,7 @@ route:
 
     - match:
         category: container-status
-        container_name: golang-app
+        container_name: flamboyant_dubinsky
         app_type: Server Test
       receiver: isofh-server
       group_wait: 3s  
@@ -81,7 +81,7 @@ route:
 
     - match:
         category: container-memory
-        container_name: golang-app
+        container_name: flamboyant_dubinsky
         app_type: Server Test
       receiver: isofh-server
       group_wait: 3s  
