@@ -58,7 +58,7 @@ groups:
 ################################################  
 
   - alert: Container Memory
-    expr: container_memory_usage_bytes{name="isofh_migrate_1",instance="103.9.211.120:9092"} 
+    expr: container_memory_usage_bytes{name="isofh_migrate_1",instance="103.9.211.120:9092"} > 100000000
     for: 10s
     labels:
       severity: khẩn cấp
@@ -77,7 +77,7 @@ groups:
 
 
   - alert: Container Memory
-    expr: container_memory_usage_bytes{name="isofh_caserver_1",instance="103.9.211.120:9092"} 
+    expr: container_memory_usage_bytes{name="isofh_caserver_1",instance="103.9.211.120:9092"} > 100000000
     for: 10s
     labels:
       severity: khẩn cấp
@@ -95,7 +95,7 @@ groups:
           RAM USED: {{ query (printf "container_memory_usage_bytes{name='isofh_caserver_1',instance=~'%s'}"   $labels.instance) | first | value | humanize}} 
 
   - alert: Container Memory
-    expr: container_memory_usage_bytes{name="isofh_postgres_1",instance="103.9.211.120:9092"} 
+    expr: container_memory_usage_bytes{name="isofh_postgres_1",instance="103.9.211.120:9092"} > 100000000
     for: 10s
     labels:
       severity: khẩn cấp
