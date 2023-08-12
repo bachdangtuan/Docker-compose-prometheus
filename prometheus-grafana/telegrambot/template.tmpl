@@ -9,7 +9,7 @@ Status:  {{ .Status  | str_UpperCase}}
 {{end -}}
 
 {{if eq .Status "firing"}}
-🔥🚨CẢNH BÁO SỰ CỐ🚨🔥
+🔥🚨{{ .CommonLabels.alertname }} Alert🚨🔥
 ------------------------------------------------------
 Nội dung: {{.CommonAnnotations.summary}}
 Nhóm Cảnh báo: {{ .CommonLabels.alertname }}
