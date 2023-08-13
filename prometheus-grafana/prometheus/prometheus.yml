@@ -8,6 +8,7 @@ global:
 
 rule_files:
   - './rules/ivirse/103.9.211.120.yml'
+  - './rules/ivirse/103.9.211.87.yml'
   - './rules/isofh-local/10.0.0.55.yml'
 
 # alert
