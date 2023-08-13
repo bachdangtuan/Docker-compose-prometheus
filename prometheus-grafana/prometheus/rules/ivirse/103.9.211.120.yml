@@ -69,7 +69,7 @@ groups:
       summary: "RAM container quá 90%"
       description: |
       
-        CONTAINER NAME:-  {{ $labels.name }}
+        CONTAINER NAME:-  {{ $labels.container_name }}
 
         Thông tin cụ thể: 
 
@@ -88,7 +88,7 @@ groups:
       summary: "RAM container quá 90%"
       description: |
       
-        CONTAINER NAME:-  {{ $labels.name }}
+        CONTAINER NAME:-  {{ $labels.container_name }}
 
         Thông tin cụ thể: 
 
@@ -106,7 +106,7 @@ groups:
       summary: "RAM container quá 90%"
       description: |
       
-        CONTAINER NAME:-  {{ $labels.name }}
+        CONTAINER NAME:-  isofh_postgres_1
 
         Thông tin cụ thể: 
 

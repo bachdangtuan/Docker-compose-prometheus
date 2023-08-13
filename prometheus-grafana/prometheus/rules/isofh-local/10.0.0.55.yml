@@ -96,7 +96,7 @@ groups:
 
 
   - alert: Container Memory
-    expr: sum(container_memory_working_set_bytes{job='isofhlocal', name='searching-service'}) / sum(container_spec_memory_limit_bytes{job="isofhlocal", id="/", instance='10.0.0.55:19093'}) * 100 > 90
+    expr: sum(container_memory_working_set_bytes{job='isofhlocal', name='searching-service'}) / sum(container_spec_memory_limit_bytes{job="isofhlocal", id="/", instance='10.0.0.55:19093'})
     for: 10s
     labels:
       severity: khẩn cấp
