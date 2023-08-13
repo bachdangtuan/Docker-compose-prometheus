@@ -57,8 +57,8 @@ groups:
 ################## RAM #########################  
 ################################################  
 
-  - alert: Container Memory
-    expr: sum(container_memory_working_set_bytes{job='ivirse', name='isofh_migrate_1'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.120:9092"}) * 100
+  - alert: Container Memory isofh_migrate_1
+    expr: sum(container_memory_working_set_bytes{job='ivirse', name='isofh_caserver_1'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.120:9092"}) * 100
     for: 10s
     labels:
       severity: khẩn cấp
@@ -69,14 +69,14 @@ groups:
       summary: "RAM container quá 90%"
       description: |
       
-        CONTAINER NAME:-  {{ $labels.container_name }}
+        CONTAINER NAME:-  isofh_migrate_1
 
         Thông tin cụ thể: 
 
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
 
-  - alert: Container Memory
+  - alert: Container Memory isofh_caserver_1
     expr: sum(container_memory_working_set_bytes{job='ivirse', name='isofh_caserver_1'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.120:9092"}) * 100
     for: 10s
     labels:
@@ -88,13 +88,13 @@ groups:
       summary: "RAM container quá 90%"
       description: |
       
-        CONTAINER NAME:-  {{ $labels.container_name }}
+        CONTAINER NAME:-  isofh_caserver_1
 
         Thông tin cụ thể: 
 
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
-  - alert: Container Memory
+  - alert: Container Memory isofh_postgres_1
     expr: sum(container_memory_working_set_bytes{job='ivirse', name='isofh_postgres_1'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.120:9092"}) * 100
     for: 10s
     labels:
@@ -117,7 +117,43 @@ groups:
 ################## CPU #########################  
 ################################################  
 
-  - alert: Container CPU
+  - alert: Container CPU isofh_migrate_1
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='ivirse',name='isofh_migrate_1'}[1m])) BY (instance, name) * 100) > 95
+    for: 10s
+    labels:
+      severity: khẩn cấp
+      app_type: Server Test
+      category: container-memory    
+      container_name: isofh_migrate_1
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+  - alert: Container CPU isofh_caserver_1
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='ivirse',name='isofh_caserver_1'}[1m])) BY (instance, name) * 100) > 95
+    for: 10s
+    labels:
+      severity: khẩn cấp
+      app_type: Server Test
+      category: container-memory    
+      container_name: isofh_caserver_1
+    annotations:
+      summary: "CPU container quá 95%"
+      description: |
+      
+        CONTAINER NAME: {{ $labels.name }}
+
+        Thông tin cụ thể: 
+
+          CPU USED : {{ printf "%.2f" $value}}%
+
+  - alert: Container CPU isofh_postgres_1
     expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='ivirse',name='isofh_postgres_1'}[1m])) BY (instance, name) * 100) > 95
     for: 10s
     labels:
@@ -129,7 +165,7 @@ groups:
       summary: "CPU container quá 95%"
       description: |
       
-        CONTAINER NAME: {{ $labels.container_name }}
+        CONTAINER NAME: {{ $labels.name }}
 
         Thông tin cụ thể: 
 
