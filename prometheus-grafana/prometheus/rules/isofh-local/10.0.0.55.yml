@@ -69,7 +69,9 @@ groups:
       summary: "RAM container quá 90%"
       description: |
       
-        CONTAINER NAME: flamboyant_dubinsky
+        CONTAINER NAME: 
+        
+        **flamboyant_dubinsky**
 
         Thông tin cụ thể: 
 
@@ -88,7 +90,9 @@ groups:
       summary: "RAM container quá 90%"
       description: |
       
-        CONTAINER NAME: golang-app
+        CONTAINER NAME: 
+        
+        **golang-app**
 
         Thông tin cụ thể: 
 
@@ -96,7 +100,7 @@ groups:
 
 
   - alert: Container Memory
-    expr: sum(container_memory_working_set_bytes{job='isofhlocal', name='searching-service'}) / sum(container_spec_memory_limit_bytes{job="isofhlocal", id="/", instance='10.0.0.55:19093'})
+    expr: sum(container_memory_working_set_bytes{job='isofhlocal', name='searching-service'}) / sum(container_spec_memory_limit_bytes{job="isofhlocal", id="/", instance='10.0.0.55:19093'}) > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -107,7 +111,9 @@ groups:
       summary: "RAM container quá 90%"
       description: |
       
-        CONTAINER NAME: searching-service
+        CONTAINER NAME: 
+        
+        **searching-service**
 
         Thông tin cụ thể: 
 

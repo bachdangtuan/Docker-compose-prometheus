@@ -79,7 +79,7 @@ groups:
 
 
   - alert: Container Memory isofh_caserver_1
-    expr: sum(container_memory_working_set_bytes{job='ivirse', name='isofh_caserver_1'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.120:9092"}) * 100
+    expr: sum(container_memory_working_set_bytes{job='ivirse', name='isofh_caserver_1'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.120:9092"}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -99,7 +99,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container Memory isofh_postgres_1
-    expr: sum(container_memory_working_set_bytes{job='ivirse', name='isofh_postgres_1'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.120:9092"}) * 100
+    expr: sum(container_memory_working_set_bytes{job='ivirse', name='isofh_postgres_1'}) / sum(container_spec_memory_limit_bytes{job="ivirse", id="/", instance="103.9.211.120:9092"}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
