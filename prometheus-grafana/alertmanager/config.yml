@@ -60,7 +60,84 @@ route:
         app_type: IVIRSE
       receiver: ivirse-telegram
       group_wait: 3s
+      
+      # 103.9.211.87
+    - match:
+        category: container-status
+        container_name: project-react-js-payment-gateway-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
 
+    - match:
+        category: container-status
+        container_name: project-node-ts-payment-gateway-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-status
+        container_name: project-node-js-getblockinfo-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-status
+        container_name: project-node-js-expiredactionschedule-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-status
+        container_name: project-node-js-paymentactiontrigger-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-status
+        container_name: project-node-js-exchange-rate-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-status
+        container_name: nginx-docker_app_1 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-status
+        container_name: project-node-js-gettxlogs-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-status
+        container_name: kafka-isofh 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-status
+        container_name: zookeeper-isofh 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-status
+        container_name: kafka-ui-isofh 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
 
 
   ################### RAM #################
@@ -103,7 +180,82 @@ route:
       receiver: ivirse-telegram
       group_wait: 3s
 
+    - match:
+        category: container-memory
+        container_name: project-react-js-payment-gateway-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
 
+    - match:
+        category: container-memory
+        container_name: project-node-ts-payment-gateway-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: project-node-js-getblockinfo-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: project-node-js-expiredactionschedule-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: project-node-js-paymentactiontrigger-isofh-production
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: project-node-js-exchange-rate-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: nginx-docker_app_1 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: project-node-js-gettxlogs-isofh-production 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: kafka-isofh 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: zookeeper-isofh 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: kafka-ui-isofh 
+        app_type: IVIRSE
+      receiver: ivirse-telegram
+      group_wait: 3s
 
 
 
