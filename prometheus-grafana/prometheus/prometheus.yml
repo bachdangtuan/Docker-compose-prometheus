@@ -27,6 +27,9 @@ scrape_configs:
       - targets: 
         - '103.9.211.120:19092'
         - '103.9.211.120:9092'
+        - '103.9.211.87:19092'
+        - '103.9.211.87:9092'
+
 
   - job_name: 'isofhlocal'
     scrape_interval: 5s
