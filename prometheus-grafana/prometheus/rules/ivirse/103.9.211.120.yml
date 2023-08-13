@@ -69,7 +69,9 @@ groups:
       summary: "RAM container quá 90%"
       description: |
       
-        CONTAINER NAME:-  isofh_migrate_1
+        CONTAINER NAME:
+        
+        **isofh_migrate_1**
 
         Thông tin cụ thể: 
 
@@ -88,7 +90,9 @@ groups:
       summary: "RAM container quá 90%"
       description: |
       
-        CONTAINER NAME:-  isofh_caserver_1
+        CONTAINER NAME:  
+        
+        **isofh_caserver_1**
 
         Thông tin cụ thể: 
 
@@ -106,7 +110,9 @@ groups:
       summary: "RAM container quá 90%"
       description: |
       
-        CONTAINER NAME:-  isofh_postgres_1
+        CONTAINER NAME:
+        
+        **isofh_postgres_1***
 
         Thông tin cụ thể: 
 
