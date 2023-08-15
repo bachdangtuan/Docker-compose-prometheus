@@ -90,3 +90,5 @@ groups:
           summary: "Có lock databases"
           description: | 
             Lock rồi anh em
+            TABLE : {{ $labels.datname }}
+            MODEL : {{ $labels.mode }}
