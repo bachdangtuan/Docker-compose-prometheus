@@ -846,6 +846,20 @@ route:
       receiver: phongkham40-telegram
       group_wait: 2s
 
+    - match:
+        app_type: Phòng Khám 40
+        instance: 192.168.10.52:19100
+        category: server  
+      receiver: phongkham40-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Phòng Khám 40
+        instance: 192.168.10.53:9100
+        category: server  
+      receiver: phongkham40-telegram
+      group_wait: 2s
+
     # Nhi Đồng Thành Phố
     - match:
         app_type: Nhi Đồng Thành Phố
@@ -1661,6 +1675,20 @@ route:
     - match:
         app_type: Phòng Khám 40
         instance: 192.168.10.235:9100
+        category: memory  
+      receiver: phongkham40-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Phòng Khám 40
+        instance: 192.168.10.52:19100
+        category: memory  
+      receiver: phongkham40-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Phòng Khám 40
+        instance: 192.168.10.53:9100
         category: memory  
       receiver: phongkham40-telegram
       group_wait: 2s
@@ -2484,6 +2512,20 @@ route:
       receiver: phongkham40-telegram
       group_wait: 2s
 
+    - match:
+        app_type: Phòng Khám 40
+        instance: 192.168.10.52:19100
+        category: cpu  
+      receiver: phongkham40-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Phòng Khám 40
+        instance: 192.168.10.53:9100
+        category: cpu  
+      receiver: phongkham40-telegram
+      group_wait: 2s
+
     # Nhi Đồng Thành Phố
     - match:
         app_type: Nhi Đồng Thành Phố
@@ -3038,6 +3080,20 @@ route:
     - match:
         app_type: Phòng Khám 40
         instance: 192.168.10.235:9100
+        category: disk  
+      receiver: phongkham40-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Phòng Khám 40
+        instance: 192.168.10.52:19100
+        category: disk  
+      receiver: phongkham40-telegram
+      group_wait: 2s
+
+    - match:
+        app_type: Phòng Khám 40
+        instance: 192.168.10.53:9100
         category: disk  
       receiver: phongkham40-telegram
       group_wait: 2s
