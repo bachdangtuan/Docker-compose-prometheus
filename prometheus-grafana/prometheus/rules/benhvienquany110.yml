@@ -57,7 +57,7 @@ groups:
       # Disk Rules
       - alert: Dung lượng DISK
         expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Benh-Vien-110",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Benh-Vien-110",mountpoint=~".+"}))* 100) > 90
-        for: 72h
+        for: 15m
         labels:
           severity: Khẩn cấp
           app_type: Bệnh Viện Quân Y 110
