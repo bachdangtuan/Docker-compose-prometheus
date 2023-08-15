@@ -76,17 +76,3 @@ groups:
                   * KL Còn lại:  {{ query (printf "node_filesystem_free_bytes{job='Phong-Kham-40', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint) | first | value | humanize1024}}
 
               Vào fix đi anh em !
-
-      # Lock Databses
-      - alert: Lock Databases
-        expr: pg_locks_count{datname=~'.+'} != 0
-        for: 1m
-        labels:
-          severity: Khẩn cấp
-          app_type: Phòng Khám 40
-          category: databases
-          instance: "{{ $labels.instance }}"
-        annotations:
-          summary: "Lock Table Demo"
-          description: | 
-              Có lock table databases
