@@ -78,7 +78,7 @@ groups:
               Vào fix đi anh em !
 
       # Lock databases
-      - alert: CPU Tăng cao
+      - alert: Lock tables Databases
         expr: pg_locks_count{datname=~'.+'} != 0
         for: 1m
         labels:
