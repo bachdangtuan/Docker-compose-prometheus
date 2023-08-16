@@ -21,12 +21,13 @@ groups:
        Container bị EXITED
 
   - alert: Container Memory haproxy_isofh
-    expr: sum(container_memory_working_set_bytes{job='pk40', name='haproxy_isofh'}) / sum(container_spec_memory_limit_bytes{job="pk40", name='haproxy_isofh', instance='192.168.10.235:19093'}) * 100
+    expr: sum(container_memory_working_set_bytes{job="pk40",name="haproxy_isofh",instance='192.168.10.234:19093'}) / sum(container_spec_memory_limit_bytes{instance="192.168.10.234:19093",job="pk40",name="haproxy_isofh"}) * 100
     for: 10s
     labels:
       severity: khẩn cấp
       app_type: Phòng Khám 40
-      category: container-memory    
+      category: container-memory
+      server: '192.168.10.235'    
       container_name: haproxy_isofh
     annotations:
       summary: "RAM container quá 90%"

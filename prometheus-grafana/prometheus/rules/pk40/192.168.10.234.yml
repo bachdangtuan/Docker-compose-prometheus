@@ -26,7 +26,8 @@ groups:
     labels:
       severity: khẩn cấp
       app_type: Phòng Khám 40
-      category: container-memory    
+      category: container-memory
+      server: '192.168.10.235'       
       container_name: haproxy_isofh
     annotations:
       summary: "RAM container quá 90%"
