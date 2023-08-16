@@ -45,6 +45,30 @@ route:
         app_type: Server Test
       receiver: isofh-server
       group_wait: 3s  
+
+    #  LOCAL isofh 
+    - match:
+        category: container-memory
+        container_name: searching-service
+        app_type: Server Test
+      receiver: isofh-server
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: golang-app
+        app_type: Server Test
+      receiver: isofh-server
+      group_wait: 3s  
+
+    - match:
+        category: container-memory
+        container_name: flamboyant_dubinsky
+        app_type: Server Test
+      receiver: isofh-server
+      group_wait: 3s  
+
+
   
   #  IVIRSE
     - match:
@@ -139,33 +163,6 @@ route:
       receiver: ivirse-telegram
       group_wait: 3s
 
-
-  ################### RAM #################
-    #  LOCAL isofh 
-    - match:
-        category: container-memory
-        container_name: searching-service
-        app_type: Server Test
-      receiver: isofh-server
-      group_wait: 3s
-
-    - match:
-        category: container-memory
-        container_name: golang-app
-        app_type: Server Test
-      receiver: isofh-server
-      group_wait: 3s  
-
-    - match:
-        category: container-memory
-        container_name: flamboyant_dubinsky
-        app_type: Server Test
-      receiver: isofh-server
-      group_wait: 3s  
-
-
-
-  #  IVIRSE
     - match:
         category: container-memory
         container_name: isofh_postgres_1
@@ -257,16 +254,158 @@ route:
       receiver: ivirse-telegram
       group_wait: 3s
 
+####################################################
+####################################################
+########### PHÒNG KHÁM 40 ##########################
+####################################################
 
 
+    - match:
+        category: container-status
+        container_name: project-nodejs-visualize-pk40-production
+        app_type: Phòng Khám 40
+      receiver: isofh-server
+      group_wait: 3s
 
+    - match:
+        category: container-status
+        container_name: his-frontend-pk40-production
+        app_type: Phòng Khám 40
+      receiver: isofh-server
+      group_wait: 3s
 
+    - match:
+        category: container-status
+        container_name: his-pk40-production
+        app_type: Phòng Khám 40
+      receiver: isofh-server
+      group_wait: 3s
 
+    - match:
+        category: container-status
+        container_name: emr-zuul-pk40-production
+        app_type: Phòng Khám 40
+      receiver: isofh-server
+      group_wait: 3s
 
+    - match:
+        category: container-status
+        container_name: emr-eureka-pk40-production
+        app_type: Phòng Khám 40
+      receiver: isofh-server
+      group_wait: 3s
 
+    - match:
+        category: container-status
+        container_name: zipkin
+        app_type: Phòng Khám 40
+      receiver: isofh-server
+      group_wait: 3s
 
+    - match:
+        category: container-status
+        container_name: rabbitmq
+        app_type: Phòng Khám 40
+      receiver: isofh-server
+      group_wait: 3s
 
+    - match:
+        category: container-memory
+        container_name: project-nodejs-visualize-pk40-production
+        app_type: Phòng Khám 40
+      receiver: isofh-server
+      group_wait: 3s
 
+    - match:
+        category: container-memory
+        container_name: his-frontend-pk40-production
+        app_type: Phòng Khám 40
+      receiver: isofh-server
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: his-pk40-production
+        app_type: Phòng Khám 40
+      receiver: isofh-server
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: emr-zuul-pk40-production
+        app_type: Phòng Khám 40
+      receiver: isofh-server
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: emr-eureka-pk40-production
+        app_type: Phòng Khám 40
+      receiver: isofh-server
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: zipkin
+        app_type: Phòng Khám 40
+      receiver: isofh-server
+      group_wait: 3s
+
+    - match:
+        category: container-memory
+        container_name: rabbitmq
+        app_type: Phòng Khám 40
+      receiver: isofh-server
+      group_wait: 3s
+
+    - match:
+        category: container-cpu
+        container_name: project-nodejs-visualize-pk40-production
+        app_type: Phòng Khám 40
+      receiver: isofh-server
+      group_wait: 3s
+
+    - match:
+        category: container-cpu
+        container_name: his-frontend-pk40-production
+        app_type: Phòng Khám 40
+      receiver: isofh-server
+      group_wait: 3s
+
+    - match:
+        category: container-cpu
+        container_name: his-pk40-production
+        app_type: Phòng Khám 40
+      receiver: isofh-server
+      group_wait: 3s
+
+    - match:
+        category: container-cpu
+        container_name: emr-zuul-pk40-production
+        app_type: Phòng Khám 40
+      receiver: isofh-server
+      group_wait: 3s
+
+    - match:
+        category: container-cpu
+        container_name: emr-eureka-pk40-production
+        app_type: Phòng Khám 40
+      receiver: isofh-server
+      group_wait: 3s
+
+    - match:
+        category: container-cpu
+        container_name: zipkin
+        app_type: Phòng Khám 40
+      receiver: isofh-server
+      group_wait: 3s
+
+    - match:
+        category: container-cpu
+        container_name: rabbitmq
+        app_type: Phòng Khám 40
+      receiver: isofh-server
+      group_wait: 3s
 
 
 templates:

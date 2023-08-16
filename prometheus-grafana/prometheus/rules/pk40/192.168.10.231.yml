@@ -11,7 +11,7 @@ groups:
       severity: khẩn cấp
       category: container-status
       container_name: his-frontend-pk40-production
-      app_type: Server Test
+      app_type: Phòng Khám 40
     annotations:
       summary: Container exited
       description: |
@@ -25,7 +25,7 @@ groups:
     for: 10s
     labels:
       severity: khẩn cấp
-      app_type: Server Test
+      app_type: Phòng Khám 40
       category: container-memory    
       container_name: his-frontend-pk40-production
     annotations:
@@ -45,7 +45,7 @@ groups:
     for: 10s
     labels:
       severity: khẩn cấp
-      app_type: Server Test
+      app_type: Phòng Khám 40
       category: container-memory    
       container_name: his-frontend-pk40-production
     annotations:
@@ -66,7 +66,7 @@ groups:
       severity: khẩn cấp
       category: container-status
       container_name: project-nodejs-visualize-pk40-production
-      app_type: Server Test
+      app_type: Phòng Khám 40
     annotations:
       summary: Container exited
       description: |
@@ -80,7 +80,7 @@ groups:
     for: 10s
     labels:
       severity: khẩn cấp
-      app_type: Server Test
+      app_type: Phòng Khám 40
       category: container-memory    
       container_name: project-nodejs-visualize-pk40-production
     annotations:
@@ -100,7 +100,7 @@ groups:
     for: 10s
     labels:
       severity: khẩn cấp
-      app_type: Server Test
+      app_type: Phòng Khám 40
       category: container-memory    
       container_name: project-nodejs-visualize-pk40-production
     annotations:
@@ -121,7 +121,7 @@ groups:
       severity: khẩn cấp
       category: container-status
       container_name: his-pk40-production
-      app_type: Server Test
+      app_type: Phòng Khám 40
     annotations:
       summary: Container exited
       description: |
@@ -135,7 +135,7 @@ groups:
     for: 10s
     labels:
       severity: khẩn cấp
-      app_type: Server Test
+      app_type: Phòng Khám 40
       category: container-memory    
       container_name: his-pk40-production
     annotations:
@@ -155,7 +155,7 @@ groups:
     for: 10s
     labels:
       severity: khẩn cấp
-      app_type: Server Test
+      app_type: Phòng Khám 40
       category: container-memory    
       container_name: his-pk40-production
     annotations:
@@ -176,7 +176,7 @@ groups:
       severity: khẩn cấp
       category: container-status
       container_name: emr-zuul-pk40-production
-      app_type: Server Test
+      app_type: Phòng Khám 40
     annotations:
       summary: Container exited
       description: |
@@ -190,7 +190,7 @@ groups:
     for: 10s
     labels:
       severity: khẩn cấp
-      app_type: Server Test
+      app_type: Phòng Khám 40
       category: container-memory    
       container_name: emr-zuul-pk40-production
     annotations:
@@ -210,7 +210,7 @@ groups:
     for: 10s
     labels:
       severity: khẩn cấp
-      app_type: Server Test
+      app_type: Phòng Khám 40
       category: container-memory    
       container_name: emr-zuul-pk40-production
     annotations:
@@ -230,7 +230,7 @@ groups:
       severity: khẩn cấp
       category: container-status
       container_name: emr-eureka-pk40-production
-      app_type: Server Test
+      app_type: Phòng Khám 40
     annotations:
       summary: Container exited
       description: |
@@ -244,7 +244,7 @@ groups:
     for: 10s
     labels:
       severity: khẩn cấp
-      app_type: Server Test
+      app_type: Phòng Khám 40
       category: container-memory    
       container_name: emr-eureka-pk40-production
     annotations:
@@ -264,7 +264,7 @@ groups:
     for: 10s
     labels:
       severity: khẩn cấp
-      app_type: Server Test
+      app_type: Phòng Khám 40
       category: container-memory    
       container_name: emr-eureka-pk40-production
     annotations:
@@ -287,7 +287,7 @@ groups:
       severity: khẩn cấp
       category: container-status
       container_name: rabbitmq
-      app_type: Server Test
+      app_type: Phòng Khám 40
     annotations:
       summary: Container exited
       description: |
@@ -301,7 +301,7 @@ groups:
     for: 10s
     labels:
       severity: khẩn cấp
-      app_type: Server Test
+      app_type: Phòng Khám 40
       category: container-memory    
       container_name: rabbitmq
     annotations:
@@ -321,7 +321,7 @@ groups:
     for: 10s
     labels:
       severity: khẩn cấp
-      app_type: Server Test
+      app_type: Phòng Khám 40
       category: container-memory    
       container_name: rabbitmq
     annotations:
@@ -341,7 +341,7 @@ groups:
       severity: khẩn cấp
       category: container-status
       container_name: zipkin
-      app_type: Server Test
+      app_type: Phòng Khám 40
     annotations:
       summary: Container exited
       description: |
@@ -355,7 +355,7 @@ groups:
     for: 10s
     labels:
       severity: khẩn cấp
-      app_type: Server Test
+      app_type: Phòng Khám 40
       category: container-memory    
       container_name: zipkin
     annotations:
@@ -375,7 +375,7 @@ groups:
     for: 10s
     labels:
       severity: khẩn cấp
-      app_type: Server Test
+      app_type: Phòng Khám 40
       category: container-memory    
       container_name: zipkin
     annotations:

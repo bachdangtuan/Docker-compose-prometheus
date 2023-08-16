@@ -11,7 +11,7 @@ groups:
       severity: khẩn cấp
       category: container-status
       container_name: haproxy_isofh
-      app_type: Server Test
+      app_type: Phòng Khám 40
     annotations:
       summary: Container exited
       description: |
@@ -25,7 +25,7 @@ groups:
     for: 10s
     labels:
       severity: khẩn cấp
-      app_type: Server Test
+      app_type: Phòng Khám 40
       category: container-memory    
       container_name: haproxy_isofh
     annotations:
@@ -45,7 +45,7 @@ groups:
     for: 10s
     labels:
       severity: khẩn cấp
-      app_type: Server Test
+      app_type: Phòng Khám 40
       category: container-memory    
       container_name: haproxy_isofh
     annotations:
@@ -65,7 +65,7 @@ groups:
       severity: khẩn cấp
       category: container-status
       container_name: emr-config
-      app_type: Server Test
+      app_type: Phòng Khám 40
     annotations:
       summary: Container exited
       description: |
@@ -79,7 +79,7 @@ groups:
     for: 10s
     labels:
       severity: khẩn cấp
-      app_type: Server Test
+      app_type: Phòng Khám 40
       category: container-memory    
       container_name: emr-config
     annotations:
@@ -99,7 +99,7 @@ groups:
     for: 10s
     labels:
       severity: khẩn cấp
-      app_type: Server Test
+      app_type: Phòng Khám 40
       category: container-memory    
       container_name: emr-config
     annotations:
