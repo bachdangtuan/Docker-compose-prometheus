@@ -32,6 +32,8 @@ groups:
       summary: "RAM container quá 90%"
       description: |
       
+        SERVER IP : 192.168.10.234:19093      
+
         CONTAINER NAME: 
         
         **haproxy_isofh**
@@ -86,6 +88,8 @@ groups:
       summary: "RAM container quá 90%"
       description: |
       
+        SERVER IP : 192.168.10.234:19093      
+        
         CONTAINER NAME: 
         
         **emr-config**
