@@ -32,6 +32,14 @@ scrape_configs:
         - '103.9.211.87:19094'
         - '103.9.211.87:19093'
 
+  - job_name: 'dhy'
+    scrape_interval: 5s
+    static_configs:
+      - targets: 
+        - '192.168.55.162:19092'
+        - '192.168.55.162:9092'
+
+
   - job_name: 'pk40'
     scrape_interval: 5s
     static_configs:
