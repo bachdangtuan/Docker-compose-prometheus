@@ -308,21 +308,7 @@ route:
         app_type: Phòng Khám 40
       receiver: isofh-server
       group_wait: 3s
-
-    - match:
-        category: container-memory
-        container_name: pdf-generator
-        app_type: Phòng Khám 40
-      receiver: isofh-server
-      group_wait: 3s
-
-    - match:
-        category: container-cpu
-        container_name: pdf-generator
-        app_type: Phòng Khám 40
-      receiver: isofh-server
-      group_wait: 3s
-
+      
 ######
 
     - match:
