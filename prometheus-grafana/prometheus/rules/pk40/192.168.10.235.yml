@@ -64,7 +64,7 @@ groups:
     labels:
       severity: khẩn cấp
       app_type: Phòng Khám 40
-      category: container-memory    
+      category: container-cpu    
       container_name: emr-config
     annotations:
       summary: "CPU container quá 95%"
