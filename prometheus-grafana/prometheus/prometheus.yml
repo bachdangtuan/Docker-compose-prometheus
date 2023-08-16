@@ -31,6 +31,14 @@ scrape_configs:
         - '103.9.211.87:19094'
         - '103.9.211.87:19093'
 
+  - job_name: 'pk40'
+    scrape_interval: 5s
+    static_configs:
+      - targets: 
+        - '192.168.10.230:19092'
+        - '192.168.10.231:19092'
+        - '192.168.10.234:19092'
+        - '192.168.10.235:19092'
 
   - job_name: 'isofhlocal'
     scrape_interval: 5s
