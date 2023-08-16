@@ -7,7 +7,7 @@ global:
     monitor: 'Hospitals-Container'
 
 rule_files:
-  - './rules/pk40/192.168.10.231.yml'
+  - './rules/pk40/*.yml'
   - './rules/ivirse/103.9.211.120.yml'
   - './rules/ivirse/103.9.211.87.yml'
   - './rules/isofh-local/10.0.0.55.yml'
