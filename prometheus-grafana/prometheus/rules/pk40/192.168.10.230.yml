@@ -21,7 +21,7 @@ groups:
        Container bị EXITED
 
   - alert: Container Memory his-frontend-pk40-production
-    expr: (container_memory_working_set_bytes{job='pk40', name='his-frontend-pk40-production'}) / (container_spec_memory_limit_bytes{job="pk40", name='his-frontend-pk40-production', instance='192.168.10.230:9092'}) * 100 > 0
+    expr: (container_memory_working_set_bytes{job='pk40', name='his-frontend-pk40-production'}) / (container_spec_memory_limit_bytes{job="pk40", name='his-frontend-pk40-production', instance='192.168.10.230:9092'}) * 100 > 95
     for: 10s
     labels:
       severity: khẩn cấp
