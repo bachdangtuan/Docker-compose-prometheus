@@ -41,7 +41,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container CPU his-frontend-pk40-production
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='his-frontend-pk40-production',instance='192.168.10.231:9092' }[1m])) BY (instance, name) * 100) > 0
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='his-frontend-pk40-production',instance='192.168.10.231:9092' }[1m])) BY (instance, name) * 100) >= 0
     for: 10s
     labels:
       severity: khẩn cấp
