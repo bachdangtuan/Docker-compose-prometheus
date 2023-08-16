@@ -14,6 +14,12 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.14:9088/alert/-983667254'
 
+- name: phongkham40-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.13:9087/alert/-988783003'
+
+
+
 route:
   continue: false
   group_by: ['instance']
@@ -263,42 +269,42 @@ route:
         category: container-status
         container_name: his-frontend-pk40-production
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
     - match:
         category: container-memory
         container_name: his-frontend-pk40-production
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
     - match:
         category: container-cpu
         container_name: his-frontend-pk40-production
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 #####
     - match:
         category: container-status
         container_name: project-nodejs-visualize-pk40-production
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
     - match:
         category: container-memory
         container_name: project-nodejs-visualize-pk40-production
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
     - match:
         category: container-cpu
         container_name: project-nodejs-visualize-pk40-production
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
 #####
@@ -306,7 +312,7 @@ route:
         category: container-status
         container_name: pdf-generator
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
 ######
@@ -315,21 +321,21 @@ route:
         category: container-status
         container_name: his-pk40-production
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
     - match:
         category: container-memory
         container_name: his-pk40-production
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
     - match:
         category: container-cpu
         container_name: his-pk40-production
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
 ######
@@ -338,21 +344,21 @@ route:
         category: container-status
         container_name: emr-zuul-pk40-production
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
     - match:
         category: container-memory
         container_name: emr-zuul-pk40-production
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
     - match:
         category: container-cpu
         container_name: emr-zuul-pk40-production
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
 ######
@@ -361,21 +367,21 @@ route:
         category: container-status
         container_name: emr-eureka-pk40-production
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
     - match:
         category: container-memory
         container_name: emr-eureka-pk40-production
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
     - match:
         category: container-cpu
         container_name: emr-eureka-pk40-production
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
 ######
@@ -384,21 +390,21 @@ route:
         category: container-status
         container_name: rabbitmq
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
     - match:
         category: container-memory
         container_name: rabbitmq
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
     - match:
         category: container-cpu
         container_name: rabbitmq
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
 ######
@@ -407,21 +413,21 @@ route:
         category: container-status
         container_name: zipkin
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
     - match:
         category: container-memory
         container_name: zipkin
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
     - match:
         category: container-cpu
         container_name: zipkin
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
 ######
@@ -430,7 +436,7 @@ route:
         category: container-status
         container_name: emr-config
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
 ######
@@ -439,7 +445,7 @@ route:
         category: container-status
         container_name: haproxy_isofh
         app_type: Phòng Khám 40
-      receiver: isofh-server
+      receiver: phongkham40-telegram
       group_wait: 3s
 
 
