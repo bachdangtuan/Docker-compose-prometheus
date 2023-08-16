@@ -21,7 +21,7 @@ groups:
        Container bị EXITED
 
   - alert: Container Memory his-frontend-pk40-production
-    expr: (container_memory_working_set_bytes{job='pk40', name='his-frontend-pk40-production'}) / (container_spec_memory_limit_bytes{job="pk40", name='his-frontend-pk40-production', instance='192.168.10.230:9092'}) * 100 > 0
+    expr: (container_memory_working_set_bytes{job='pk40', name='his-frontend-pk40-production'}) / (container_spec_memory_limit_bytes{job="pk40", name='his-frontend-pk40-production', instance='192.168.10.230:9092'}) * 100 > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -41,7 +41,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container CPU his-frontend-pk40-production
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='his-frontend-pk40-production',instance='192.168.10.230:9092' }[1m])) BY (instance, name) * 100) > 0
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='his-frontend-pk40-production',instance='192.168.10.230:9092' }[1m])) BY (instance, name) * 100) > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -75,7 +75,7 @@ groups:
        Container bị EXITED
 
   - alert: Container Memory project-nodejs-visualize-pk40-production
-    expr: (container_memory_working_set_bytes{job='pk40', name='project-nodejs-visualize-pk40-production'}) / (container_spec_memory_limit_bytes{job="pk40", name='project-nodejs-visualize-pk40-production', instance='192.168.10.230:9092'}) * 100 > 0
+    expr: (container_memory_working_set_bytes{job='pk40', name='project-nodejs-visualize-pk40-production'}) / (container_spec_memory_limit_bytes{job="pk40", name='project-nodejs-visualize-pk40-production', instance='192.168.10.230:9092'}) * 100 > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -95,7 +95,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container CPU project-nodejs-visualize-pk40-production
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='project-nodejs-visualize-pk40-production',instance='192.168.10.230:9092' }[1m])) BY (instance, name) * 100) >= 0
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='project-nodejs-visualize-pk40-production',instance='192.168.10.230:9092' }[1m])) BY (instance, name) * 100) > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -130,7 +130,7 @@ groups:
        Container bị EXITED
 
   - alert: Container Memory pdf-generator
-    expr: (container_memory_working_set_bytes{job='pk40', name='pdf-generator'}) / (container_spec_memory_limit_bytes{job="pk40", name='pdf-generator', instance='192.168.10.230:9092'}) * 100 > 0
+    expr: (container_memory_working_set_bytes{job='pk40', name='pdf-generator'}) / (container_spec_memory_limit_bytes{job="pk40", name='pdf-generator', instance='192.168.10.230:9092'}) * 100 > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -150,7 +150,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container CPU pdf-generator
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='pdf-generator',instance='192.168.10.230:9092' }[1m])) BY (instance, name) * 100) >= 0
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='pdf-generator',instance='192.168.10.230:9092' }[1m])) BY (instance, name) * 100) > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -185,7 +185,7 @@ groups:
        Container bị EXITED
 
   - alert: Container Memory his-pk40-production
-    expr: (container_memory_working_set_bytes{job='pk40', name='his-pk40-production'}) / (container_spec_memory_limit_bytes{job="pk40", name='his-pk40-production', instance='192.168.10.230:9092'}) * 100 > 0
+    expr: (container_memory_working_set_bytes{job='pk40', name='his-pk40-production'}) / (container_spec_memory_limit_bytes{job="pk40", name='his-pk40-production', instance='192.168.10.230:9092'}) * 100 > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -205,7 +205,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container CPU his-pk40-production
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='his-pk40-production',instance='192.168.10.230:9092' }[1m])) BY (instance, name) * 100) >= 0
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='his-pk40-production',instance='192.168.10.230:9092' }[1m])) BY (instance, name) * 100) > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -239,7 +239,7 @@ groups:
        Container bị EXITED
 
   - alert: Container Memory emr-zuul-pk40-production
-    expr: (container_memory_working_set_bytes{job='pk40', name='emr-zuul-pk40-production'}) / (container_spec_memory_limit_bytes{job="pk40", name='emr-zuul-pk40-production', instance='192.168.10.230:9092'}) * 100 > 0
+    expr: (container_memory_working_set_bytes{job='pk40', name='emr-zuul-pk40-production'}) / (container_spec_memory_limit_bytes{job="pk40", name='emr-zuul-pk40-production', instance='192.168.10.230:9092'}) * 100 > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -259,7 +259,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container CPU emr-zuul-pk40-production
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='emr-zuul-pk40-production',instance='192.168.10.230:9092' }[1m])) BY (instance, name) * 100) >= 0
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='emr-zuul-pk40-production',instance='192.168.10.230:9092' }[1m])) BY (instance, name) * 100) > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -294,7 +294,7 @@ groups:
        Container bị EXITED
 
   - alert: Container Memory emr-eureka-pk40-production
-    expr: (container_memory_working_set_bytes{job='pk40', name='emr-eureka-pk40-production'}) / (container_spec_memory_limit_bytes{job="pk40", name='emr-eureka-pk40-production', instance='192.168.10.230:9092'}) * 100 > 0
+    expr: (container_memory_working_set_bytes{job='pk40', name='emr-eureka-pk40-production'}) / (container_spec_memory_limit_bytes{job="pk40", name='emr-eureka-pk40-production', instance='192.168.10.230:9092'}) * 100 > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -314,7 +314,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container CPU emr-eureka-pk40-production
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='emr-eureka-pk40-production',instance='192.168.10.230:9092' }[1m])) BY (instance, name) * 100) >= 0
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='emr-eureka-pk40-production',instance='192.168.10.230:9092' }[1m])) BY (instance, name) * 100) > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -348,7 +348,7 @@ groups:
        Container bị EXITED
 
   - alert: Container Memory rabbitmq
-    expr: (container_memory_working_set_bytes{job='pk40', name='rabbitmq'}) / (container_spec_memory_limit_bytes{job="pk40", name='rabbitmq', instance='192.168.10.230:9092'}) * 100 > 0
+    expr: (container_memory_working_set_bytes{job='pk40', name='rabbitmq'}) / (container_spec_memory_limit_bytes{job="pk40", name='rabbitmq', instance='192.168.10.230:9092'}) * 100 > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -368,7 +368,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container CPU rabbitmq
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='rabbitmq',instance='192.168.10.230:9092' }[1m])) BY (instance, name) * 100) >= 0
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='rabbitmq',instance='192.168.10.230:9092' }[1m])) BY (instance, name) * 100) > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -403,7 +403,7 @@ groups:
        Container bị EXITED
 
   - alert: Container Memory zipkin
-    expr: (container_memory_working_set_bytes{job='pk40', name='zipkin'}) / (container_spec_memory_limit_bytes{job="pk40", name='zipkin', instance='192.168.10.230:9092'}) * 100 > 0
+    expr: (container_memory_working_set_bytes{job='pk40', name='zipkin'}) / (container_spec_memory_limit_bytes{job="pk40", name='zipkin', instance='192.168.10.230:9092'}) * 100 > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -423,7 +423,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container CPU zipkin
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='zipkin',instance='192.168.10.230:9092' }[1m])) BY (instance, name) * 100) >= 0
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='zipkin',instance='192.168.10.230:9092' }[1m])) BY (instance, name) * 100) > 95
     for: 10s
     labels:
       severity: khẩn cấp
