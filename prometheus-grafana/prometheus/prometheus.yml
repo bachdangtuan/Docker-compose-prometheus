@@ -37,7 +37,7 @@ scrape_configs:
     static_configs:
       - targets: 
         - '192.168.55.162:19092'
-        - '192.168.55.162:9092'
+        - '192.168.55.162:9099'
 
 
   - job_name: 'pk40'
