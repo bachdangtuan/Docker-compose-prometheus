@@ -79,7 +79,7 @@ groups:
 
       # Lock databases
       - alert: Lock tables Databases
-        expr: pg_locks_count{datname=~'.+'} != 0
+        expr: pg_locks_count{datname='sakura'} != 0
         for: 1m
         labels:
           severity: Khẩn cấp
