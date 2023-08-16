@@ -18,6 +18,9 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-988783003'
 
+- name: daihocy-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.13:9087/alert/-870297775'
 
 
 route:
@@ -447,6 +450,25 @@ route:
         app_type: Phòng Khám 40
       receiver: phongkham40-telegram
       group_wait: 3s
+
+####################################################
+####################################################
+########### ĐẠI HỌC Y ##############################
+####################################################
+
+    - match:
+        category: container-status
+        container_name: his-app-8081-dhy-production
+        app_type: Đại Học Y
+      receiver: daihocy-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-status
+        container_name: his-app-8082-dhy-production
+        app_type: Đại Học Y
+      receiver: daihocy-telegram
+      group_wait: 5s
 
 
 templates:
