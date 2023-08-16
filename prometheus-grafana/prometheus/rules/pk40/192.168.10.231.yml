@@ -5,7 +5,7 @@ groups:
   rules:
 
   - alert: Container Status his-frontend-pk40-production
-    expr: container_state_status{status="exited",name=~"his-frontend-pk40-production",instance='192.168.10.231:19092'} == 0
+    expr: container_state_status{status="exited",name=~"his-frontend-pk40-production",instance='192.168.10.231:19092'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -60,7 +60,7 @@ groups:
 
 
   - alert: Container Status project-nodejs-visualize-pk40-production
-    expr: container_state_status{status="exited",name=~"project-nodejs-visualize-pk40-production",instance='192.168.10.231:19092'} == 0
+    expr: container_state_status{status="exited",name=~"project-nodejs-visualize-pk40-production",instance='192.168.10.231:19092'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
