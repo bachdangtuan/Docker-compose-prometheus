@@ -20,46 +20,6 @@ groups:
 
        Container bị EXITED
 
-  - alert: Container Memory haproxy_isofh
-    expr: sum(container_memory_working_set_bytes{job='pk40', name='haproxy_isofh'}) / sum(container_spec_memory_limit_bytes{job="pk40", name='haproxy_isofh', instance='192.168.10.234:19093'}) * 100 
-    for: 10s
-    labels:
-      severity: khẩn cấp
-      app_type: Phòng Khám 40
-      category: container-memory      
-      container_name: haproxy_isofh
-    annotations:
-      summary: "RAM container quá 90%"
-      description: |
-      
-        SERVER IP : 192.168.10.234:19093      
-
-        CONTAINER NAME: 
-        
-        **haproxy_isofh**
-
-        Thông tin cụ thể: 
-
-          RAM USED: {{ printf "%.2f" $value}}% / 100%
-
-  - alert: Container CPU haproxy_isofh
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='haproxy_isofh'}[1m])) BY (instance, name) * 100) > 90
-    for: 10s
-    labels:
-      severity: khẩn cấp
-      app_type: Phòng Khám 40
-      category: container-memory    
-      container_name: haproxy_isofh
-    annotations:
-      summary: "CPU container quá 95%"
-      description: |
-      
-        CONTAINER NAME: {{ $labels.name }}
-
-        Thông tin cụ thể: 
-
-          CPU USED : {{ printf "%.2f" $value}}%
-
   - alert: Container Status emr-config
     expr: container_state_status{status="exited",name=~"emr-config"} == 1
     for: 1s
@@ -77,7 +37,7 @@ groups:
        Container bị EXITED
 
   - alert: Container Memory emr-config
-    expr: sum(container_memory_working_set_bytes{job='pk40', name='emr-config'}) / sum(container_spec_memory_limit_bytes{job="pk40", name='emr-config', instance='192.168.10.234:19093'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='pk40', name='emr-config'}) / (container_spec_memory_limit_bytes{job="pk40", name='emr-config', instance='192.168.10.234:19093'}) * 100 
     for: 10s
     labels:
       severity: khẩn cấp
@@ -99,7 +59,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container CPU emr-config
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='emr-config'}[1m])) BY (instance, name) * 100) > 90
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='emr-config'}[1m])) BY (instance, name) * 100) 
     for: 10s
     labels:
       severity: khẩn cấp
