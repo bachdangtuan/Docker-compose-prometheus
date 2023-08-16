@@ -5,7 +5,7 @@ groups:
   rules:
 
   - alert: Container Status haproxy_isofh
-    expr: container_state_status{status="exited",name=~"haproxy_isofh"} == 1
+    expr: container_state_status{status="exited",name=~"haproxy_isofh"} == 0
     for: 1s
     labels:
       severity: khẩn cấp
