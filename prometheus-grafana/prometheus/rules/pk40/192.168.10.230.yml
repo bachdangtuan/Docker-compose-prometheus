@@ -21,7 +21,7 @@ groups:
        Container bị EXITED
 
   - alert: Container Memory his-frontend-pk40-production
-    expr: sum(container_memory_working_set_bytes{job='pk40', name='his-frontend-pk40-production'}) / sum(container_spec_memory_limit_bytes{job="pk40", name='his-frontend-pk40-production', instance='192.168.10.230:9092'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='pk40', name='his-frontend-pk40-production'}) / (container_spec_memory_limit_bytes{job="pk40", name='his-frontend-pk40-production', instance='192.168.10.230:9092'}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -76,7 +76,7 @@ groups:
        Container bị EXITED
 
   - alert: Container Memory project-nodejs-visualize-pk40-production
-    expr: sum(container_memory_working_set_bytes{job='pk40', name='project-nodejs-visualize-pk40-production'}) / sum(container_spec_memory_limit_bytes{job="pk40", name='project-nodejs-visualize-pk40-production', instance='192.168.10.230:9092'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='pk40', name='project-nodejs-visualize-pk40-production'}) / (container_spec_memory_limit_bytes{job="pk40", name='project-nodejs-visualize-pk40-production', instance='192.168.10.230:9092'}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -131,7 +131,7 @@ groups:
        Container bị EXITED
 
   - alert: Container Memory his-pk40-production
-    expr: sum(container_memory_working_set_bytes{job='pk40', name='his-pk40-production'}) / sum(container_spec_memory_limit_bytes{job="pk40", name='his-pk40-production', instance='192.168.10.230:9092'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='pk40', name='his-pk40-production'}) / (container_spec_memory_limit_bytes{job="pk40", name='his-pk40-production', instance='192.168.10.230:9092'}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -186,7 +186,7 @@ groups:
        Container bị EXITED
 
   - alert: Container Memory emr-zuul-pk40-production
-    expr: sum(container_memory_working_set_bytes{job='pk40', name='emr-zuul-pk40-production'}) / sum(container_spec_memory_limit_bytes{job="pk40", name='emr-zuul-pk40-production', instance='192.168.10.230:9092'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='pk40', name='emr-zuul-pk40-production'}) / (container_spec_memory_limit_bytes{job="pk40", name='emr-zuul-pk40-production', instance='192.168.10.230:9092'}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -240,7 +240,7 @@ groups:
        Container bị EXITED
 
   - alert: Container Memory emr-eureka-pk40-production
-    expr: sum(container_memory_working_set_bytes{job='pk40', name='emr-eureka-pk40-production'}) / sum(container_spec_memory_limit_bytes{job="pk40", name='emr-eureka-pk40-production', instance='192.168.10.230:9092'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='pk40', name='emr-eureka-pk40-production'}) / (container_spec_memory_limit_bytes{job="pk40", name='emr-eureka-pk40-production', instance='192.168.10.230:9092'}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -297,7 +297,7 @@ groups:
        Container bị EXITED
 
   - alert: Container Memory rabbitmq
-    expr: sum(container_memory_working_set_bytes{job='pk40', name='rabbitmq'}) / sum(container_spec_memory_limit_bytes{job="pk40", name='rabbitmq', instance='192.168.10.230:9092'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='pk40', name='rabbitmq'}) / (container_spec_memory_limit_bytes{job="pk40", name='rabbitmq', instance='192.168.10.230:9092'}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -351,7 +351,7 @@ groups:
        Container bị EXITED
 
   - alert: Container Memory zipkin
-    expr: sum(container_memory_working_set_bytes{job='pk40', name='zipkin'}) / sum(container_spec_memory_limit_bytes{job="pk40", name='zipkin', instance='192.168.10.230:9092'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='pk40', name='zipkin'}) / (container_spec_memory_limit_bytes{job="pk40", name='zipkin', instance='192.168.10.230:9092'}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
