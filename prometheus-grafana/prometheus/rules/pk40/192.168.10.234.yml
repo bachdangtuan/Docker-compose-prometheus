@@ -37,7 +37,7 @@ groups:
        Container bị EXITED
 
   - alert: Container Memory emr-config
-    expr: (container_memory_working_set_bytes{job='pk40', name='emr-config'}) / (container_spec_memory_limit_bytes{job="pk40", name='emr-config', instance='192.168.10.234:19093'}) * 100 
+    expr: (container_memory_working_set_bytes{job='pk40', name='emr-config'}) / (container_spec_memory_limit_bytes{job="pk40", name='emr-config', instance='192.168.10.234:19093'}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -59,7 +59,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container CPU emr-config
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='emr-config'}[1m])) BY (instance, name) * 100) 
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='pk40',name='emr-config'}[1m])) BY (instance, name) * 100)  > 90
     for: 10s
     labels:
       severity: khẩn cấp
