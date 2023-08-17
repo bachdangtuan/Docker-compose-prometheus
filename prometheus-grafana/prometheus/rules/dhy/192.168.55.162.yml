@@ -39,7 +39,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container CPU his-app-8081-dhy-production
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='his-app-8081-dhy-production',instance='192.168.55.162:9099' }[1m])) BY (instance, name) * 100) > 90
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='his-app-8081-dhy-production',instance='192.168.55.162:9099' }[1m])) BY (instance, name) * 100) > 500
     for: 10s
     labels:
       severity: khẩn cấp
@@ -93,7 +93,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container CPU his-app-8082-dhy-production
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='his-app-8082-dhy-production',instance='192.168.55.162:9099' }[1m])) BY (instance, name) * 100) > 90
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='his-app-8082-dhy-production',instance='192.168.55.162:9099' }[1m])) BY (instance, name) * 100) > 500
     for: 10s
     labels:
       severity: khẩn cấp
