@@ -95,7 +95,7 @@ groups:
 
       # Deadlock / conflict
       - alert: Lock tables Databases
-        expr: pg_stat_database_deadlocks{instance!='',datname='sakura'} != 0
+        expr: pg_stat_database_deadlocks{instance!='',datname='sakura'}
         for: 1m
         labels:
           severity: Khẩn cấp
