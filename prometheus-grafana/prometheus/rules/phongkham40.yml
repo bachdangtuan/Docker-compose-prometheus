@@ -92,3 +92,19 @@ groups:
             Lock rồi anh em
             DATABASE : {{ $labels.datname }}
             MODEL : {{ $labels.mode }}
+
+      # Deadlock / conflict
+      - alert: Lock tables Databases
+        expr: pg_stat_database_deadlocks{instance!='',datname='sakura'} != 0
+        for: 1m
+        labels:
+          severity: Khẩn cấp
+          app_type: Phòng Khám 40
+          category: databases
+          instance: "{{ $labels.instance }}"
+        annotations:
+          summary: "Deadlock"
+          description: | 
+            
+            CÓ DEAD LOCK TẠI
+            DATABASE : {{ $labels.datname }}
