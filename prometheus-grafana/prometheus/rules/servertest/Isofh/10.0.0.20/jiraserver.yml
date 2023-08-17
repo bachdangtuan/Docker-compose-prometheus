@@ -16,7 +16,7 @@ groups:
        Container bị tắt
 
   - record: demo_check_ram_container
-    expr: container_memory_usage_bytes{name="jira-cluster-isofh_node1_1",instance="10.0.0.20:19092"} 
+    expr: container_memory_usage_bytes{name="jira-cluster-isofh_node1_1",instance="10.0.0.20:19093"} 
 
   - alert: Container Memory
     expr: demo_check_ram_container
