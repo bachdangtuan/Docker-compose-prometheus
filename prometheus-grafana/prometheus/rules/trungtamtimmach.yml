@@ -76,3 +76,36 @@ groups:
                   * KL Còn lại:  {{ query (printf "node_filesystem_free_bytes{job='Trung-Tam-Tim-Mach', instance=~'%s', mountpoint=~'%s'}" $labels.instance $labels.mountpoint) | first | value | humanize1024}}
 
               Vào fix đi anh em !
+
+
+      # Lock databases
+      - alert: Lock tables Databases
+        expr: pg_locks_count{instance='192.168.1.224',datname='sakura_stable_23_08_22'} != 0
+        for: 1m
+        labels:
+          severity: Khẩn cấp
+          app_type: Trung Tâm Tim Mạch
+          category: databases
+          instance: "{{ $labels.instance }}"
+        annotations:
+          summary: "Có lock databases"
+          description: | 
+            Lock rồi anh em
+            DATABASE : {{ $labels.datname }}
+            MODEL : {{ $labels.mode }}
+
+      # Deadlock / conflict
+      - alert: Lock tables Databases
+        expr: pg_stat_database_deadlocks{instance='192.168.1.224',datname='sakura_stable_23_08_22'} != 0
+        for: 1m
+        labels:
+          severity: Khẩn cấp
+          app_type: Trung Tâm Tim Mạch
+          category: databases
+          instance: "{{ $labels.instance }}"
+        annotations:
+          summary: "Deadlock"
+          description: | 
+            
+            CÓ DEAD LOCK TẠI
+            DATABASE : {{ $labels.datname }}
