@@ -135,7 +135,7 @@ route:
     # Bệnh Viện Bạch Mai
     - match:
         app_type: Bệnh Viện Bạch Mai
-        instance: 10.0.1.34:9100
+        instance: 10.0.1.34:19100
         category: server  
       receiver: bachmai-telegram
       group_wait: 12s
@@ -156,12 +156,12 @@ route:
       receiver: trungtamtimmach-telegram
       group_wait: 12s
 
-    - match:
-        app_type: Trung Tâm Tim Mạch
-        instance: 192.168.1.101:9100
-        category: server  
-      receiver: trungtamtimmach-telegram
-      group_wait: 12s
+    # - match:
+    #     app_type: Trung Tâm Tim Mạch
+    #     instance: 192.168.1.101:9100
+    #     category: server  
+    #   receiver: trungtamtimmach-telegram
+    #   group_wait: 12s
 
     - match:
         app_type: Trung Tâm Tim Mạch
@@ -978,12 +978,12 @@ route:
       receiver: trungtamtimmach-telegram
       group_wait: 12s
 
-    - match:
-        app_type: Trung Tâm Tim Mạch
-        instance: 192.168.1.101:9100
-        category: memory  
-      receiver: trungtamtimmach-telegram
-      group_wait: 12s
+    # - match:
+    #     app_type: Trung Tâm Tim Mạch
+    #     instance: 192.168.1.101:9100
+    #     category: memory  
+    #   receiver: trungtamtimmach-telegram
+    #   group_wait: 12s
 
     - match:
         app_type: Trung Tâm Tim Mạch
@@ -1815,12 +1815,12 @@ route:
       receiver: trungtamtimmach-telegram
       group_wait: 30s
 
-    - match:
-        app_type: Trung Tâm Tim Mạch
-        instance: 192.168.1.101:9100
-        category: cpu  
-      receiver: trungtamtimmach-telegram
-      group_wait: 30s
+    # - match:
+    #     app_type: Trung Tâm Tim Mạch
+    #     instance: 192.168.1.101:9100
+    #     category: cpu  
+    #   receiver: trungtamtimmach-telegram
+    #   group_wait: 30s
 
     - match:
         app_type: Trung Tâm Tim Mạch
@@ -2646,12 +2646,12 @@ route:
       receiver: trungtamtimmach-telegram
       group_wait: 22s
 
-    - match:
-        app_type: Trung Tâm Tim Mạch
-        instance: 192.168.1.101:9100
-        category: disk  
-      receiver: trungtamtimmach-telegram
-      group_wait: 22s
+    # - match:
+    #     app_type: Trung Tâm Tim Mạch
+    #     instance: 192.168.1.101:9100
+    #     category: disk  
+    #   receiver: trungtamtimmach-telegram
+    #   group_wait: 22s
 
     - match:
         app_type: Trung Tâm Tim Mạch
