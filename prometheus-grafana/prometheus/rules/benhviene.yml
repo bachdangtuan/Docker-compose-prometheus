@@ -18,7 +18,7 @@ groups:
 
       # Ram Rules
       - alert: Cảnh báo RAM
-        expr: (node_memory_MemTotal_bytes{job="Benh-Vien-E", instance=~".+"} - node_memory_MemFree_bytes{job="Benh-Vien-E", instance=~".+"} - node_memory_Buffers_bytes{job="Benh-Vien-E", instance=~".+"} - node_memory_Cached_bytes{job="Benh-Vien-E", instance=~".+"} ) / (node_memory_MemTotal_bytes{job="Benh-Vien-E", instance=~".+"}) * 100 >= 90
+        expr: (node_memory_MemTotal_bytes{job="Benh-Vien-E", instance=~".+"} - node_memory_MemFree_bytes{job="Benh-Vien-E", instance=~".+"} - node_memory_Buffers_bytes{job="Benh-Vien-E", instance=~".+"} - node_memory_Cached_bytes{job="Benh-Vien-E", instance=~".+"} ) / (node_memory_MemTotal_bytes{job="Benh-Vien-E", instance=~".+"}) * 100 >= 95
         for: 1m
         labels:
           severity: Khẩn cấp
@@ -26,7 +26,7 @@ groups:
           category: memory
           instance: "{{ $labels.instance }}"
         annotations:
-          summary: "RAM Server > 90%"
+          summary: "RAM Server > 95%"
           description: |
             RAM đã sử dụng chiếm {{ printf "%.2f" $value }}% / 100%
 
@@ -42,7 +42,7 @@ groups:
 
       # CPU Rules
       - alert: CPU Tăng cao
-        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="Benh-Vien-E", instance=~".+",mode="idle"}[1m])) * 100) > 90
+        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="Benh-Vien-E", instance=~".+",mode="idle"}[1m])) * 100) > 95
         for: 1m
         labels:
           severity: Khẩn cấp
@@ -50,13 +50,13 @@ groups:
           category: cpu
           instance: "{{ $labels.instance }}"
         annotations:
-          summary: "CPU Server > 90%"
+          summary: "CPU Server > 95%"
           description: | 
             CPU máy chủ sử dụng đạt tới  {{ printf "%.2f" $value }}% / 100%
 
       # Disk Rules
       - alert: Dung lượng DISK
-        expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Benh-Vien-E",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Benh-Vien-E",mountpoint=~".+"}))* 100) > 90
+        expr: (100 - ((node_filesystem_free_bytes{instance=~".+",job="Benh-Vien-E",mountpoint=~".+"}) / (node_filesystem_size_bytes{instance=~".+",job="Benh-Vien-E",mountpoint=~".+"}))* 100) > 95
         for: 72h
         labels:
           severity: Khẩn cấp
