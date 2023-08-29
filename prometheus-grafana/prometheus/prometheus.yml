@@ -33,6 +33,20 @@ alerting:
       password: toivaban
 
 scrape_configs:
+
+  - job_name: 'isofh-care'
+    scrape_interval: 5s
+    static_configs:
+      - targets:
+        # Hệ Thống isofh-care
+          - 3.0.34.197:9100
+          - 13.213.154.221:9100
+          - 13.215.174.69:9100
+          - 13.229.40.73:9100
+          - 54.151.146.66:9100
+          - 54.251.13.109:9100
+
+
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
 
   - job_name: 'ivirse'
