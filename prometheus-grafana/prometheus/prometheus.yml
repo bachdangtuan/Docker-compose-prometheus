@@ -25,6 +25,14 @@ alerting:
       password: toivaban
 
 scrape_configs:
+
+  - job_name: 'ndtp'
+    scrape_interval: 5s
+    static_configs:
+      - targets: 
+        - '10.0.2.41:19092'
+        - '10.0.2.41:9092'
+
   - job_name: 'ivirse'
     scrape_interval: 5s
     static_configs:
@@ -58,9 +66,9 @@ scrape_configs:
         - '192.168.10.234:19093'
         - '192.168.10.235:19093'
 
-  - job_name: 'isofhlocal'
-    scrape_interval: 5s
-    static_configs:
-      - targets: 
-        - '10.0.0.55:19092'
-        - '10.0.0.55:19093'
+  # - job_name: 'isofhlocal'
+  #   scrape_interval: 5s
+  #   static_configs:
+  #     - targets: 
+  #       - '10.0.0.55:19092'
+  #       - '10.0.0.55:19093'
