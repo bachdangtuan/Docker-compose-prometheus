@@ -22,6 +22,9 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.14:9088/alert/-870297775'
 
+- name: nđtp-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.14:9088/alert/-901133248'
 
 route:
   continue: false

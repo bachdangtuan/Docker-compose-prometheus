@@ -29,7 +29,9 @@ scrape_configs:
   - job_name: 'ndtp'
     scrape_interval: 5s
     static_configs:
-      - targets: 
+      - targets:
+        - '10.0.2.40:19092'
+        - '10.0.2.40:9092'
         - '10.0.2.41:19092'
         - '10.0.2.41:9092'
 
