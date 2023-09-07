@@ -3,7 +3,7 @@ groups:
   rules:
 
   - alert: Container Status his-ndtp-production
-    expr: container_state_status{status="exited",name=~"his-ndtp-production",instance='192.168.55.162:19092'} == 1
+    expr: container_state_status{status="exited",name=~"his-ndtp-production",instance='10.0.2.41:19092'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -19,7 +19,7 @@ groups:
        Container bị EXITED
 
   - alert: Container Memory his-ndtp-production
-    expr: (container_memory_working_set_bytes{job='dhy', name='his-ndtp-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='his-ndtp-production', instance='192.168.55.162:9099'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='dhy', name='his-ndtp-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='his-ndtp-production', instance='10.0.2.41:9092'}) * 100 > 90
     for: 10s
     labels:
       severity: khẩn cấp
@@ -39,7 +39,7 @@ groups:
           RAM USED: {{ printf "%.2f" $value}}% / 100%
 
   - alert: Container CPU his-ndtp-production
-    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='his-ndtp-production',instance='192.168.55.162:9099' }[1m])) BY (instance, name) * 100) > 500
+    expr: (sum(rate(container_cpu_usage_seconds_total{name!="",job='dhy',name='his-ndtp-production',instance='10.0.2.41:9092' }[1m])) BY (instance, name) * 100) > 500
     for: 10s
     labels:
       severity: khẩn cấp
