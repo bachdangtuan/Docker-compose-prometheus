@@ -10,9 +10,9 @@ rule_files:
   - './rules/ndtp/*.yml'
   - './rules/dhy/*.yml'
   - './rules/pk40/*.yml'
-  - './rules/ivirse/103.9.211.120.yml'
-  - './rules/ivirse/103.9.211.87.yml'
-  - './rules/isofh-local/10.0.0.55.yml'
+  - './rules/ivirse/*.yml'
+  # - './rules/ivirse/103.9.211.87.yml'
+  # - './rules/isofh-local/10.0.0.55.yml'
 
 # alert
 alerting:
