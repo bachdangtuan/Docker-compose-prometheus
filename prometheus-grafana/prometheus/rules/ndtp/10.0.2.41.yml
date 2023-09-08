@@ -55,3 +55,7 @@ groups:
         Thông tin cụ thể: 
 
           CPU USED : {{ printf "%.2f" $value}}%
+
+
+# rate(container_memory_usage_bytes{name=~".+",job="$job",instance=~"$node:$port"}[2m])
+# sum(rate(container_cpu_usage_seconds_total{name=~".+",job=~"$job",image!="",instance=~"$node:$port"}[$interval])) by (name) * 100
