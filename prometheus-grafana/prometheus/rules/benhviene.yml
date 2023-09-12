@@ -80,7 +80,7 @@ groups:
 
       # DB access lock
       - alert: Access Share Lock
-        expr: pg_locks_count{job="Benh-Vien-E",datname="produce",mode="accesssharelock",instance="192.168.0.245:9187"} > 100
+        expr: pg_locks_count{job="Benh-Vien-E",datname="produce",mode="accesssharelock",instance="192.168.0.245:9187"} > 5000
         for: 10s
         labels:
           severity: Cảnh Báo
