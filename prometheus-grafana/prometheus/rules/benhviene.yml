@@ -86,7 +86,7 @@ groups:
           severity: Cảnh Báo
           app_type: Bệnh Viện E
           category: db_locks
-          instance: 192.168.0.245:9187
+          instance: "{{ $labels.instance }}"
         annotations:
           summary: "Access Locks tại thời điểm hiện tại đang cao"
           description: "Locks DB tại thời điểm này đang cao,có thể gây chậm Database"
