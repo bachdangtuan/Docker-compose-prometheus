@@ -3,7 +3,7 @@ groups:
   rules:
 
   - alert: Container Status his-ndtp-production
-    expr: container_state_status{status="exited",name=~"his-ndtp-production",instance='10.0.2.40:19092'} == 0
+    expr: container_state_status{status="exited",name=~"his-ndtp-production",instance='10.0.2.40:19092'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
@@ -16,7 +16,7 @@ groups:
 
        CONTAINER NAME:-  {{ $labels.name }}
 
-       Container bị EXITED (TEST ALERT)
+       Container bị EXITED
 
   - alert: Container Memory his-ndtp-production
     expr: (container_memory_working_set_bytes{job='ndtp', name='his-ndtp-production'}) / (container_spec_memory_limit_bytes{job="ndtp", name='his-ndtp-production', instance='10.0.2.40:9092'}) * 100 > 90
