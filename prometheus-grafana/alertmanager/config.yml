@@ -22,7 +22,7 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.14:9088/alert/-870297775'
 
-- name: nđtp-telegram
+- name: ndtp-telegram
   webhook_configs:
   - url: 'http://10.0.0.14:9088/alert/-901133248'
 
@@ -34,6 +34,34 @@ route:
   repeat_interval: 30s
   receiver: System-Team
   routes:
+
+####################################################
+####################################################
+############### Nhi Đồng Thành Phố #################
+####################################################
+
+    - match:
+        category: container-status
+        container_name: his-ndtp-production
+        app_type: Nhi Đồng Thành Phố
+      receiver: ndtp-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-memory
+        container_name: his-ndtp-production
+        app_type: Nhi Đồng Thành Phố
+      receiver: ndtp-telegram
+      group_wait: 5s
+
+    - match:
+        category: container-cpu
+        container_name: his-ndtp-production
+        app_type: Nhi Đồng Thành Phố
+      receiver: ndtp-telegram
+      group_wait: 5s
+
+
 
   ################### STATUS #################
     #  LOCAL isofh 
