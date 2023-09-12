@@ -89,4 +89,4 @@ groups:
           instance: "{{ $labels.instance }}"
         annotations:
           summary: "Access Locks tại thời điểm hiện tại đang cao"
-          description: "TEST Locks DB tại thời điểm này đang cao,có thể gây chậm Database"
+          description: "HUY TEST Locks DB tại thời điểm này đang cao,có thể gây chậm Database"
