@@ -817,6 +817,13 @@ route:
       receiver: benhviene-telegram
       group_wait: 2s
 
+    - match:
+        app_type: Bệnh Viện E
+        instance: 192.168.0.245:9187
+        category: db_locks  
+      receiver: benhviene-telegram
+      group_wait: 2s
+
     # PHòng Khám 40
     - match:
         app_type: Phòng Khám 40
