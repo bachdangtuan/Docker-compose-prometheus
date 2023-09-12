@@ -3,7 +3,7 @@ groups:
   rules:
 
   - alert: Container Status his-ndtp-production
-    expr: container_state_status{status="exited",name=~"his-ndtp-production",instance='10.0.2.41:19092'} == 0
+    expr: container_state_status{status="exited",name=~"his-ndtp-production",instance='10.0.2.41:19092'} == 1
     for: 1s
     labels:
       severity: khẩn cấp
