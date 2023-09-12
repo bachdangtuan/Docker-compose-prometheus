@@ -81,7 +81,7 @@ groups:
       # DB access lock
       - alert: Access Share Lock
         # expr: pg_locks_count{job="Benh-Vien-E",datname="produce",mode="accesssharelock",instance="192.168.0.245:9187"} > 5000
-        expr: pg_locks_count{job="Benh-Vien-E",datname=~"produce",mode="accesssharelock",instance="192.168.0.245:9187"} != 0 and pg_locks_count{job="Benh-Vien-E",datname=~"produce",mode="accesssharelock",instance="192.168.0.245:9187"} > 5000
+        expr: pg_locks_count{job="Benh-Vien-E",datname="produce",mode="accesssharelock",instance="192.168.0.245:9187"} != 0 and pg_locks_count{job="Benh-Vien-E",datname="produce",mode="accesssharelock",instance="192.168.0.245:9187"} > 5000
         for: 10s
         labels:
           severity: Cảnh Báo
@@ -89,5 +89,5 @@ groups:
           category: db_locks
           instance: "{{ $labels.instance }}"
         annotations:
-          summary: "Access Locks tại thời điểm hiện tại đang cao"
-          description: "Locks DB {{$labels.datname}} tại thời điểm này đang cao,có thể gây chậm Database"
+          summary: "Access Locks cao"
+          description: "Locks trên DB {{$labels.datname}} tại thời điểm này đang cao,có thể gây chậm Database"
