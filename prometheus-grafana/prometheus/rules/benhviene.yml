@@ -86,7 +86,7 @@ groups:
         labels:
           severity: Cảnh Báo
           app_type: Bệnh Viện E
-          category: db_locks
+          category: databases
           instance: "{{ $labels.instance }}"
         annotations:
           summary: "Access Locks cao"
