@@ -17,7 +17,7 @@ groups:
 
       # Ram Rules
       - alert: Cảnh báo RAM
-        expr: (node_memory_MemTotal_bytes{job="y-te-cong-cong", instance=~".+"} - node_memory_MemFree_bytes{job="y-te-cong-cong", instance=~".+"} - node_memory_Buffers_bytes{job="y-te-cong-cong", instance=~".+"} - node_memory_Cached_bytes{job="y-te-cong-cong", instance=~".+"} ) / (node_memory_MemTotal_bytes{job="y-te-cong-cong", instance=~".+"}) * 100 > 1
+        expr: (node_memory_MemTotal_bytes{job="y-te-cong-cong", instance=~".+"} - node_memory_MemFree_bytes{job="y-te-cong-cong", instance=~".+"} - node_memory_Buffers_bytes{job="y-te-cong-cong", instance=~".+"} - node_memory_Cached_bytes{job="y-te-cong-cong", instance=~".+"} ) / (node_memory_MemTotal_bytes{job="y-te-cong-cong", instance=~".+"}) * 100 > 90
         for: 1m
         labels:
           severity: Khẩn cấp
@@ -41,7 +41,7 @@ groups:
 
       # CPU Rules
       - alert: CPU Tăng cao
-        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="y-te-cong-cong", instance=~".+",mode="idle"}[1m])) * 100) > 1
+        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{job="y-te-cong-cong", instance=~".+",mode="idle"}[1m])) * 100) > 96
         for: 1m
         labels:
           severity: Khẩn cấp
