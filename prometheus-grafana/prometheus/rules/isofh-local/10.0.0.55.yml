@@ -17,7 +17,7 @@ groups:
 
        CONTAINER NAME:-  {{ $labels.name }}
 
-       Container bị EXITED
+       CONTAINER BỊ TẮT 
 
   - alert: Container Status 
     expr: container_state_status{status="exited",name=~"searching-service"} == 1
@@ -33,7 +33,7 @@ groups:
 
        CONTAINER NAME:-  {{ $labels.name }}
 
-       Container bị EXITED
+       CONTAINER BỊ TẮT 
 
   - alert: Container Status 
     expr: container_state_status{status="exited",name=~"flamboyant_dubinsky"} == 1
@@ -49,7 +49,7 @@ groups:
 
        CONTAINER NAME:-  {{ $labels.name }}
 
-       Container bị EXITED
+       CONTAINER BỊ TẮT 
 
 
 

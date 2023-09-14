@@ -16,7 +16,7 @@ groups:
 
        CONTAINER NAME:-  {{ $labels.name }}
 
-       Container bị EXITED
+       CONTAINER BỊ TẮT 
 
   - alert: Container Memory his-ndtp-production
     expr: (container_memory_working_set_bytes{job='ndtp', name='his-ndtp-production'}) / (container_spec_memory_limit_bytes{job="ndtp", name='his-ndtp-production', instance='10.0.2.41:9092'}) * 100 > 90

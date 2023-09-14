@@ -16,7 +16,7 @@ groups:
 
        CONTAINER NAME:-  {{ $labels.name }}
 
-       Container bị EXITED
+       CONTAINER BỊ TẮT 
 
   - alert: Container Memory his-app-8081-dhy-production
     expr: (container_memory_working_set_bytes{job='dhy', name='his-app-8081-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='his-app-8081-dhy-production', instance='192.168.55.163:9099'}) * 100 > 90
@@ -70,7 +70,7 @@ groups:
 
        CONTAINER NAME:-  {{ $labels.name }}
 
-       Container bị EXITED
+       CONTAINER BỊ TẮT 
 
   - alert: Container Memory his-app-8082-dhy-production
     expr: (container_memory_working_set_bytes{job='dhy', name='his-app-8082-dhy-production'}) / (container_spec_memory_limit_bytes{job="dhy", name='his-app-8082-dhy-production', instance='192.168.55.163:9099'}) * 100 > 90

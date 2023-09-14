@@ -17,7 +17,7 @@ groups:
 
        CONTAINER NAME:-  {{ $labels.name }}
 
-       Container bị EXITED
+       CONTAINER BỊ TẮT 
 
   - alert: Container Status project-react-js-payment-gateway-isofh-production
     expr: container_state_status{status="exited",name=~"project-react-js-payment-gateway-isofh-production"} == 1
@@ -33,7 +33,7 @@ groups:
 
        CONTAINER NAME:-  {{ $labels.name }}
 
-       Container bị EXITED
+       CONTAINER BỊ TẮT 
 
   - alert: Container Status project-node-js-getblockinfo-isofh-production
     expr: container_state_status{status="exited",name=~"project-node-js-getblockinfo-isofh-production"} == 1
@@ -49,7 +49,7 @@ groups:
 
        CONTAINER NAME:-  {{ $labels.name }}
 
-       Container bị EXITED
+       CONTAINER BỊ TẮT 
 
 
   - alert: Container Status project-node-js-expiredactionschedule-isofh-production
@@ -66,7 +66,7 @@ groups:
 
        CONTAINER NAME:-  {{ $labels.name }}
 
-       Container bị EXITED
+       CONTAINER BỊ TẮT 
 
   - alert: Container Status project-node-js-paymentactiontrigger-isofh-production
     expr: container_state_status{status="exited",name=~"project-node-js-paymentactiontrigger-isofh-production"} == 1
@@ -82,7 +82,7 @@ groups:
 
        CONTAINER NAME:-  {{ $labels.name }}
 
-       Container bị EXITED
+       CONTAINER BỊ TẮT 
 
   - alert: Container Status project-node-js-exchange-rate-isofh-production
     expr: container_state_status{status="exited",name=~"project-node-js-exchange-rate-isofh-production"} == 1
@@ -98,7 +98,7 @@ groups:
 
        CONTAINER NAME:-  {{ $labels.name }}
 
-       Container bị EXITED
+       CONTAINER BỊ TẮT 
 
   - alert: Container Status nginx-docker_app_1
     expr: container_state_status{status="exited",name=~"nginx-docker_app_1"} == 1
@@ -114,7 +114,7 @@ groups:
 
        CONTAINER NAME:-  {{ $labels.name }}
 
-       Container bị EXITED
+       CONTAINER BỊ TẮT 
 
   - alert: Container Status project-node-js-gettxlogs-isofh-production
     expr: container_state_status{status="exited",name=~"project-node-js-gettxlogs-isofh-production"} == 1
@@ -130,7 +130,7 @@ groups:
 
        CONTAINER NAME:-  {{ $labels.name }}
 
-       Container bị EXITED
+       CONTAINER BỊ TẮT 
        
   - alert: Container Status kafka-isofh
     expr: container_state_status{status="exited",name=~"kafka-isofh"} == 1
@@ -146,7 +146,7 @@ groups:
 
        CONTAINER NAME:-  {{ $labels.name }}
 
-       Container bị EXITED
+       CONTAINER BỊ TẮT 
 
   - alert: Container Status zookeeper-isofh
     expr: container_state_status{status="exited",name=~"zookeeper-isofh"} == 1
@@ -162,7 +162,7 @@ groups:
 
        CONTAINER NAME:-  {{ $labels.name }}
 
-       Container bị EXITED
+       CONTAINER BỊ TẮT 
 
   - alert: Container Status kafka-ui-isofh
     expr: container_state_status{status="exited",name=~"kafka-ui-isofh"} == 1
@@ -178,7 +178,7 @@ groups:
 
        CONTAINER NAME:-  {{ $labels.name }}
 
-       Container bị EXITED
+       CONTAINER BỊ TẮT 
 
 
 ################################################  
