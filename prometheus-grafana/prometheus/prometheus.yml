@@ -35,7 +35,7 @@ alerting:
 
 scrape_configs:
 
-  - job_name: 'ytcc'
+  - job_name: 'y-te-cong-cong'
     scrape_interval: 5s
     static_configs:
       - targets:
