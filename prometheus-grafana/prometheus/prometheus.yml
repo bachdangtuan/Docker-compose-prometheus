@@ -8,6 +8,7 @@ global:
 
 # Rules config 
 rule_files:
+  - "rules/ytcc.yml"
   - "rules/NhiDongThanhPho.yml"
   - "rules/phongkham40.yml"
   - "rules/benhviene.yml"
@@ -33,6 +34,13 @@ alerting:
       password: toivaban
 
 scrape_configs:
+
+  - job_name: 'ytcc'
+    scrape_interval: 5s
+    static_configs:
+      - targets:
+        # Hệ Thống y tế công cộng
+          - 183.80.255.19:19105
 
   - job_name: 'isofh-care'
     scrape_interval: 5s
