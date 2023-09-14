@@ -47,7 +47,7 @@ groups:
       category: container-cpu    
       container_name: his-ndtp-production
     annotations:
-      summary: "CPU container quá 500%, sử dụng quá 5 core"
+      summary: "CPU container cao"
       description: |
       
         CONTAINER NAME: {{ $labels.name }}
@@ -104,7 +104,7 @@ groups:
       category: container-cpu    
       container_name: zipkin
     annotations:
-      summary: "CPU container quá 500%, sử dụng quá 5 core"
+      summary: "CPU container cao"
       description: |
       
         CONTAINER NAME: {{ $labels.name }}
@@ -161,7 +161,7 @@ groups:
       category: container-cpu    
       container_name: emr-eureka-ndtp-production-2502
     annotations:
-      summary: "CPU container quá 500%, sử dụng quá 5 core"
+      summary: "CPU container cao"
       description: |
       
         CONTAINER NAME: {{ $labels.name }}
@@ -217,7 +217,7 @@ groups:
       category: container-cpu    
       container_name: his-ndtp-production-2529
     annotations:
-      summary: "CPU container quá 500%, sử dụng quá 5 core"
+      summary: "CPU container cao"
       description: |
       
         CONTAINER NAME: {{ $labels.name }}
@@ -272,7 +272,7 @@ groups:
       category: container-cpu    
       container_name: emr-zuul-ndtp-production
     annotations:
-      summary: "CPU container quá 500%, sử dụng quá 5 core"
+      summary: "CPU container cao"
       description: |
       
         CONTAINER NAME: {{ $labels.name }}
@@ -328,7 +328,7 @@ groups:
       category: container-cpu    
       container_name: emr-eureka-ndtp-production
     annotations:
-      summary: "CPU container quá 500%, sử dụng quá 5 core"
+      summary: "CPU container cao"
       description: |
       
         CONTAINER NAME: {{ $labels.name }}
@@ -384,7 +384,7 @@ groups:
       category: container-cpu    
       container_name: his-frontend-nhidongtp-production
     annotations:
-      summary: "CPU container quá 500%, sử dụng quá 5 core"
+      summary: "CPU container cao"
       description: |
       
         CONTAINER NAME: {{ $labels.name }}
@@ -440,7 +440,7 @@ groups:
       category: container-cpu    
       container_name: pdf-generator
     annotations:
-      summary: "CPU container quá 500%, sử dụng quá 5 core"
+      summary: "CPU container cao"
       description: |
       
         CONTAINER NAME: {{ $labels.name }}
@@ -496,7 +496,7 @@ groups:
       category: container-cpu    
       container_name: project-nodejs-visualize-nhidongtp-production
     annotations:
-      summary: "CPU container quá 500%, sử dụng quá 5 core"
+      summary: "CPU container cao"
       description: |
       
         CONTAINER NAME: {{ $labels.name }}
@@ -551,7 +551,7 @@ groups:
       category: container-cpu    
       container_name: rabbitmq
     annotations:
-      summary: "CPU container quá 500%, sử dụng quá 5 core"
+      summary: "CPU container cao"
       description: |
       
         CONTAINER NAME: {{ $labels.name }}
