@@ -3,7 +3,7 @@ groups:
     rules:
       # Node Down
       - alert: Cảnh Báo Server
-        expr:  up{job="y-te-cong-cong",instance=~".+"} == 1
+        expr:  up{job="y-te-cong-cong",instance=~".+"} == 0
         for: 1m
         labels:
           severity: Khẩn cấp
