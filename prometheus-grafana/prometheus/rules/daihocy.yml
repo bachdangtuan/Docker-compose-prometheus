@@ -13,7 +13,7 @@ groups:
         annotations:
           summary: "Server bị tắt"
           description: | 
-                Vui lòng kiểm tra lại node-exporter trên server hoặc kiểm tra server có bị tắt hay không ?
+                Vui lòng kiểm tra lại service giám sát trên server, kiểm lại VPN site to site hoặc kiểm tra server có bị tắt hay không ?
 
       # Ram Rules
       - alert: Cảnh báo RAM
