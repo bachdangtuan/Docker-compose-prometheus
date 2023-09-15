@@ -1,6 +1,27 @@
 version: "3.8"
 
 services:
+  # Prometheus
+  prometheus:
+    image: nguyenngochuy/prometheus-vip
+    container_name: sys-isofh-prometheus
+    restart: always
+    user: "root"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./prometheus:/etc/prometheus/
+      - ./data-prometheus-grafana/prometheus_data:/prometheus
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--web.console.libraries=/usr/share/prometheus/console_libraries"
+      - "--web.console.templates=/usr/share/prometheus/consoles"
+      - "--web.enable-lifecycle"
+      # - "--web.config.file=/etc/prometheus/auth-web.yml"
+    ports:
+      - 9090:9090
+    links:
+      - alertmanager:alertmanager
   # Alert Manager
   alertmanager:
     image: nguyenngochuy/alertmanager-vip
@@ -14,3 +35,4 @@ services:
     command:
       - "--config.file=/etc/alertmanager/config.yml"
       - "--storage.path=/alertmanager"
+      # - "--web.config.file=/etc/alertmanager/config/auth-web.yml"
