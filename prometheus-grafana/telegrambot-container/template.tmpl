@@ -9,7 +9,7 @@ Status:  {{ .Status  | str_UpperCase}}
 {{end -}}
 
 {{if eq .Status "firing"}}
- ☢️📛CONTAINER CẢNH BÁO 📛☢️
+ 📛CẢNH BÁO LOG 📛
 ------------------------------------------------------
 Nội dung: {{.CommonAnnotations.summary}}
 Nhóm Cảnh báo: {{ .CommonLabels.alertname }}
