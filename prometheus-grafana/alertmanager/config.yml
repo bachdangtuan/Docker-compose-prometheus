@@ -36,7 +36,11 @@ route:
       receiver: tuan-telegram
       group_wait: 2s
 
-
+    - match:
+        category: logs
+        app_type: Server Nội Bộ Isofh
+      receiver: tuan-telegram
+      group_wait: 2s
 
 
 
