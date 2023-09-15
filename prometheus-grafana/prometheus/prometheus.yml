@@ -31,3 +31,8 @@ scrape_configs:
         - '10.0.0.10:9101'
         - '10.0.0.232:19100'
         - '10.0.0.55:7000'
+  - job_name: 'loki'
+    scrape_interval: 5s
+    static_configs:
+      - targets: 
+        - '10.0.0.232:3100'
