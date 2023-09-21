@@ -19,7 +19,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory his-ndtp-production
-    expr: (container_memory_working_set_bytes{job='ndtp', name='his-ndtp-production'}) / (container_spec_memory_limit_bytes{job="ndtp", name='his-ndtp-production', instance='10.0.2.40:9092'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='ndtp', name='his-ndtp-production'}) / (container_spec_memory_limit_bytes{job="ndtp", name='his-ndtp-production', instance='10.0.2.40:9092'}) * 100 > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -27,7 +27,7 @@ groups:
       category: container-memory    
       container_name: his-ndtp-production
     annotations:
-      summary: "RAM container quá 90%"
+      summary: "RAM container quá 95%"
       description: |
       
         CONTAINER NAME: 
@@ -76,7 +76,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory zipkin
-    expr: (container_memory_working_set_bytes{job='ndtp', name='zipkin'}) / (container_spec_memory_limit_bytes{job="ndtp", name='zipkin', instance='10.0.2.40:9092'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='ndtp', name='zipkin'}) / (container_spec_memory_limit_bytes{job="ndtp", name='zipkin', instance='10.0.2.40:9092'}) * 100 > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -133,7 +133,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory emr-eureka-ndtp-production-2502
-    expr: (container_memory_working_set_bytes{job='ndtp', name='emr-eureka-ndtp-production-2502'}) / (container_spec_memory_limit_bytes{job="ndtp", name='emr-eureka-ndtp-production-2502', instance='10.0.2.40:9092'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='ndtp', name='emr-eureka-ndtp-production-2502'}) / (container_spec_memory_limit_bytes{job="ndtp", name='emr-eureka-ndtp-production-2502', instance='10.0.2.40:9092'}) * 100 > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -189,7 +189,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory his-ndtp-production-2529
-    expr: (container_memory_working_set_bytes{job='ndtp', name='his-ndtp-production-2529'}) / (container_spec_memory_limit_bytes{job="ndtp", name='his-ndtp-production-2529', instance='10.0.2.40:9092'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='ndtp', name='his-ndtp-production-2529'}) / (container_spec_memory_limit_bytes{job="ndtp", name='his-ndtp-production-2529', instance='10.0.2.40:9092'}) * 100 > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -244,7 +244,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory emr-zuul-ndtp-production
-    expr: (container_memory_working_set_bytes{job='ndtp', name='emr-zuul-ndtp-production'}) / (container_spec_memory_limit_bytes{job="ndtp", name='emr-zuul-ndtp-production', instance='10.0.2.40:9092'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='ndtp', name='emr-zuul-ndtp-production'}) / (container_spec_memory_limit_bytes{job="ndtp", name='emr-zuul-ndtp-production', instance='10.0.2.40:9092'}) * 100 > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -300,7 +300,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory emr-eureka-ndtp-production
-    expr: (container_memory_working_set_bytes{job='ndtp', name='emr-eureka-ndtp-production'}) / (container_spec_memory_limit_bytes{job="ndtp", name='emr-eureka-ndtp-production', instance='10.0.2.40:9092'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='ndtp', name='emr-eureka-ndtp-production'}) / (container_spec_memory_limit_bytes{job="ndtp", name='emr-eureka-ndtp-production', instance='10.0.2.40:9092'}) * 100 > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -356,7 +356,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory his-frontend-nhidongtp-production
-    expr: (container_memory_working_set_bytes{job='ndtp', name='his-frontend-nhidongtp-production'}) / (container_spec_memory_limit_bytes{job="ndtp", name='his-frontend-nhidongtp-production', instance='10.0.2.40:9092'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='ndtp', name='his-frontend-nhidongtp-production'}) / (container_spec_memory_limit_bytes{job="ndtp", name='his-frontend-nhidongtp-production', instance='10.0.2.40:9092'}) * 100 > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -412,7 +412,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory pdf-generator
-    expr: (container_memory_working_set_bytes{job='ndtp', name='pdf-generator'}) / (container_spec_memory_limit_bytes{job="ndtp", name='pdf-generator', instance='10.0.2.40:9092'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='ndtp', name='pdf-generator'}) / (container_spec_memory_limit_bytes{job="ndtp", name='pdf-generator', instance='10.0.2.40:9092'}) * 100 > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -468,7 +468,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory project-nodejs-visualize-nhidongtp-production
-    expr: (container_memory_working_set_bytes{job='ndtp', name='project-nodejs-visualize-nhidongtp-production'}) / (container_spec_memory_limit_bytes{job="ndtp", name='project-nodejs-visualize-nhidongtp-production', instance='10.0.2.40:9092'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='ndtp', name='project-nodejs-visualize-nhidongtp-production'}) / (container_spec_memory_limit_bytes{job="ndtp", name='project-nodejs-visualize-nhidongtp-production', instance='10.0.2.40:9092'}) * 100 > 95
     for: 10s
     labels:
       severity: khẩn cấp
@@ -523,7 +523,7 @@ groups:
        CONTAINER BỊ TẮT 
 
   - alert: Container Memory rabbitmq
-    expr: (container_memory_working_set_bytes{job='ndtp', name='rabbitmq'}) / (container_spec_memory_limit_bytes{job="ndtp", name='rabbitmq', instance='10.0.2.40:9092'}) * 100 > 90
+    expr: (container_memory_working_set_bytes{job='ndtp', name='rabbitmq'}) / (container_spec_memory_limit_bytes{job="ndtp", name='rabbitmq', instance='10.0.2.40:9092'}) * 100 > 95
     for: 10s
     labels:
       severity: khẩn cấp
