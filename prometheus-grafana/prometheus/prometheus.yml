@@ -23,6 +23,7 @@ rule_files:
   - "rules/benhvienbachmai.yml"
   - "rules/phongkhamykhn.yml"
   - "rules/ivirse.yml"
+  - "rules/isofhcare.yml"
 # alert
 alerting:
   alertmanagers:

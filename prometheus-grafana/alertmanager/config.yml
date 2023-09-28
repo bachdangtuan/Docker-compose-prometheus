@@ -63,6 +63,9 @@ receivers:
   webhook_configs:
   - url: 'http://10.0.0.13:9087/alert/-829088376'
 
+- name: isofhcare-telegram
+  webhook_configs:
+  - url: 'http://10.0.0.13:9087/alert/-987838747'
 
 # Group Dự phòng
 - name: systems-team-telegram
@@ -906,8 +909,51 @@ route:
         instance: 10.0.2.43:9100
         category: server  
       receiver: nhidongthanhpho-telegram
-      group_wait: 2s   
-   
+      group_wait: 2s  
+
+   # Hệ Thống Isofhcare
+    - match:
+          app_type: Isofhcare
+          instance: 3.0.34.197:9100
+          category: server  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+  
+    - match:
+          app_type: Isofhcare
+          instance: 13.213.154.221:9100
+          category: server  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+
+    - match:
+          app_type: Isofhcare
+          instance: 13.215.174.69:9100
+          category: server  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+
+    - match:
+          app_type: Isofhcare
+          instance: 54.151.146.66:9100
+          category: server  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+    
+    - match:
+          app_type: Isofhcare
+          instance: 13.229.40.73:9100
+          category: server  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+
+    - match:
+          app_type: Isofhcare
+          instance: 54.251.13.109:9100
+          category: server  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+
 ##################### RAM #######################
 ##################### RAM #######################
 ##################### RAM #######################
@@ -1195,8 +1241,6 @@ route:
         category: memory  
       receiver: benhvienphoi-telegram
       group_wait: 20s
-
-
 
     # Phòng Khám Mediplus
     - match:
@@ -1749,6 +1793,48 @@ route:
       receiver: nhidongthanhpho-telegram
       group_wait: 2s   
    
+  # Hệ Thống Isofhcare
+    - match:
+          app_type: Isofhcare
+          instance: 3.0.34.197:9100
+          category: memory  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+  
+    - match:
+          app_type: Isofhcare
+          instance: 13.213.154.221:9100
+          category: memory  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+
+    - match:
+          app_type: Isofhcare
+          instance: 13.215.174.69:9100
+          category: memory  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+
+    - match:
+          app_type: Isofhcare
+          instance: 54.151.146.66:9100
+          category: memory  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+    
+    - match:
+          app_type: Isofhcare
+          instance: 13.229.40.73:9100
+          category: memory  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+
+    - match:
+          app_type: Isofhcare
+          instance: 54.251.13.109:9100
+          category: memory  
+      receiver: isofhcare-telegram
+      group_wait: 2s
 
 #################### CPU ##################################
 #################### CPU ##################################
@@ -2591,6 +2677,52 @@ route:
       receiver: nhidongthanhpho-telegram
       group_wait: 1s
 
+
+
+  # Hệ Thống Isofhcare
+    - match:
+          app_type: Isofhcare
+          instance: 3.0.34.197:9100
+          category: cpu  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+  
+    - match:
+          app_type: Isofhcare
+          instance: 13.213.154.221:9100
+          category: cpu  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+
+    - match:
+          app_type: Isofhcare
+          instance: 13.215.174.69:9100
+          category: cpu  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+
+    - match:
+          app_type: Isofhcare
+          instance: 54.151.146.66:9100
+          category: cpu  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+    
+    - match:
+          app_type: Isofhcare
+          instance: 13.229.40.73:9100
+          category: cpu  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+
+    - match:
+          app_type: Isofhcare
+          instance: 54.251.13.109:9100
+          category: cpu  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+
+
 #################### DISK ##############################
 #################### DISK ##############################
 #################### DISK ##############################
@@ -3427,6 +3559,51 @@ route:
       receiver: daihocy-telegram
       group_wait: 1s
 
+
+  # Hệ Thống Isofhcare
+    - match:
+          app_type: Isofhcare
+          instance: 3.0.34.197:9100
+          category: disk  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+  
+    - match:
+          app_type: Isofhcare
+          instance: 13.213.154.221:9100
+          category: disk  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+
+    - match:
+          app_type: Isofhcare
+          instance: 13.215.174.69:9100
+          category: disk  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+
+    - match:
+          app_type: Isofhcare
+          instance: 54.151.146.66:9100
+          category: disk  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+    
+    - match:
+          app_type: Isofhcare
+          instance: 13.229.40.73:9100
+          category: disk  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+
+    - match:
+          app_type: Isofhcare
+          instance: 54.251.13.109:9100
+          category: disk  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+
+      
 #################### DATABASES ##############################
 #################### DATABASES ##############################
 #################### DATABASES ##############################
