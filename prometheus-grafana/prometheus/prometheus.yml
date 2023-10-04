@@ -54,6 +54,7 @@ scrape_configs:
           - 13.229.40.73:9100
           - 54.151.146.66:19100
           - 54.251.13.109:9100
+          - 3.0.58.192:19100
 
 
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.

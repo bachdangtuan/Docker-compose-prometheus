@@ -954,6 +954,13 @@ route:
       receiver: isofhcare-telegram
       group_wait: 2s
 
+    - match:
+          app_type: Isofhcare
+          instance: 3.0.58.192:19100
+          category: server  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+
 ##################### RAM #######################
 ##################### RAM #######################
 ##################### RAM #######################
@@ -1832,6 +1839,13 @@ route:
     - match:
           app_type: Isofhcare
           instance: 54.251.13.109:9100
+          category: memory  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+
+    - match:
+          app_type: Isofhcare
+          instance: 3.0.58.192:19100
           category: memory  
       receiver: isofhcare-telegram
       group_wait: 2s
@@ -2722,6 +2736,12 @@ route:
       receiver: isofhcare-telegram
       group_wait: 2s
 
+    - match:
+          app_type: Isofhcare
+          instance: 3.0.58.192:19100
+          category: cpu  
+      receiver: isofhcare-telegram
+      group_wait: 2s
 
 #################### DISK ##############################
 #################### DISK ##############################
@@ -3603,7 +3623,13 @@ route:
       receiver: isofhcare-telegram
       group_wait: 2s
 
-      
+    - match:
+          app_type: Isofhcare
+          instance: 3.0.58.192:19100
+          category: disk  
+      receiver: isofhcare-telegram
+      group_wait: 2s
+
 #################### DATABASES ##############################
 #################### DATABASES ##############################
 #################### DATABASES ##############################
