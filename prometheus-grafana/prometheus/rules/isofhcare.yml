@@ -18,7 +18,7 @@ groups:
 
       # Ram Rules
       - alert: Cảnh báo RAM
-        expr: (node_memory_MemTotal_bytes{job="isofh-care", instance=~".+"} - node_memory_MemFree_bytes{job="isofh-care", instance=~".+"} - node_memory_Buffers_bytes{job="isofh-care", instance=~".+"} - node_memory_Cached_bytes{job="isofh-care", instance=~".+"} ) / (node_memory_MemTotal_bytes{job="isofh-care", instance=~".+"}) * 100 > 96
+        expr: (node_memory_MemTotal_bytes{job="isofh-care", instance=~".+"} - node_memory_MemFree_bytes{job="isofh-care", instance=~".+"} - node_memory_Buffers_bytes{job="isofh-care", instance=~".+"} - node_memory_Cached_bytes{job="isofh-care", instance=~".+"} ) / (node_memory_MemTotal_bytes{job="isofh-care", instance=~".+"}) * 100 > 85
         for: 1m
         labels:
           severity: Khẩn cấp
