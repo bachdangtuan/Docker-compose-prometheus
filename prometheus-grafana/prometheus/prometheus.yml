@@ -8,7 +8,7 @@ global:
 
 # Rules config 
 rule_files:
-  - "rules/ytcc.yml"
+  # - "rules/ytcc.yml"
   - "rules/NhiDongThanhPho.yml"
   - "rules/phongkham40.yml"
   - "rules/benhviene.yml"
