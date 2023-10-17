@@ -18,7 +18,7 @@ groups:
 
       # Ram Rules
       - alert: Cảnh báo RAM
-        expr: (node_memory_MemTotal_bytes{job="isofh-care", instance=~".+"} - node_memory_MemFree_bytes{job="isofh-care", instance=~".+"} - node_memory_Buffers_bytes{job="isofh-care", instance=~".+"} - node_memory_Cached_bytes{job="isofh-care", instance=~".+"} ) / (node_memory_MemTotal_bytes{job="isofh-care", instance=~".+"}) * 100 > 85
+        expr: (node_memory_MemTotal_bytes{job="isofh-care", instance=~".+"} - node_memory_MemFree_bytes{job="isofh-care", instance=~".+"} - node_memory_Buffers_bytes{job="isofh-care", instance=~".+"} - node_memory_Cached_bytes{job="isofh-care", instance=~".+"} ) / (node_memory_MemTotal_bytes{job="isofh-care", instance=~".+"}) * 100 > 90
         for: 1m
         labels:
           severity: Khẩn cấp
@@ -26,7 +26,7 @@ groups:
           category: memory
           instance: "{{ $labels.instance }}"
         annotations:
-          summary: "RAM Server > 95%"
+          summary: "RAM Server > 90%"
           description: |
             RAM đã sử dụng chiếm {{ printf "%.2f" $value }}% / 100%
 
