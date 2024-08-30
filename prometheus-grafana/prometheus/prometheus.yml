@@ -1,7 +1,7 @@
 # my global config
 global:
-  scrape_interval:     1s 
-  evaluation_interval: 1s 
+  scrape_interval:     5s 
+  evaluation_interval: 5s 
 
   external_labels:
     monitor: 'Kubernetes-Cluster'
@@ -21,7 +21,7 @@ alerting:
 
 scrape_configs:
       - job_name: 'cluster-manager-k8s'
-        scrape_timeout: 15s
+        scrape_timeout: 5s
         metrics_path: '/federate'
         scheme: http
         params:
@@ -36,7 +36,7 @@ scrape_configs:
               cluster_name: cluster-manager-k8s
 
       - job_name: 'cluster-application-k8s'
-        scrape_timeout: 15s
+        scrape_timeout: 5s
         metrics_path: '/federate'
         scheme: http
         params:
