@@ -5,6 +5,7 @@ receivers:
   - name: tuan-telegram
     webhook_configs:
       - url: "https://k8s-api-portal.bravo.com.vn/api/Alert"
+        
     # webhook_template: |
     #   {
     #     "alerts": [
@@ -55,6 +56,6 @@ receivers:
 #       receiver: tuan-telegram
 #       group_wait: 2s
 
-templates:
-  - "/etc/alertmanager/template/template.tmpl"
+# templates:
+#   - "/etc/alertmanager/template/template.tmpl"
 # docker run -p 9101:9101 quay.io/prometheus/haproxy-exporter:latest --haproxy.scrape-uri="http://admin:1@10.0.0.10:9000/haproxy?stats;csv"
