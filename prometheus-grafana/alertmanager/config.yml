@@ -6,7 +6,14 @@ receivers:
     webhook_configs:
       - url: "https://k8s-api-portal.bravo.com.vn/api/Alert"
         send_resolved: true
-
+        webhook_template: |
+          {
+              "podName": "backend-6fc6fb48c7-zjxv5",
+              "namespace": "application-98",
+              "cpuUsage": 2,
+              "ramUsage": 2,
+              "bandWidthUsage": 9
+          }
 route:
   continue: false
   group_by: ["instance"]
@@ -20,12 +27,8 @@ route:
         app_type: Server Demo
       receiver: tuan-telegram
       group_wait: 2s
-
-templates:
-  - "/etc/alertmanager/template/template.tmpl"
-
-
-
+# templates:
+#   - "/etc/alertmanager/template/template.tmpl"
 
 # - name: System-Team
 #   telegram_configs:

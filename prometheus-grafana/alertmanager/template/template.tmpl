@@ -1,9 +1,19 @@
-{{ define "webhook.template" }}
-{
-  "podName": "{{ .Labels.pod }}",
-  "namespace": "{{ .Labels.namespace }}",
-  "cpuUsage": {{ with .Annotations.cpuUsage }}{{ . }}{{ else }}0{{ end }},
-  "ramUsage": {{ with .Annotations.ramUsage }}{{ . }}{{ else }}0{{ end }},
-  "bandWidthUsage": {{ with .Annotations.bandWidthUsage }}{{ . }}{{ else }}0{{ end }}
-}
+{{ define "telegram.default.message" }}
+🔥 CẢNH BÁO CONTAINER 🔥
+
+{{if eq .Status "firing"}}
+Status: <b>{{.Status | toUpper }} 🔥</b>
+
+Cảnh báo Trạng thái Container:  {{ .CommonLabels.status  }}
+{{ range .Alerts }}
+Thông tin chi tiết: {{ .Annotations.description }}
 {{ end }}
+
+{{end}}
+
+{{- if and (eq .Status "resolved") -}}
+        Status: <b>{{.Status | toUpper}} ✅</b>
+{{end}}
+
+{{- end -}}
+
