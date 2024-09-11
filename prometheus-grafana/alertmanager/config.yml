@@ -5,22 +5,27 @@ receivers:
   - name: tuan-telegram
     webhook_configs:
       - url: "https://k8s-api-portal.bravo.com.vn/api/Alert"
-        
-    webhook_template: |
-      {
-        "alerts": [
-          {{ range .Alerts -}}
-            {
-              "alertname": "{{ .Annotations.description }}",
-              "instance": "{{ .Annotations.description }}",
-              "severity": "{{ .Annotations.description }}",
-              "summary": "{{ .Annotations.description }}",
-              "description": "{{ .Annotations.description }}"
-            }
-            {{ if not (eq (index .Alerts (sub (len .Alerts) 1)) .) }},{{ end }}
-          {{- end }}
-        ]
-      }
+        send_resolved: true
+
+route:
+  continue: false
+  group_by: ["instance"]
+  group_interval: 30s
+  group_wait: 10s
+  repeat_interval: 1m
+  receiver: System-Team
+  routes:
+    - match:
+        category: logs
+        app_type: Server Nội Bộ Isofh
+      receiver: tuan-telegram
+      group_wait: 2s
+
+templates:
+  - "/etc/alertmanager/template/template.tmpl"
+
+
+
 
 # - name: System-Team
 #   telegram_configs:
@@ -34,27 +39,27 @@ receivers:
 #     send_resolved: true
 #     parse_mode: 'HTML'
 
-route:
-  continue: false
-  group_by: ["instance"]
-  group_interval: 30s
-  group_wait: 10s
-  repeat_interval: 1m
-  receiver: System-Team
-  routes:
-    # RAM
-    - match:
-        category: container-status
-        container_name: jira-cluster-isofh_node1_1
-        app_type: Server Nội Bộ Isofh
-      receiver: tuan-telegram
-      group_wait: 2s
+# route:
+#   continue: false
+#   group_by: ["instance"]
+#   group_interval: 30s
+#   group_wait: 10s
+#   repeat_interval: 1m
+#   receiver: System-Team
+#   routes:
+#     # RAM
+#     - match:
+#         category: container-status
+#         container_name: jira-cluster-isofh_node1_1
+#         app_type: Server Nội Bộ Isofh
+#       receiver: tuan-telegram
+#       group_wait: 2s
 
-    - match:
-        category: logs
-        app_type: Server Nội Bộ Isofh
-      receiver: tuan-telegram
-      group_wait: 2s
+#     - match:
+#         category: logs
+#         app_type: Server Nội Bộ Isofh
+#       receiver: tuan-telegram
+#       group_wait: 2s
 
 # templates:
 #   - "/etc/alertmanager/template/template.tmpl"
