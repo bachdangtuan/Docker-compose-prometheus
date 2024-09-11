@@ -1,7 +1,9 @@
+{{ define "webhook.template" }}
 {
-  "podName": "backend-6fc6fb48c7-zjxv5",
-  "namespace": "application-98",
-  "cpuUsage": 2,
-  "ramUsage": 2,
-  "bandWidthUsage": 9
+  "podName": "{{ .Labels.pod }}",
+  "namespace": "{{ .Labels.namespace }}",
+  "cpuUsage": {{ with .Annotations.cpuUsage }}{{ . }}{{ else }}0{{ end }},
+  "ramUsage": {{ with .Annotations.ramUsage }}{{ . }}{{ else }}0{{ end }},
+  "bandWidthUsage": {{ with .Annotations.bandWidthUsage }}{{ . }}{{ else }}0{{ end }}
 }
+{{ end }}
