@@ -6,17 +6,7 @@ receivers:
     webhook_configs:
       - url: "https://k8s-api-portal.bravo.com.vn/api/Alert"
         send_resolved: true
-        webhook_template: |
-          {
-            "podName": "{{ .Labels.pod | default "unknown" }}",
-            "namespace": "{{ .Labels.namespace | default "unknown" }}",
-            "cpuUsage": {{ with .Annotations.cpuUsage }}{{ . }}{{ else }}0{{ end }},
-            "ramUsage": {{ with .Annotations.ramUsage }}{{ . }}{{ else }}0{{ end }},
-            "bandWidthUsage": {{ with .Annotations.bandWidthUsage }}{{ . }}{{ else }}0{{ end }}
-          }
-
-
-
+        
 route:
   continue: false
   group_by: ["instance"]
@@ -30,8 +20,8 @@ route:
         app_type: Server Demo
       receiver: tuan-telegram
       group_wait: 2s
-# templates:
-#   - "/etc/alertmanager/template/template.tmpl"
+templates:
+  - "/etc/alertmanager/template/template.tmpl"
 
 # - name: System-Team
 #   telegram_configs:
