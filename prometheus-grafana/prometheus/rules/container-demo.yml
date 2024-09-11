@@ -15,7 +15,7 @@ groups:
        A container has disappeared
 
   - alert: Container Memory
-    expr: container_memory_usage_bytes{namespace='application-100', pod=~'backend-56986d97f4-z7dss',container='backend'}
+    expr: container_memory_usage_bytes{cluster_name="cluster-application-k8s",container="cilium-agent",pod="cilium-kqxgl"}
     for: 10s
     labels:
       severity: khẩn cấp
