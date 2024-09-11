@@ -6,7 +6,8 @@ receivers:
     webhook_configs:
       - url: "https://k8s-api-portal.bravo.com.vn/api/Alert/AlertTest"
         send_resolved: true
-
+        templates:
+          - "telegram.default.message"
 route:
   continue: false
   group_by: ["instance"]
