@@ -1,22 +1,6 @@
 groups:
-- name: Container
-  rules:
-  - alert: Container Status
-    expr: container_state_status{status='exited',name='golang-app'} == 1
-    for: 10s
-    labels:
-      severity: khẩn cấp
-      category: container-memory
-      container_name: golang-app
-      app_type: Server Demo
-    annotations:
-      summary: Container killed (instance {{ $labels.instance }}  )
-      description: |
-       Container name:{{ $labels.name }}
-       A container has disappeared
-
   - alert: Container Memory
-    expr: container_memory_usage_bytes{name="golang-app",instance="10.0.0.55:11092"} 
+    expr: container_memory_usage_bytes{pod='api-manager-6fffb4df6c-4qshx',instance="192.168.140.18:32645"} 
     for: 10s
     labels:
       severity: khẩn cấp
