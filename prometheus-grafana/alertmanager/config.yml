@@ -1,7 +1,7 @@
 global:
   resolve_timeout: 30s
 templates:
-- "/etc/alertmanager/template/template.tmpl"
+  - "/etc/alertmanager/templates/template.tmpl"
 
 receivers:
   - name: tuan-telegram
