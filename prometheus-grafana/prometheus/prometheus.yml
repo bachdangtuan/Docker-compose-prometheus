@@ -14,7 +14,7 @@ alerting:
   alertmanagers:
   - scheme: http
     static_configs:
-    - targets: ['10.0.0.232:9093']
+    - targets: ['192.168.140.34:9093']
     # basic_auth:
     #   username: admin
     #   password: vietnam@1234
