@@ -1,7 +1,7 @@
 {{ define "webhook.template" }}
 {
-  "podName": "{{ .Labels.pod }}",
-  "namespace": "{{ .Labels.namespace }}",
+  "podName": "test",  
+  "namespace": "test-namespace", 
   "cpuUsage": {{ with .Annotations.cpuUsage }}{{ . }}{{ else }}0{{ end }},
   "ramUsage": {{ with .Annotations.ramUsage }}{{ . }}{{ else }}0{{ end }},
   "bandWidthUsage": {{ with .Annotations.bandWidthUsage }}{{ . }}{{ else }}0{{ end }}
