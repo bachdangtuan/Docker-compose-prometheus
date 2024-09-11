@@ -5,21 +5,21 @@ receivers:
   - name: tuan-telegram
     webhook_configs:
       - url: "https://k8s-api-portal.bravo.com.vn/api/Alert"
-    webhook_template: |
-      {
-        "alerts": [
-          {{ range .Alerts -}}
-            {
-              "alertname": "{{ .Annotations.description }}",
-              "instance": "{{ .Annotations.description }}",
-              "severity": "{{ .Annotations.description }}",
-              "summary": "{{ .Annotations.description }}",
-              "description": "{{ .Annotations.description }}"
-            }
-            {{ if not (eq (index .Alerts (sub (len .Alerts) 1)) .) }},{{ end }}
-          {{- end }}
-        ]
-      }
+    # webhook_template: |
+    #   {
+    #     "alerts": [
+    #       {{ range .Alerts -}}
+    #         {
+    #           "alertname": "{{ .Annotations.description }}",
+    #           "instance": "{{ .Annotations.description }}",
+    #           "severity": "{{ .Annotations.description }}",
+    #           "summary": "{{ .Annotations.description }}",
+    #           "description": "{{ .Annotations.description }}"
+    #         }
+    #         {{ if not (eq (index .Alerts (sub (len .Alerts) 1)) .) }},{{ end }}
+    #       {{- end }}
+    #     ]
+    #   }
 
 # - name: System-Team
 #   telegram_configs:
