@@ -2,8 +2,8 @@
 {
   "podName": "test",  
   "namespace": "test-namespace", 
-  "cpuUsage": {{ with .Annotations.cpuUsage }}{{ . }}{{ else }}0{{ end }},
-  "ramUsage": {{ with .Annotations.ramUsage }}{{ . }}{{ else }}0{{ end }},
-  "bandWidthUsage": {{ with .Annotations.bandWidthUsage }}{{ . }}{{ else }}0{{ end }}
+  "cpuUsage": "123",
+  "ramUsage": "20",
+  "bandWidthUsage": "3"
 }
 {{ end }}
