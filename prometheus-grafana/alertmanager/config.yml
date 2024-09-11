@@ -8,19 +8,13 @@ receivers:
         send_resolved: true
         webhook_template: |
           {
-            "alerts": [
-              {{ range .Alerts -}}
-                {
-                  "podName": "{{ .Labels.pod }}",
-                  "namespace": "{{ .Labels.namespace }}",
-                  "cpuUsage": {{ with .Annotations.cpuUsage }}{{ . }}{{ else }}0{{ end }},
-                  "ramUsage": {{ with .Annotations.ramUsage }}{{ . }}{{ else }}0{{ end }},
-                  "bandWidthUsage": {{ with .Annotations.bandWidthUsage }}{{ . }}{{ else }}0{{ end }}
-                }
-                {{ if not (eq (index .Alerts (sub (len .Alerts) 1)) .) }},{{ end }}
-              {{- end }}
-            ]
+            "podName": "{{ .Labels.pod | default "unknown" }}",
+            "namespace": "{{ .Labels.namespace | default "unknown" }}",
+            "cpuUsage": {{ with .Annotations.cpuUsage }}{{ . }}{{ else }}0{{ end }},
+            "ramUsage": {{ with .Annotations.ramUsage }}{{ . }}{{ else }}0{{ end }},
+            "bandWidthUsage": {{ with .Annotations.bandWidthUsage }}{{ . }}{{ else }}0{{ end }}
           }
+
 
 
 route:
