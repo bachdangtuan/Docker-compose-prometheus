@@ -1,7 +1,7 @@
 {{ define "webhook.template" }}
 {
-  "podName": {{ if .Labels.pod }}"{{ .Labels.pod }}"{{ else }}"unknown"{{ end }},
-  "namespace": {{ if .Labels.namespace }}"{{ .Labels.namespace }}"{{ else }}"unknown"{{ end }},
+  "podName": "{{ .Labels.pod | default "unknown" }}",
+  "namespace": "{{ .Labels.namespace | default "unknown" }}",
   "cpuUsage": {{ with .Annotations.cpuUsage }}{{ . }}{{ else }}0{{ end }},
   "ramUsage": {{ with .Annotations.ramUsage }}{{ . }}{{ else }}0{{ end }},
   "bandWidthUsage": {{ with .Annotations.bandWidthUsage }}{{ . }}{{ else }}0{{ end }}
