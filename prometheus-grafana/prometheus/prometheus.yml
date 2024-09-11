@@ -6,8 +6,8 @@ global:
   external_labels:
     monitor: 'Kubernetes-Cluster'
 
-# rule_files:
-#   - './rules/servertest/Isofh/10.0.0.20/jiraserver.yml'
+rule_files:
+  - './rules/container-demo.yml'
 
 # alert
 alerting:
