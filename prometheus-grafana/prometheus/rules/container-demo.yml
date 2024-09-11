@@ -15,7 +15,7 @@ groups:
        A container has disappeared
 
   - alert: Container Memory
-    expr: container_memory_usage_bytes{pod='api-manager-6fffb4df6c-4qshx',instance="192.168.140.18:32645"} 
+    expr: container_memory_usage_bytes{namespace='application-100', pod=~'backend-56986d97f4-z7dss',container='backend'}
     for: 10s
     labels:
       severity: khẩn cấp
