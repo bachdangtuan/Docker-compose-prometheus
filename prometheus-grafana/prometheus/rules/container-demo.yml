@@ -21,14 +21,13 @@ groups:
       severity: khẩn cấp
       app_type: Server Demo
       category: container-memory    
-      container_name: golang-app
     annotations:
       summary: "RAM container quá 90%"
       description: |
       
-        Container name: {{ $labels.name }}
+        Container name: {{ $labels.namespace }}
 
         Thông tin cụ thể: 
 
-          RAM USED: {{ query (printf "container_memory_usage_bytes{name='golang-app',instance=~'%s'}"   $labels.instance) | first | value | humanize}} 
+          RAM USED: {{ query (printf "container_memory_usage_bytes{namespace='application-100',pod=~'backend-56986d97f4-z7dss',container='backend'}"   $labels.namespace) | first | value | humanize}} 
 

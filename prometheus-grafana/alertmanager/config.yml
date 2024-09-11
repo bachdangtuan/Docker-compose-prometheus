@@ -6,21 +6,7 @@ receivers:
     webhook_configs:
       - url: "https://k8s-api-portal.bravo.com.vn/api/Alert"
         send_resolved: true
-        webhook_template: |
-          {
-            "alerts": [
-              {{ range .Alerts -}}
-                {
-                  "alertname": "{{ .Labels.alertname }}",
-                  "instance": "{{ .Labels.instance }}",
-                  "severity": "{{ .Labels.severity }}",
-                  "summary": "{{ .Annotations.summary }}",
-                  "description": "{{ .Annotations.description }}"
-                }
-                {{ if not (eq (index .Alerts (sub (len .Alerts) 1)) .) }},{{ end }}
-              {{- end }}
-            ]
-          }
+
 route:
   continue: false
   group_by: ["instance"]
