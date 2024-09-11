@@ -1,13 +1,13 @@
 global:
   resolve_timeout: 30s
-
+templates:
+  - "/etc/alertmanager/template/template.tmpl"
+  - 
 receivers:
   - name: tuan-telegram
     webhook_configs:
       - url: "https://k8s-api-portal.bravo.com.vn/api/Alert/AlertTest"
         send_resolved: true
-        templates:
-          - "telegram.default.message"
 route:
   continue: false
   group_by: ["instance"]
@@ -21,8 +21,7 @@ route:
         app_type: Server Demo
       receiver: tuan-telegram
       group_wait: 2s
-templates:
-  - "/etc/alertmanager/template/template.tmpl"
+
 
 # - name: System-Team
 #   telegram_configs:
