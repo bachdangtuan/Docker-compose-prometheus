@@ -4,7 +4,7 @@ global:
 receivers:
   - name: tuan-telegram
     webhook_configs:
-      - url: "https://webhook.site/1221dd52-9dd5-4da5-a6e6-77fc35c05576"
+      - url: "https://k8s-api-portal.bravo.com.vn/api/Alert"
         send_resolved: true
 
 route:
